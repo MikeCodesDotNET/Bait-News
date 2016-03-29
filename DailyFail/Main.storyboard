@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ozy-Pn-RjS">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Daily Fail-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="Hh0-w6-vYR">
+                                <rect key="frame" x="200" y="496" width="200" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbg-jQ-ohv">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="17p-gT-bkh"/>
+                                            <constraint firstAttribute="height" constant="60" id="cir-CN-yH9"/>
+                                        </constraints>
+                                        <state key="normal" image="cross.png"/>
+                                        <connections>
+                                            <action selector="BtnCross_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="64"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfL-PP-ZzJ">
+                                        <rect key="frame" x="140" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="IO6-gl-Uzo"/>
+                                            <constraint firstAttribute="width" constant="60" id="PeM-Xv-aBf"/>
+                                        </constraints>
+                                        <state key="normal" image="tick.png"/>
+                                        <connections>
+                                            <action selector="BtnTick_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="63"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="1PS-eV-h8u"/>
+                                    <constraint firstAttribute="width" constant="200" id="ZHC-vl-Ku9"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVU-Rn-ELl">
+                                <rect key="frame" x="38" y="340" width="524" height="40"/>
+                                <color key="backgroundColor" red="0.47450980392156861" green="0.71764705882352942" blue="0.22352941176470589" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="YcN-ZP-gdr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's headlines can read like the ramblings of a mentalist. Can you spot the difference?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ne0-71-urr">
+                                <rect key="frame" x="38" y="226" width="524" height="106"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="106" id="xp1-Lw-R2x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" red="0.15294118230000001" green="0.15686275059999999" blue="0.19607843459999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pVU-Rn-ELl" firstAttribute="top" secondItem="Ne0-71-urr" secondAttribute="bottom" constant="8" symbolic="YES" id="4Wk-Mg-y3g"/>
+                            <constraint firstItem="Hh0-w6-vYR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Bh-e2-LfM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Hh0-w6-vYR" secondAttribute="bottom" constant="44" id="KN0-GM-m04"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pVU-Rn-ELl" secondAttribute="trailing" constant="18" id="L44-LJ-mHD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ne0-71-urr" secondAttribute="trailing" constant="18" id="NmH-Mn-yhQ"/>
+                            <constraint firstItem="Ne0-71-urr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="18" id="WTo-JB-9v0"/>
+                            <constraint firstItem="pVU-Rn-ELl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.2/1" id="Xxk-Tz-Nh1"/>
+                            <constraint firstItem="pVU-Rn-ELl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="18" id="Y08-in-ZuD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Daily Fail" id="hJz-9R-7Is"/>
+                    <connections>
+                        <outlet property="btnCross" destination="xbg-jQ-ohv" id="name-outlet-xbg-jQ-ohv"/>
+                        <outlet property="btnTick" destination="dfL-PP-ZzJ" id="name-outlet-dfL-PP-ZzJ"/>
+                        <outlet property="btnStart" destination="pVU-Rn-ELl" id="name-outlet-pVU-Rn-ELl"/>
+                        <outlet property="lblDescription" destination="Ne0-71-urr" id="name-outlet-Ne0-71-urr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="122" y="-701"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jBS-5R-rW7">
+            <objects>
+                <navigationController id="ozy-Pn-RjS" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sce-Ty-t8k">
+                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.15294118230000001" green="0.15686275059999999" blue="0.19607843459999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="jjG-jE-1eH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3lu-bd-YgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-811" y="-679"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cross.png" width="150" height="150"/>
+        <image name="tick.png" width="150" height="150"/>
+        <image name="refresh.png" width="60" height="59"/>
+    </resources>
+</document>
