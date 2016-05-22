@@ -27,8 +27,8 @@ namespace DailyFail
 
 			UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes
 			{
-				Font = UIFont.FromName("AvenirNext-Medium", 17),
-				TextColor = "272832".ToUIColor()
+				Font = UIFont.FromName("AvenirNext-Medium", 18),
+				TextColor = UIColor.White
 			});
 
 			return true;

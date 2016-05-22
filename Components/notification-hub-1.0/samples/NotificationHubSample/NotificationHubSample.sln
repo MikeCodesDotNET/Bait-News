@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationHubSample", "NotificationHubSample\NotificationHubSample.csproj", "{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+		Ad-Hoc|iPhone = Ad-Hoc|iPhone
+		AppStore|iPhone = AppStore|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}.Debug|iPhone.Build.0 = Debug|iPhone
+		{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}.Release|iPhone.ActiveCfg = Release|iPhone
+		{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}.Release|iPhone.Build.0 = Release|iPhone
+		{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{BF1048B2-E2F9-40F6-B728-DC6DD0C66494}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+EndGlobal

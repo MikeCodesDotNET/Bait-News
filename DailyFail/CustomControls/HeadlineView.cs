@@ -2,7 +2,7 @@
 using UIKit;
 using CoreGraphics;
 using Foundation;
-
+using DailyFail.Models;
 
 namespace DailyFail.CustomControls
 {
@@ -10,11 +10,11 @@ namespace DailyFail.CustomControls
 	{
 		public HeadlineView(string headline)
 		{
-			HeadLine = headline;
+			Title = headline;
 		}
 
 		string title;
-		public string HeadLine
+		public string Title
 		{
 			get
 			{
@@ -27,7 +27,22 @@ namespace DailyFail.CustomControls
 			}
 		}
 
-		public override void Draw(CGRect frame)
+        private Headline headline;
+        public Headline Headline
+        {
+            get
+            {
+                return headline;
+            }
+            set
+            {
+                headline = value;
+                title = headline.Text;
+                SetNeedsDisplay();
+            }
+        }
+
+		public override void Draw(CGRect rect)
 		{
 			BackgroundColor = UIColor.Clear;
 			//// General Declarations
@@ -44,7 +59,7 @@ namespace DailyFail.CustomControls
 			shadow.ShadowBlurRadius = 10.0f;
 
 			//// Rectangle Drawing
-			var rectanglePath = UIBezierPath.FromRoundedRect(new CGRect(frame.GetMinX() + 10.0f, frame.GetMinY() + 10.0f, frame.Width - 26.0f, frame.Height - 21.5f), 4.0f);
+			var rectanglePath = UIBezierPath.FromRoundedRect(new CGRect(rect.GetMinX() + 10.0f, rect.GetMinY() + 10.0f, rect.Width - 26.0f, rect.Height - 21.5f), 4.0f);
 			context.SaveState();
 			context.SetShadow(shadow.ShadowOffset, shadow.ShadowBlurRadius, shadow.ShadowColor.CGColor);
 			UIColor.White.SetFill();
@@ -57,7 +72,7 @@ namespace DailyFail.CustomControls
 
 
 			//// Text Drawing
-			CGRect textRect = new CGRect(frame.GetMinX() + 28.0f, frame.GetMinY() + 10.0f, frame.Width - 62.0f, frame.Height - 22.0f);
+			CGRect textRect = new CGRect(rect.GetMinX() + 28.0f, rect.GetMinY() + 10.0f, rect.Width - 62.0f, rect.Height - 22.0f);
 			textColor.SetFill();
 			var textStyle = new NSMutableParagraphStyle();
 			textStyle.Alignment = UITextAlignment.Center;
