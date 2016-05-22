@@ -26,9 +26,17 @@ namespace DailyFail
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnIncorrect { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnRead { get; set; }
+
         [Action ("BtnFinish_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void BtnFinish_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("BtnRead_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void BtnRead_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
@@ -45,6 +53,11 @@ namespace DailyFail
             if (btnIncorrect != null) {
                 btnIncorrect.Dispose ();
                 btnIncorrect = null;
+            }
+
+            if (btnRead != null) {
+                btnRead.Dispose ();
+                btnRead = null;
             }
         }
     }

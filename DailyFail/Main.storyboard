@@ -155,6 +155,19 @@
                                     <constraint firstAttribute="height" constant="20" id="iV4-Jt-dpq"/>
                                 </constraints>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="227" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="277" y="491" width="46" height="30"/>
+                                <state key="normal" title="Button" image="read.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <constraints>
+                                    <constraint id="230" firstItem="227" firstAttribute="height" constant="30"/>
+                                    <constraint id="231" firstItem="227" firstAttribute="width" constant="46"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="BtnRead_TouchUpInside:" destination="73" id="232" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -167,12 +180,15 @@
                             <constraint firstAttribute="trailing" secondItem="138" secondAttribute="trailing" constant="16" id="146"/>
                             <constraint firstItem="zyS-mG-S03" firstAttribute="centerY" secondItem="74" secondAttribute="centerY" id="Xpm-ur-Qq6"/>
                             <constraint firstItem="zyS-mG-S03" firstAttribute="centerX" secondItem="74" secondAttribute="centerX" id="dAD-zN-6rC"/>
+                            <constraint id="228" firstItem="227" firstAttribute="centerX" secondItem="74" secondAttribute="centerX"/>
+                            <constraint id="229" firstItem="133" firstAttribute="top" secondItem="227" secondAttribute="bottom" constant="30"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnCorrect" destination="138" id="name-outlet-138"/>
                         <outlet property="btnFinish" destination="133" id="name-outlet-133"/>
                         <outlet property="btnIncorrect" destination="139" id="name-outlet-139"/>
+                        <outlet property="btnRead" destination="227" id="name-outlet-227"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -506,5 +522,6 @@
         <image name="fail.png" width="87" height="87"/>
         <image name="success.png" width="87" height="87"/>
         <image name="settings.png" width="55" height="55"/>
+        <image name="read.png" width="124" height="85"/>
     </resources>
 </document>

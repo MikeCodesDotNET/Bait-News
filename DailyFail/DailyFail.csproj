@@ -221,6 +221,7 @@
     <BundleResource Include="Resources\740-gear.png" />
     <BundleResource Include="Resources\740-gear%402x.png" />
     <BundleResource Include="Resources\740-gear%403x.png" />
+    <BundleResource Include="Resources\read.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

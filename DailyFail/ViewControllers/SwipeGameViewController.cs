@@ -10,6 +10,7 @@ using DailyFail.Models;
 using System.Linq;
 using System.Threading.Tasks;
 using NotificationHub;
+using SafariServices;
 
 namespace DailyFail
 {
@@ -74,7 +75,18 @@ namespace DailyFail
             }
         }
 
-        async partial void BtnFinish_TouchUpInside(UIButton sender)
+        async partial void BtnRead_TouchUpInside(UIButton sender)
+        {
+            var topCard = HeadLineCardView.Subviews.LastOrDefault();
+            if (topCard != null)
+            {
+                var i = topCard as HeadlineView;
+                //var safari = new SFSafariViewController(new NSUrl(topCard.Headline.Url), true);
+                //await PresentViewControllerAsync(safari, true);
+            }
+        }
+
+        partial void BtnFinish_TouchUpInside(UIButton sender)
         {
             //Could do something here..
         }
