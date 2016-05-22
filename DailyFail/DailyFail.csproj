@@ -210,7 +210,6 @@
     <BundleResource Include="Resources\fail.png" />
     <BundleResource Include="Resources\success.png" />
     <BundleResource Include="Resources\massive_icon.png" />
-    <BundleResource Include="Resources\.DS_Store" />
     <BundleResource Include="Resources\cross.png" />
     <BundleResource Include="Resources\tick.png" />
   </ItemGroup>
