@@ -16,10 +16,10 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVU-Rn-ELl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVU-Rn-ELl" misplaced="YES">
                                 <rect key="frame" x="38" y="301" width="524" height="40"/>
                                 <color key="backgroundColor" red="0.32156862745098042" green="0.73333333333333328" blue="0.58039215686274515" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -38,7 +38,7 @@
                                     <segue destination="73" kind="presentation" id="124"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's headlines can read like the ramblings of a mentalist. Can you spot the difference?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ne0-71-urr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's headlines can read like the ramblings of a mentalist. Can you spot the difference?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ne0-71-urr" misplaced="YES">
                                 <rect key="frame" x="38" y="187" width="524" height="106"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="106" id="xp1-Lw-R2x"/>
@@ -182,9 +182,9 @@
         <!--Table View Controller-->
         <scene sceneID="Tbs-V1-EpU">
             <objects>
-                <tableViewController id="50Z-lc-kcf" sceneMemberID="viewController">
+                <tableViewController id="50Z-lc-kcf" sceneMemberID="viewController" customClass="SettingsViewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" id="sIb-N4-3la">
-                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.98881249999999998" green="0.98881249999999998" blue="0.98881249999999998" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.98881249999999998" green="0.98881249999999998" blue="0.98881249999999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -229,7 +229,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="Pu2-wB-bQH">
-                            <rect key="frame" x="0.0" y="300" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Made with" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZA-UD-Gn6">
@@ -270,14 +270,14 @@
                             <tableViewSection id="Sav-FI-rF4">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="76K-Ji-5lp" rowHeight="57" style="IBUITableViewCellStyleDefault" id="JdJ-E7-aHg">
-                                        <rect key="frame" x="0.0" y="186" width="600" height="57"/>
+                                        <rect key="frame" x="0.0" y="372" width="600" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JdJ-E7-aHg" id="n1S-Ue-0sP">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="562" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Developed by Mike James" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="76K-Ji-5lp">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="56.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="542" height="56.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -287,14 +287,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Bkz-g5-Akr" rowHeight="57" style="IBUITableViewCellStyleDefault" id="ZJL-pt-xyl">
-                                        <rect key="frame" x="0.0" y="243" width="600" height="57"/>
+                                        <rect key="frame" x="0.0" y="429" width="600" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZJL-pt-xyl" id="yRt-M1-tD5">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="562" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Built using Xamarin &amp; Azure" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bkz-g5-Akr">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="56.5"/>
+                                                    <rect key="frame" x="20" y="0.0" width="542" height="56.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -311,6 +311,9 @@
                             <outlet property="delegate" destination="50Z-lc-kcf" id="l66-FE-qEE"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="lblBuildVersion" destination="NXh-fA-wZ1" id="name-outlet-NXh-fA-wZ1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="urG-aD-IEB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -451,7 +454,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="0.1233569625" green="0.17463218529999999" blue="0.2338333333" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source: Daily Mail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzQ-jE-jNL">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source: Daily Mail" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzQ-jE-jNL" misplaced="YES">
                                             <rect key="frame" x="8" y="78" width="533" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="IKd-fn-BNJ"/>
@@ -499,5 +502,9 @@
         <image name="heart.png" width="23" height="20"/>
         <image name="massive_icon.png" width="511" height="823"/>
         <image name="tick.png" width="87" height="87"/>
+        <image name="refresh.png" width="60" height="59"/>
+        <image name="fail.png" width="87" height="87"/>
+        <image name="success.png" width="87" height="87"/>
+        <image name="settings.png" width="55" height="55"/>
     </resources>
 </document>

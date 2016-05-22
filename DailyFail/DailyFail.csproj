@@ -194,6 +194,10 @@
     <Compile Include="ViewControllers\ResultsViewController.designer.cs">
       <DependentUpon>ResultsViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\SettingsViewController.cs" />
+    <Compile Include="ViewControllers\SettingsViewController.designer.cs">
+      <DependentUpon>SettingsViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="XCardView">
