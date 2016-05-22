@@ -212,6 +212,11 @@
     <BundleResource Include="Resources\massive_icon.png" />
     <BundleResource Include="Resources\cross.png" />
     <BundleResource Include="Resources\tick.png" />
+    <BundleResource Include="Resources\heart.png" />
+    <BundleResource Include="Resources\settings.png" />
+    <BundleResource Include="Resources\740-gear.png" />
+    <BundleResource Include="Resources\740-gear%402x.png" />
+    <BundleResource Include="Resources\740-gear%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

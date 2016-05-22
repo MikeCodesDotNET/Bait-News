@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -28,13 +29,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="massive_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="wwg-7u-HyI">
-                                <rect key="frame" x="20" y="201.5" width="560" height="196"/>
+                                <rect key="frame" x="20" y="127" width="560" height="196"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="196" id="n5b-6n-Ky3"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bait News" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHw-3j-tXA">
-                                <rect key="frame" x="20" y="408" width="560" height="35"/>
+                                <rect key="frame" x="20" y="348" width="560" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="FTJ-Bs-kkI"/>
                                 </constraints>
@@ -51,8 +52,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="9gA-xm-SIC" secondAttribute="trailing" constant="18" id="R2Y-9I-esn"/>
                             <constraint firstItem="QHw-3j-tXA" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="azf-Hl-FQb"/>
                             <constraint firstItem="wwg-7u-HyI" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="gqC-R5-ZbW"/>
-                            <constraint firstItem="QHw-3j-tXA" firstAttribute="top" secondItem="wwg-7u-HyI" secondAttribute="bottom" constant="10" id="hKg-Z8-1Bq"/>
-                            <constraint firstItem="wwg-7u-HyI" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iq4-Vg-stx"/>
+                            <constraint firstItem="QHw-3j-tXA" firstAttribute="top" secondItem="wwg-7u-HyI" secondAttribute="bottom" constant="25" id="hKg-Z8-1Bq"/>
+                            <constraint firstItem="wwg-7u-HyI" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.75/1" id="iq4-Vg-stx"/>
                             <constraint firstItem="9gA-xm-SIC" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="18" id="zHs-Hb-Avn"/>
                         </constraints>
                     </view>
