@@ -31,6 +31,12 @@ namespace DailyFail
 				TextColor = UIColor.White
 			});
 
+            UIBarButtonItem.Appearance.SetTitleTextAttributes(new UITextAttributes
+            {
+                Font = UIFont.FromName("AvenirNext-Medium", 14f),
+                TextColor = UIColor.White
+            }, UIControlState.Normal);
+
 			return true;
 		}
 
