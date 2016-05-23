@@ -4,10 +4,6 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaitNews", "DailyFail\BaitNews.csproj", "{E0D53868-4C48-48CB-8562-F257930012D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyFail.Backend", "Azure Backend\DailyFail.Backend.csproj", "{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Azure Backend", "Azure Backend", "{6BEA25AB-A6FC-4C07-B3E3-C3339A2D1547}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile Apps", "Mobile Apps", "{4304AEFE-DB50-40A4-B536-E60BE47C3397}"
 EndProject
 Global
@@ -30,24 +26,11 @@ Global
 		{E0D53868-4C48-48CB-8562-F257930012D4}.Release|iPhone.Build.0 = Release|iPhone
 		{E0D53868-4C48-48CB-8562-F257930012D4}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{E0D53868-4C48-48CB-8562-F257930012D4}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}.Release|iPhone.Build.0 = Release|Any CPU
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC} = {6BEA25AB-A6FC-4C07-B3E3-C3339A2D1547}
 		{E0D53868-4C48-48CB-8562-F257930012D4} = {4304AEFE-DB50-40A4-B536-E60BE47C3397}
 	EndGlobalSection
 EndGlobal
