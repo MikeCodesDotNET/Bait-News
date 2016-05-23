@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyFail", "DailyFail\DailyFail.csproj", "{E0D53868-4C48-48CB-8562-F257930012D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaitNews", "DailyFail\BaitNews.csproj", "{E0D53868-4C48-48CB-8562-F257930012D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyFail.Backend", "Azure Backend\DailyFail.Backend.csproj", "{BBAF5EC4-B9D2-43C4-A6AB-CD185D524ECC}"
 EndProject
