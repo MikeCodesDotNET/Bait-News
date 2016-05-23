@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace DailyFail
+namespace BaitNews
 {
 	public class Application
 	{

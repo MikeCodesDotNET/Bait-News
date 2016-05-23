@@ -2,11 +2,11 @@
 using UIKit;
 using CoreGraphics;
 using Foundation;
-using DailyFail.Models;
+using BaitNews.Models;
 
 namespace DailyFail.CustomControls
 {
-	public class HeadlineView : UIView
+	public class HeadlineView : DraggableView
 	{
 		public HeadlineView(string headline)
 		{

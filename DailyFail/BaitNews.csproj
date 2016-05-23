@@ -187,7 +187,6 @@
     <Compile Include="ViewControllers\StartViewController.designer.cs">
       <DependentUpon>StartViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\DbBuilder.cs" />
     <Compile Include="Helpers\EntityData.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="ViewControllers\ResultsViewController.cs" />
@@ -198,6 +197,10 @@
     <Compile Include="ViewControllers\SettingsViewController.designer.cs">
       <DependentUpon>SettingsViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\DraggableDirection.cs" />
+    <Compile Include="CustomControls\DraggableEventArgs.cs" />
+    <Compile Include="CustomControls\DraggableView.cs" />
+    <Compile Include="CustomControls\CardHolderView.cs" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="XCardView">

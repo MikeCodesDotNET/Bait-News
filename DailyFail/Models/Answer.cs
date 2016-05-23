@@ -1,5 +1,6 @@
 ﻿using System;
-namespace DailyFail.Models
+
+namespace BaitNews.Models
 {
     public class Answer
     {

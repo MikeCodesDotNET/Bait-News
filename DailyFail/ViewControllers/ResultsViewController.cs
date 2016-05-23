@@ -2,11 +2,11 @@ using Foundation;
 using System;
 using UIKit;
 using System.Collections.Generic;
-using DailyFail.Models;
+using BaitNews.Models;
 using System.Linq;
 using MikeCodesDotNET.iOS;
 
-namespace DailyFail
+namespace BaitNews
 {
     public partial class ResultsViewController : UIViewController
     {

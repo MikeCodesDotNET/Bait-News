@@ -3,20 +3,20 @@ using System;
 using UIKit;
 using Softweb.Xamarin.Controls.iOS;
 using CoreGraphics;
-using DailyFail.Services;
+using BaitNews.Services;
 using DailyFail.CustomControls;
 using System.Collections.Generic;
-using DailyFail.Models;
+using BaitNews.Models;
 using System.Linq;
 using System.Threading.Tasks;
 using NotificationHub;
 using SafariServices;
 
-namespace DailyFail
+namespace BaitNews
 {
-    public partial class SwipeGameViewController : UIViewController, ICardViewDataSource
+    public partial class SwipeGameViewController : UIViewController
     {
-        CardView HeadLineCardView { get; set; }
+        //CardView HeadLineCardView { get; set; }
         IHeadlineService headlineService;
         List<Headline> headlines;
         Notifier incorrectHub;
@@ -38,6 +38,11 @@ namespace DailyFail
             var result = await headlineService.GetHeadlines();
             headlines = result.ToList();
 
+            var HeadLineCardView = new HeadlineView("hello world");
+            HeadLineCardView.Center = new CGPoint(View.Center.X, View.Center.Y - 25);
+            HeadLineCardView.Bounds = new CGRect(0f, 0f, (int)View.Bounds.Width - 40f, (int)View.Bounds.Height - 250f);
+
+            /*
             if (HeadLineCardView == null)
             {
                 HeadLineCardView = new CardView();
@@ -48,9 +53,11 @@ namespace DailyFail
                 HeadLineCardView.DidSwipeRight += OnSwipeRight;
 
                 HeadLineCardView.DataSource = this;
+                */
 
-                View.AddSubview(HeadLineCardView);
-            }
+
+            View.AddSubview(HeadLineCardView);
+                
 
             incorrectHub = new Notifier(btnIncorrect);
             incorrectHub.MoveCircle(-48, -18);
@@ -77,6 +84,7 @@ namespace DailyFail
 
         async partial void BtnRead_TouchUpInside(UIButton sender)
         {
+            /*
             var topCard = HeadLineCardView.Subviews.LastOrDefault();
             if (topCard != null)
             {
@@ -84,6 +92,7 @@ namespace DailyFail
                 //var safari = new SFSafariViewController(new NSUrl(topCard.Headline.Url), true);
                 //await PresentViewControllerAsync(safari, true);
             }
+            */
         }
 
         partial void BtnFinish_TouchUpInside(UIButton sender)
@@ -91,6 +100,7 @@ namespace DailyFail
             //Could do something here..
         }
 
+        /*
         public UIView NextCardForCardView(CardView cardView)
         {
             if (headlines.Count == 0)
@@ -125,6 +135,8 @@ namespace DailyFail
             card.Layer.ShouldRasterize = true;
             return card;
         }
+        */ 
+
 
         void OnSwipeLeft(object sender, SwipeEventArgs e)
         {

@@ -1,7 +1,7 @@
 ﻿using System;
-using DailyFail.Helpers;
+using BaitNews.Helpers;
 
-namespace DailyFail.Models
+namespace BaitNews.Models
 {
     public class Headline : EntityData
     {
