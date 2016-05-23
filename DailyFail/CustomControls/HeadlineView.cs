@@ -8,10 +8,14 @@ namespace DailyFail.CustomControls
 {
 	public class HeadlineView : DraggableView
 	{
-		public HeadlineView(string headline)
+		public HeadlineView(Headline headline)
 		{
-			Title = headline;
+			title = headline.Text;
 		}
+
+        public HeadlineView()
+        {
+        }
 
 		string title;
 		public string Title
@@ -20,14 +24,9 @@ namespace DailyFail.CustomControls
 			{
 				return title;
 			}
-			set
-			{
-				title = value;
-				SetNeedsDisplay();
-			}
 		}
 
-        private Headline headline;
+        Headline headline;
         public Headline Headline
         {
             get

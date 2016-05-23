@@ -168,6 +168,9 @@
                                     <action selector="BtnRead_TouchUpInside:" destination="73" id="232" eventType="touchUpInside"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="241" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="108" width="600" height="365"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -182,6 +185,10 @@
                             <constraint firstItem="zyS-mG-S03" firstAttribute="centerX" secondItem="74" secondAttribute="centerX" id="dAD-zN-6rC"/>
                             <constraint id="228" firstItem="227" firstAttribute="centerX" secondItem="74" secondAttribute="centerX"/>
                             <constraint id="229" firstItem="133" firstAttribute="top" secondItem="227" secondAttribute="bottom" constant="30"/>
+                            <constraint id="242" firstItem="227" firstAttribute="top" secondItem="241" secondAttribute="bottom" constant="18"/>
+                            <constraint id="243" firstItem="241" firstAttribute="leading" secondItem="74" secondAttribute="leading"/>
+                            <constraint id="244" firstItem="241" firstAttribute="trailing" secondItem="74" secondAttribute="trailing"/>
+                            <constraint id="245" firstItem="241" firstAttribute="top" secondItem="139" secondAttribute="bottom" constant="8"/>
                         </constraints>
                     </view>
                     <connections>
@@ -189,6 +196,7 @@
                         <outlet property="btnFinish" destination="133" id="name-outlet-133"/>
                         <outlet property="btnIncorrect" destination="139" id="name-outlet-139"/>
                         <outlet property="btnRead" destination="227" id="name-outlet-227"/>
+                        <outlet property="cardPlaceholder" destination="241" id="name-outlet-241"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75" userLabel="First Responder" sceneMemberID="firstResponder"/>

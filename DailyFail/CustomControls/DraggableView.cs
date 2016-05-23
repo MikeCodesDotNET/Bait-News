@@ -9,8 +9,8 @@ namespace DailyFail.CustomControls
     [Register("DraggableView")]
     public class DraggableView : UIView
     {
-        private CGPoint _startingPoint;
-        private UIPanGestureRecognizer _panGestureRecognizer;
+        CGPoint startingPoint;
+        UIPanGestureRecognizer panGestureRecognizer;
 
         public DraggableDirection Dragged { get; private set; }
         public nfloat SwipeThreshold { get; set; }
@@ -24,7 +24,7 @@ namespace DailyFail.CustomControls
 
         public DraggableView()
         {
-            _panGestureRecognizer = new UIPanGestureRecognizer(HandleOnGestureRecognizer);
+            panGestureRecognizer = new UIPanGestureRecognizer(HandleOnGestureRecognizer);
 
             RotationStrength = 300;
             RotationAnimationDuration = 0.85f;
@@ -34,7 +34,7 @@ namespace DailyFail.CustomControls
             BackgroundColor = UIColor.Clear;
         }
 
-        private void HandleOnGestureRecognizer(UIPanGestureRecognizer gestureRecognizer)
+        void HandleOnGestureRecognizer(UIPanGestureRecognizer gestureRecognizer)
         {
             // The translation of the pan gesture in the coordinate system of the specified view.
             var xTranslation = gestureRecognizer.TranslationInView(this).X;
@@ -42,7 +42,7 @@ namespace DailyFail.CustomControls
 
             if (gestureRecognizer.State.Equals(UIGestureRecognizerState.Began))
             {
-                _startingPoint = Center;
+                startingPoint = Center;
             }
             else if (gestureRecognizer.State.Equals(UIGestureRecognizerState.Changed))
             {
@@ -52,7 +52,7 @@ namespace DailyFail.CustomControls
                 var scale = (nfloat)Math.Max(scaleStrength, ScaleStrength);
                 var transform = CGAffineTransform.MakeRotation(rotationAngle);
 
-                Center = new CGPoint(_startingPoint.X + xTranslation, _startingPoint.Y + yTranslation);
+                Center = new CGPoint(startingPoint.X + xTranslation, startingPoint.Y + yTranslation);
                 Transform = CGAffineTransform.Scale(transform, scale, scale);
             }
             else if (gestureRecognizer.State.Equals(UIGestureRecognizerState.Ended))
@@ -61,21 +61,33 @@ namespace DailyFail.CustomControls
             }
         }
 
-        private void DetermineSwipeAction(nfloat xTranslation)
+        void DetermineSwipeAction(nfloat xTranslation)
         {
             if (xTranslation <= -SwipeThreshold)
             {
-                Dragged = DraggableDirection.Left;
-                ResetView();
+                if(xTranslation < -220)
+                {
+                    Dragged = DraggableDirection.Left;
+                    UIView.Animate(RotationAnimationDuration, () =>
+                    {
+                        Center = new CGPoint(Frame.Width -700, startingPoint.Y);
+                        // The translation of the pan gesture in the coordinate system of the specified UIView.
+                        Transform = CGAffineTransform.MakeRotation(0);
+                    });
+                }
+                else
+                {
+                    ResetView();
+                }
             }
             else if (xTranslation >= SwipeThreshold)
             {
-                Dragged = DraggableDirection.Right;
-                if (xTranslation > 250)
+                if (xTranslation > 220)
                 {
+                    Dragged = DraggableDirection.Right;
                     UIView.Animate(RotationAnimationDuration, () =>
                     {
-                        Center = new CGPoint(Frame.Width + 500, _startingPoint.Y);
+                        Center = new CGPoint(Frame.Width + 700, startingPoint.Y);
                         // The translation of the pan gesture in the coordinate system of the specified UIView.
                         Transform = CGAffineTransform.MakeRotation(0);
                     });
@@ -97,11 +109,11 @@ namespace DailyFail.CustomControls
                 OnSwipe(this, new DraggableEventArgs(Dragged));
         }
 
-        private void ResetView()
+        void ResetView()
         {
             UIView.Animate(RotationAnimationDuration, () =>
             {
-                Center = _startingPoint;
+                Center = startingPoint;
                 // The translation of the pan gesture in the coordinate system of the specified UIView.
                 Transform = CGAffineTransform.MakeRotation(0);
             });
@@ -109,12 +121,12 @@ namespace DailyFail.CustomControls
 
         public override void WillMoveToSuperview(UIView newsuper)
         {
-            AddGestureRecognizer(_panGestureRecognizer);
+            AddGestureRecognizer(panGestureRecognizer);
         }
 
         public override void WillRemoveSubview(UIView uiview)
         {
-            RemoveGestureRecognizer(_panGestureRecognizer);
+            RemoveGestureRecognizer(panGestureRecognizer);
         }
     }
 }

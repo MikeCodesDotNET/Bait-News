@@ -22,6 +22,7 @@ namespace BaitNews
         Notifier incorrectHub;
         Notifier correctHub;
         List<Answer> answers;
+        CardHolderView cardHolder;
 
         const string segueIdentifier = "RESULTS_SEGUE_IDENTIFIER";
 
@@ -38,9 +39,6 @@ namespace BaitNews
             var result = await headlineService.GetHeadlines();
             headlines = result.ToList();
 
-            var HeadLineCardView = new HeadlineView("hello world");
-            HeadLineCardView.Center = new CGPoint(View.Center.X, View.Center.Y - 25);
-            HeadLineCardView.Bounds = new CGRect(0f, 0f, (int)View.Bounds.Width - 40f, (int)View.Bounds.Height - 250f);
 
             /*
             if (HeadLineCardView == null)
@@ -55,8 +53,11 @@ namespace BaitNews
                 HeadLineCardView.DataSource = this;
                 */
 
+            cardHolder = new CardHolderView(cardPlaceholder.Frame, headlines);
+            cardHolder.DidSwipeLeft += OnSwipeLeft;
+            cardHolder.DidSwipeRight += OnSwipeRight;
 
-            View.AddSubview(HeadLineCardView);
+            View.AddSubview(cardHolder);
                 
 
             incorrectHub = new Notifier(btnIncorrect);
@@ -84,15 +85,12 @@ namespace BaitNews
 
         async partial void BtnRead_TouchUpInside(UIButton sender)
         {
-            /*
-            var topCard = HeadLineCardView.Subviews.LastOrDefault();
-            if (topCard != null)
+            var headline = cardHolder.CurrentHeadline;
+            if (headline != null)
             {
-                var i = topCard as HeadlineView;
-                //var safari = new SFSafariViewController(new NSUrl(topCard.Headline.Url), true);
-                //await PresentViewControllerAsync(safari, true);
+                var safari = new SFSafariViewController(new NSUrl(headline.Url), true);
+                await PresentViewControllerAsync(safari, true);
             }
-            */
         }
 
         partial void BtnFinish_TouchUpInside(UIButton sender)
@@ -138,9 +136,9 @@ namespace BaitNews
         */ 
 
 
-        void OnSwipeLeft(object sender, SwipeEventArgs e)
+        void OnSwipeLeft(HeadlineView sender)
         {
-            var card = e.View as HeadlineView;
+            var card = sender;
             var headline = card.Headline;
 
             var answer = new Answer() { Headline = headline };
@@ -160,9 +158,9 @@ namespace BaitNews
 
         }
 
-        void OnSwipeRight(object sender, SwipeEventArgs e)
+        void OnSwipeRight(HeadlineView sender)
         {
-            var card = e.View as HeadlineView;
+            var card = sender;
             var headline = card.Headline;
 
             var answer = new Answer() { Headline = headline };
