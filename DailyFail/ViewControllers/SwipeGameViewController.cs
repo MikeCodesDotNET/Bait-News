@@ -1,7 +1,6 @@
 using Foundation;
 using System;
 using UIKit;
-using Softweb.Xamarin.Controls.iOS;
 using CoreGraphics;
 using BaitNews.Services;
 using DailyFail.CustomControls;
