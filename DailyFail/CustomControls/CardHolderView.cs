@@ -13,14 +13,6 @@ namespace BaitNews.CustomControls
     {
         //Default Values
         int defaultCountOfVisibleCards = 3;
-        float backgroundCardsTopMargin = 4.0f;
-        float backgroundCardsScalePercent = 0.95f;
-        float backgroundcardsLeftMargin = 8.0f;
-
-        //Opacity Values
-        float defaultAlphaValueOpaque = 1.0f;
-        float defaultAlphaValueTransparent = 0.0f;
-        float defaultAlphaValueSemiTransparent = 0.7f;
 
         public CardHolderView(CGRect rect, List<Headline> headlines)
         {
@@ -79,6 +71,7 @@ namespace BaitNews.CustomControls
                         break;
                 }
             }
+            UpdateCardsPosition();
         }
 
         public HeadlineView ViewForCardAtIndex(int index)
@@ -142,14 +135,46 @@ namespace BaitNews.CustomControls
         void LoadNextCard()
         {
             if (Headlines == null || Headlines.Count == 0)
+            {
+                NoMoreCards();
                 return;
+            }
 
             var cardView = visibleCards.Last();
             cardView.Center = new CGPoint(Center.X, Center.Y - 100);
             cardView.Bounds = new CGRect(0f, 0f, (int)Bounds.Width - 40f, (int)Bounds.Height - 20f);
-            cardView.Headline = Headlines[0];
+            cardView.Headline = Headlines.Count > 3 ? Headlines[visibleCards.Count] : Headlines[0];
+
+            UpdateCardsPosition();
         }
 
+        void UpdateCardsPosition()
+        {
+            foreach (var card in visibleCards)
+            {
+                var indexPosition = visibleCards.IndexOf(card);
+                UIView.Animate(0.2, 0, UIViewAnimationOptions.CurveEaseIn, () =>
+               {
+                   switch (indexPosition)
+                   {
+                       case 0:
+                           card.Center = new CGPoint(Center.X, Center.Y - 100);
+                           card.Bounds = new CGRect(0f, 0f, (int)Bounds.Width - 40f, (int)Bounds.Height - 20f);
+                           break;
+
+                       case 1:
+                           card.Center = new CGPoint(Center.X, Center.Y - 95);
+                           card.Bounds = new CGRect(0f, 0f, (int)Bounds.Width - 44f, (int)Bounds.Height - 20f);
+                           break;
+
+                       case 2:
+                           card.Center = new CGPoint(Center.X, Center.Y - 90);
+                           card.Bounds = new CGRect(0f, 0f, (int)Bounds.Width - 48f, (int)Bounds.Height - 20f);
+                           break;
+                   }   
+               }, () => { });
+            }
+        }
 
         //Events
         public delegate void OnSwipeLeftHandler(HeadlineView sender);

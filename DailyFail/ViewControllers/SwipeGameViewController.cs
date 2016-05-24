@@ -148,7 +148,7 @@ namespace BaitNews
 
         void FinishGame()
         {
-            
+            DismissViewController(true, null);
         }
 
     }
