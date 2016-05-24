@@ -4,71 +4,124 @@ using CoreGraphics;
 using UIKit;
 
 using BaitNews.Models;
+using System;
+using System.Linq;
 
-namespace DailyFail.CustomControls
+namespace BaitNews.CustomControls
 {
     public class CardHolderView : UIView
     {
+        //Default Values
+        int defaultCountOfVisibleCards = 3;
+        float backgroundCardsTopMargin = 4.0f;
+        float backgroundCardsScalePercent = 0.95f;
+        float backgroundcardsLeftMargin = 8.0f;
+
+        //Opacity Values
+        float defaultAlphaValueOpaque = 1.0f;
+        float defaultAlphaValueTransparent = 0.0f;
+        float defaultAlphaValueSemiTransparent = 0.7f;
+
         public CardHolderView(CGRect rect, List<Headline> headlines)
         {
             Frame = rect;
             Headlines = headlines;
+            visibleCards = new List<HeadlineView>();
 
-            BottomCard = new HeadlineView();
-            MiddleCard = new HeadlineView();
-            TopCard = new HeadlineView();
+            var i = 0;
+            while (i != defaultCountOfVisibleCards)
+            {
+                var headline = new HeadlineView(headlines[i]);
+                headline.OnSwipe += HandleOnSwipe;
 
-            UpdateCards();
+                visibleCards.Add(headline);
+                i++;
+            }
+
+            LayoutCards();
+        }
+
+        List<HeadlineView> visibleCards;
+        public List<HeadlineView> VisibleCards
+        {
+            get
+            {
+                return visibleCards;
+            }
+        }
+
+        public int NumberOfCards
+        {
+            get
+            {
+                return Headlines.Count;
+            }
+        }
+
+        void LayoutCards()
+        {
+            foreach (var card in visibleCards)
+            {
+                var indexPosition = visibleCards.IndexOf(card);
+
+                card.Center = new CGPoint(Center.X, Center.Y - 100);
+                card.Bounds = new CGRect(0f, 0f, (int)Bounds.Width - 40f, (int)Bounds.Height - 20f);
+                switch (indexPosition)
+                {
+                    case 0:
+                        AddSubview(card);
+                        break;
+                    case 1:
+                        InsertSubviewBelow(card, visibleCards[0]);
+                        break;
+                    case 2:
+                        InsertSubviewBelow(card, visibleCards[1]);
+                        break;
+                }
+            }
+        }
+
+        public HeadlineView ViewForCardAtIndex(int index)
+        {
+            var view = new HeadlineView(Headlines[index]);
+            return view != null ? view : null;
         }
 
         public List<Headline> Headlines { get; private set;}
 
-        public Headline CurrentHeadline
+        public Headline VisibleHeadline
         {
             get
             {
-                return Headlines[0] != null ? Headlines[0] : null;
+                return VisibleCards.FirstOrDefault().Headline;
             }
         }
 
-        //We keep 3 cards in memory and reuse them. 
-        HeadlineView TopCard;
-        HeadlineView MiddleCard;
-        HeadlineView BottomCard;
-
-        public void UpdateCards()
+        public void Clear()
         {
-            if (Headlines.Count > 2)
+            foreach (var card in visibleCards)
             {
-                BottomCard.Headline = Headlines[2];
-                BottomCard.Center = new CGPoint(Center.X, Center.Y - 100);
-                BottomCard.Bounds = new CGRect(0f, 0f, (int)Bounds.Width - 40f, (int)Bounds.Height - 20f);
-                BottomCard.Transform = CGAffineTransform.MakeRotation(0.02f);
-                BottomCard.OnSwipe += HandleOnSwipe;
-
-                MiddleCard.Headline = Headlines[1];
-                MiddleCard.Center = new CGPoint(Center.X, Center.Y - 100);
-                MiddleCard.Bounds = new CGRect(0f, 0f, (int)Bounds.Width - 40f, (int)Bounds.Height - 20f);
-                MiddleCard.Transform = CGAffineTransform.MakeRotation(-0.04f);
-                MiddleCard.OnSwipe += HandleOnSwipe;
-
- 
-                TopCard.Headline = Headlines[0];
-                TopCard.Center = new CGPoint(Center.X, Center.Y - 100);
-                TopCard.Bounds = new CGRect(0f, 0f, (int)Bounds.Width - 40f, (int)Bounds.Height - 20f);
-                TopCard.OnSwipe += HandleOnSwipe;
-
-                AddSubview(BottomCard);
-                AddSubview(MiddleCard);
-                AddSubview(TopCard);
+                card.RemoveFromSuperview();
             }
 
+            Headlines.Clear();
+        }
+
+        HeadlineView TopCard
+        {
+            get
+            {
+                return visibleCards[0];
+            }
         }
 
         void HandleOnSwipe(object sender, DraggableEventArgs args)
         {
             var headlineView = sender as HeadlineView;
             Headlines.Remove(headlineView.Headline);
+
+            if (args.Dragged.Equals(DraggableDirection.None))
+                return;
 
             if (args.Dragged.Equals(DraggableDirection.Left) && DidSwipeLeft != null)
             {
@@ -79,15 +132,34 @@ namespace DailyFail.CustomControls
                 DidSwipeRight(headlineView);
             }
             headlineView.RemoveFromSuperview();
+            InsertSubviewBelow(headlineView, visibleCards.Last());
+            visibleCards.Remove(headlineView);
+            visibleCards.Add(headlineView);
 
-            UpdateCards();
+            LoadNextCard();
         }
 
-        public delegate void OnSwipeLeftHandle(HeadlineView sender);
-        public event OnSwipeLeftHandle DidSwipeLeft;
+        void LoadNextCard()
+        {
+            if (Headlines == null || Headlines.Count == 0)
+                return;
 
-        public delegate void OnSwipeRightHandle(HeadlineView sender);
-        public event OnSwipeRightHandle DidSwipeRight;
+            var cardView = visibleCards.Last();
+            cardView.Center = new CGPoint(Center.X, Center.Y - 100);
+            cardView.Bounds = new CGRect(0f, 0f, (int)Bounds.Width - 40f, (int)Bounds.Height - 20f);
+            cardView.Headline = Headlines[0];
+        }
+
+
+        //Events
+        public delegate void OnSwipeLeftHandler(HeadlineView sender);
+        public event OnSwipeLeftHandler DidSwipeLeft;
+
+        public delegate void OnSwipeRightHandler(HeadlineView sender);
+        public event OnSwipeRightHandler DidSwipeRight;
+
+        public delegate void OnNoMoreCardsHandler();
+        public event OnNoMoreCardsHandler NoMoreCards;
     }
 }
 

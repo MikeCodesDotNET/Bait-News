@@ -4,12 +4,13 @@ using CoreGraphics;
 using Foundation;
 using BaitNews.Models;
 
-namespace DailyFail.CustomControls
+namespace BaitNews.CustomControls
 {
 	public class HeadlineView : DraggableView
 	{
 		public HeadlineView(Headline headline)
 		{
+            Headline = headline;
 			title = headline.Text;
 		}
 

@@ -1,7 +1,7 @@
 ﻿using System;
 
 //Credit to Jon Davis 
-namespace DailyFail.CustomControls
+namespace BaitNews.CustomControls
 {
     public enum DraggableDirection
     {

@@ -4,7 +4,7 @@ using CoreGraphics;
 using Foundation;
 
 //Credit to Jon Davis
-namespace DailyFail.CustomControls
+namespace BaitNews.CustomControls
 {
     [Register("DraggableView")]
     public class DraggableView : UIView

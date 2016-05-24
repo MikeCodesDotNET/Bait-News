@@ -1,15 +1,17 @@
-using Foundation;
 using System;
-using UIKit;
-using CoreGraphics;
-using BaitNews.Services;
-using DailyFail.CustomControls;
 using System.Collections.Generic;
-using BaitNews.Models;
 using System.Linq;
-using System.Threading.Tasks;
-using NotificationHub;
+
+using BaitNews.Models;
+using BaitNews.Services;
+using BaitNews.CustomControls;
+
+using Foundation;
 using SafariServices;
+using UIKit;
+
+using MikeCodesDotNET.iOS;
+using NotificationHub;
 
 namespace BaitNews
 {
@@ -35,29 +37,7 @@ namespace BaitNews
         {
             base.ViewDidLoad();
 
-            var result = await headlineService.GetHeadlines();
-            headlines = result.ToList();
-
-
-            /*
-            if (HeadLineCardView == null)
-            {
-                HeadLineCardView = new CardView();
-                HeadLineCardView.Center = new CGPoint(View.Center.X, View.Center.Y - 25);
-                HeadLineCardView.Bounds = new CGRect(0f, 0f, (int)View.Bounds.Width - 40f, (int)View.Bounds.Height - 250f);
-
-                HeadLineCardView.DidSwipeLeft += OnSwipeLeft;
-                HeadLineCardView.DidSwipeRight += OnSwipeRight;
-
-                HeadLineCardView.DataSource = this;
-                */
-
-            cardHolder = new CardHolderView(cardPlaceholder.Frame, headlines);
-            cardHolder.DidSwipeLeft += OnSwipeLeft;
-            cardHolder.DidSwipeRight += OnSwipeRight;
-
-            View.AddSubview(cardHolder);
-                
+            btnRead.Alpha = 0;
 
             incorrectHub = new Notifier(btnIncorrect);
             incorrectHub.MoveCircle(-48, -18);
@@ -68,6 +48,19 @@ namespace BaitNews
             correctHub.MoveCircle(-48, -18);
             correctHub.SetCircleColor(btnCorrect.TitleColor(UIControlState.Normal), UIColor.White);
             correctHub.ShowCount();
+
+            btnCorrect.Alpha = 0;
+            btnIncorrect.Alpha = 0;
+
+            var result = await headlineService.GetHeadlines();
+            headlines = result.ToList();
+
+            cardHolder = new CardHolderView(cardPlaceholder.Frame, headlines);
+            cardHolder.DidSwipeLeft += OnSwipeLeft;
+            cardHolder.DidSwipeRight += OnSwipeRight;
+            cardHolder.NoMoreCards += FinishGame;
+
+            View.AddSubview(cardHolder);
         }
 
         public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
@@ -84,10 +77,11 @@ namespace BaitNews
 
         async partial void BtnRead_TouchUpInside(UIButton sender)
         {
-            var headline = cardHolder.CurrentHeadline;
+            var headline = cardHolder.VisibleHeadline;
             if (headline != null)
             {
                 var safari = new SFSafariViewController(new NSUrl(headline.Url), true);
+                safari.View.TintColor = btnFinish.BackgroundColor;
                 await PresentViewControllerAsync(safari, true);
             }
         }
@@ -96,44 +90,6 @@ namespace BaitNews
         {
             //Could do something here..
         }
-
-        /*
-        public UIView NextCardForCardView(CardView cardView)
-        {
-            if (headlines.Count == 0)
-            {
-                DismissViewController(true, null);
-                return new HeadlineView("Thats all folks")
-                {
-                    Frame = HeadLineCardView.Bounds,
-                    BackgroundColor = UIColor.Clear
-                };
-            }
-
-            var random = new Random();
-            int index = random.Next(headlines.Count);
-            var headline = headlines[index];
-            headlines.RemoveAt(index);
-
-            //Create a card with a random background color
-            if (headline == null)
-            {
-                HeadLineCardView.RemoveFromSuperview();
-                return new UIView();
-            }
-
-            var card = new HeadlineView(headline.Text)
-            {
-                Frame = HeadLineCardView.Bounds,
-                BackgroundColor = UIColor.Clear,
-                Headline = headline
-            };
-
-            card.Layer.ShouldRasterize = true;
-            return card;
-        }
-        */ 
-
 
         void OnSwipeLeft(HeadlineView sender)
         {
@@ -145,16 +101,21 @@ namespace BaitNews
             //User believes headline to be false
             if (headline.IsTrue)
             {
+                if (btnIncorrect.Alpha == 0)
+                    btnIncorrect.FadeIn(0.6, 0.2f);
+                
                 incorrectHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = false;
             }
             else
             {
+                if (btnCorrect.Alpha == 0)
+                    btnCorrect.FadeIn(0.6, 0.2f);
+                
                 correctHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = true;
             }
             answers.Add(answer);
-
         }
 
         void OnSwipeRight(HeadlineView sender)
@@ -167,16 +128,27 @@ namespace BaitNews
             //User believes headline to be true
             if (headline.IsTrue)
             {
+                if (btnCorrect.Alpha == 0)
+                    btnCorrect.FadeIn(0.6, 0.2f);
+                
                 correctHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = true;
             }
             else
             {
+                if (btnIncorrect.Alpha == 0)
+                    btnIncorrect.FadeIn(0.6, 0.2f);
+                
                 incorrectHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = false;
             }
             answers.Add(answer);
 
+        }
+
+        void FinishGame()
+        {
+            
         }
 
     }
