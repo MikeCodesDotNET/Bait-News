@@ -63,6 +63,16 @@ namespace BaitNews
             View.AddSubview(cardHolder);
         }
 
+        async public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+
+            var connected = await Plugin.Connectivity.CrossConnectivity.Current.IsReachable("google.com");
+            if (connected)
+                btnRead.FadeIn(1, 0);
+
+        }
+
         public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
         {
             if (segue.Identifier == segueIdentifier)
