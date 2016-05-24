@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace DailyFail
+namespace BaitNews
 {
     [Register ("SwipeGameViewController")]
     partial class SwipeGameViewController
@@ -29,6 +29,10 @@ namespace DailyFail
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnRead { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIView cardPlaceholder { get; set; }
 
         [Action ("BtnFinish_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -58,6 +62,11 @@ namespace DailyFail
             if (btnRead != null) {
                 btnRead.Dispose ();
                 btnRead = null;
+            }
+
+            if (cardPlaceholder != null) {
+                cardPlaceholder.Dispose ();
+                cardPlaceholder = null;
             }
         }
     }

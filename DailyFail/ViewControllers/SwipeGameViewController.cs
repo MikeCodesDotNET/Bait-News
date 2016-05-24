@@ -1,27 +1,29 @@
-using Foundation;
 using System;
-using UIKit;
-using Softweb.Xamarin.Controls.iOS;
-using CoreGraphics;
-using DailyFail.Services;
-using DailyFail.CustomControls;
 using System.Collections.Generic;
-using DailyFail.Models;
 using System.Linq;
-using System.Threading.Tasks;
-using NotificationHub;
-using SafariServices;
 
-namespace DailyFail
+using BaitNews.Models;
+using BaitNews.Services;
+using BaitNews.CustomControls;
+
+using Foundation;
+using SafariServices;
+using UIKit;
+
+using MikeCodesDotNET.iOS;
+using NotificationHub;
+
+namespace BaitNews
 {
-    public partial class SwipeGameViewController : UIViewController, ICardViewDataSource
+    public partial class SwipeGameViewController : UIViewController
     {
-        CardView HeadLineCardView { get; set; }
+        //CardView HeadLineCardView { get; set; }
         IHeadlineService headlineService;
         List<Headline> headlines;
         Notifier incorrectHub;
         Notifier correctHub;
         List<Answer> answers;
+        CardHolderView cardHolder;
 
         const string segueIdentifier = "RESULTS_SEGUE_IDENTIFIER";
 
@@ -35,22 +37,7 @@ namespace DailyFail
         {
             base.ViewDidLoad();
 
-            var result = await headlineService.GetHeadlines();
-            headlines = result.ToList();
-
-            if (HeadLineCardView == null)
-            {
-                HeadLineCardView = new CardView();
-                HeadLineCardView.Center = new CGPoint(View.Center.X, View.Center.Y - 25);
-                HeadLineCardView.Bounds = new CGRect(0f, 0f, (int)View.Bounds.Width - 40f, (int)View.Bounds.Height - 250f);
-
-                HeadLineCardView.DidSwipeLeft += OnSwipeLeft;
-                HeadLineCardView.DidSwipeRight += OnSwipeRight;
-
-                HeadLineCardView.DataSource = this;
-
-                View.AddSubview(HeadLineCardView);
-            }
+            btnRead.Alpha = 0;
 
             incorrectHub = new Notifier(btnIncorrect);
             incorrectHub.MoveCircle(-48, -18);
@@ -61,6 +48,19 @@ namespace DailyFail
             correctHub.MoveCircle(-48, -18);
             correctHub.SetCircleColor(btnCorrect.TitleColor(UIControlState.Normal), UIColor.White);
             correctHub.ShowCount();
+
+            btnCorrect.Alpha = 0;
+            btnIncorrect.Alpha = 0;
+
+            var result = await headlineService.GetHeadlines();
+            headlines = result.ToList();
+
+            cardHolder = new CardHolderView(cardPlaceholder.Frame, headlines);
+            cardHolder.DidSwipeLeft += OnSwipeLeft;
+            cardHolder.DidSwipeRight += OnSwipeRight;
+            cardHolder.NoMoreCards += FinishGame;
+
+            View.AddSubview(cardHolder);
         }
 
         public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
@@ -77,12 +77,12 @@ namespace DailyFail
 
         async partial void BtnRead_TouchUpInside(UIButton sender)
         {
-            var topCard = HeadLineCardView.Subviews.LastOrDefault();
-            if (topCard != null)
+            var headline = cardHolder.VisibleHeadline;
+            if (headline != null)
             {
-                var i = topCard as HeadlineView;
-                //var safari = new SFSafariViewController(new NSUrl(topCard.Headline.Url), true);
-                //await PresentViewControllerAsync(safari, true);
+                var safari = new SFSafariViewController(new NSUrl(headline.Url), true);
+                safari.View.TintColor = btnFinish.BackgroundColor;
+                await PresentViewControllerAsync(safari, true);
             }
         }
 
@@ -91,44 +91,9 @@ namespace DailyFail
             //Could do something here..
         }
 
-        public UIView NextCardForCardView(CardView cardView)
+        void OnSwipeLeft(HeadlineView sender)
         {
-            if (headlines.Count == 0)
-            {
-                DismissViewController(true, null);
-                return new HeadlineView("Thats all folks")
-                {
-                    Frame = HeadLineCardView.Bounds,
-                    BackgroundColor = UIColor.Clear
-                };
-            }
-
-            var random = new Random();
-            int index = random.Next(headlines.Count);
-            var headline = headlines[index];
-            headlines.RemoveAt(index);
-
-            //Create a card with a random background color
-            if (headline == null)
-            {
-                HeadLineCardView.RemoveFromSuperview();
-                return new UIView();
-            }
-
-            var card = new HeadlineView(headline.Text)
-            {
-                Frame = HeadLineCardView.Bounds,
-                BackgroundColor = UIColor.Clear,
-                Headline = headline
-            };
-
-            card.Layer.ShouldRasterize = true;
-            return card;
-        }
-
-        void OnSwipeLeft(object sender, SwipeEventArgs e)
-        {
-            var card = e.View as HeadlineView;
+            var card = sender;
             var headline = card.Headline;
 
             var answer = new Answer() { Headline = headline };
@@ -136,21 +101,26 @@ namespace DailyFail
             //User believes headline to be false
             if (headline.IsTrue)
             {
+                if (btnIncorrect.Alpha == 0)
+                    btnIncorrect.FadeIn(0.6, 0.2f);
+                
                 incorrectHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = false;
             }
             else
             {
+                if (btnCorrect.Alpha == 0)
+                    btnCorrect.FadeIn(0.6, 0.2f);
+                
                 correctHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = true;
             }
             answers.Add(answer);
-
         }
 
-        void OnSwipeRight(object sender, SwipeEventArgs e)
+        void OnSwipeRight(HeadlineView sender)
         {
-            var card = e.View as HeadlineView;
+            var card = sender;
             var headline = card.Headline;
 
             var answer = new Answer() { Headline = headline };
@@ -158,16 +128,27 @@ namespace DailyFail
             //User believes headline to be true
             if (headline.IsTrue)
             {
+                if (btnCorrect.Alpha == 0)
+                    btnCorrect.FadeIn(0.6, 0.2f);
+                
                 correctHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = true;
             }
             else
             {
+                if (btnIncorrect.Alpha == 0)
+                    btnIncorrect.FadeIn(0.6, 0.2f);
+                
                 incorrectHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = false;
             }
             answers.Add(answer);
 
+        }
+
+        void FinishGame()
+        {
+            DismissViewController(true, null);
         }
 
     }

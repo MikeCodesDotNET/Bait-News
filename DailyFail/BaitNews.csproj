@@ -108,9 +108,6 @@
     <Reference Include="Plugin.Settings.Abstractions">
       <HintPath>..\packages\Xam.Plugins.Settings.2.1.0\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="XCardView">
-      <HintPath>..\Components\XCardView-1.1\lib\ios-unified\XCardView.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile">
       <HintPath>..\packages\Microsoft.Azure.Mobile.Client.2.0.1\lib\Xamarin.iOS10\Microsoft.WindowsAzure.Mobile.dll</HintPath>
     </Reference>
@@ -187,7 +184,6 @@
     <Compile Include="ViewControllers\StartViewController.designer.cs">
       <DependentUpon>StartViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\DbBuilder.cs" />
     <Compile Include="Helpers\EntityData.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="ViewControllers\ResultsViewController.cs" />
@@ -198,12 +194,12 @@
     <Compile Include="ViewControllers\SettingsViewController.designer.cs">
       <DependentUpon>SettingsViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomControls\DraggableDirection.cs" />
+    <Compile Include="CustomControls\DraggableEventArgs.cs" />
+    <Compile Include="CustomControls\DraggableView.cs" />
+    <Compile Include="CustomControls\CardHolderView.cs" />
   </ItemGroup>
   <ItemGroup>
-    <XamarinComponentReference Include="XCardView">
-      <Version>1.1</Version>
-      <Visible>False</Visible>
-    </XamarinComponentReference>
     <XamarinComponentReference Include="notification-hub">
       <Version>1.0</Version>
       <Visible>False</Visible>

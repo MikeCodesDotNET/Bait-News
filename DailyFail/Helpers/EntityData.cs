@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System;
 
-namespace DailyFail.Helpers
+namespace BaitNews.Helpers
 {
     public class EntityData
     {

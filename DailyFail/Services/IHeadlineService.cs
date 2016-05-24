@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using DailyFail.Models;
+using BaitNews.Models;
 
-namespace DailyFail.Services
+namespace BaitNews.Services
 {
     public interface IHeadlineService
     {

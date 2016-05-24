@@ -2,16 +2,21 @@
 using UIKit;
 using CoreGraphics;
 using Foundation;
-using DailyFail.Models;
+using BaitNews.Models;
 
-namespace DailyFail.CustomControls
+namespace BaitNews.CustomControls
 {
-	public class HeadlineView : UIView
+	public class HeadlineView : DraggableView
 	{
-		public HeadlineView(string headline)
+		public HeadlineView(Headline headline)
 		{
-			Title = headline;
+            Headline = headline;
+			title = headline.Text;
 		}
+
+        public HeadlineView()
+        {
+        }
 
 		string title;
 		public string Title
@@ -20,14 +25,9 @@ namespace DailyFail.CustomControls
 			{
 				return title;
 			}
-			set
-			{
-				title = value;
-				SetNeedsDisplay();
-			}
 		}
 
-        private Headline headline;
+        Headline headline;
         public Headline Headline
         {
             get

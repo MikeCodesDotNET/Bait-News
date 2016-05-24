@@ -9,7 +9,7 @@ using System;
 using System.CodeDom.Compiler;
 using UIKit;
 
-namespace DailyFail
+namespace BaitNews
 {
     [Register ("SettingsViewController")]
     partial class SettingsViewController

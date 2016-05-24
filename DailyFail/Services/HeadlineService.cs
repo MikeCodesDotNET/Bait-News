@@ -8,9 +8,9 @@ using Microsoft.WindowsAzure.MobileServices.Sync;
 
 using Plugin.Connectivity;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
-using DailyFail.Models;
+using BaitNews.Models;
 
-namespace DailyFail.Services
+namespace BaitNews.Services
 {
     public class HeadlineService : IHeadlineService
     {
