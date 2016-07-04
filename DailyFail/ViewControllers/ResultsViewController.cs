@@ -25,7 +25,6 @@ namespace BaitNews
             lblCorrect.Alpha = 0;
             imgTick.Alpha = 0;
             imgCross.Alpha = 0;
-            lblMessage.Alpha = 0;
 
             var wrongCount = Answers.Where(x => x.CorrectAnswer == false).Count();
             var correctCount = Answers.Where(x => x.CorrectAnswer).Count();
@@ -41,8 +40,6 @@ namespace BaitNews
 
             lblWrong.FadeIn(0.2, 0.3f);
             imgCross.FadeIn(0.2, 0.3f);
-
-            lblMessage.FadeIn(0.2, 0.6f);
 
         }
 

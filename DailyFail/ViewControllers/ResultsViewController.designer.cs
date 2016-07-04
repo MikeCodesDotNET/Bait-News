@@ -32,10 +32,6 @@ namespace BaitNews
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblMessage { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblWrong { get; set; }
 
         [Action ("BtnClose_TouchUpInside:")]
@@ -62,11 +58,6 @@ namespace BaitNews
             if (lblCorrect != null) {
                 lblCorrect.Dispose ();
                 lblCorrect = null;
-            }
-
-            if (lblMessage != null) {
-                lblMessage.Dispose ();
-                lblMessage = null;
             }
 
             if (lblWrong != null) {

@@ -12,6 +12,8 @@ using UIKit;
 
 using MikeCodesDotNET.iOS;
 using NotificationHub;
+using BaitNews;
+using Awesomizer;
 
 namespace BaitNews
 {
@@ -54,6 +56,10 @@ namespace BaitNews
 
             var result = await headlineService.GetHeadlines();
             headlines = result.ToList();
+            headlines.Shuffle();
+
+            if (await Plugin.Connectivity.CrossConnectivity.Current.IsReachable("google.com"))
+                btnRead.Alpha = 1.0f;
 
             cardHolder = new CardHolderView(cardPlaceholder.Frame, headlines);
             cardHolder.DidSwipeLeft += OnSwipeLeft;
@@ -106,6 +112,9 @@ namespace BaitNews
             var card = sender;
             var headline = card.Headline;
 
+            if (lblHelper.Alpha != 0)
+                lblHelper.Alpha = 0;
+
             var answer = new Answer() { Headline = headline };
 
             //User believes headline to be false
@@ -133,6 +142,9 @@ namespace BaitNews
             var card = sender;
             var headline = card.Headline;
 
+            if (lblHelper.Alpha != 0)
+                lblHelper.Alpha = 0;
+            
             var answer = new Answer() { Headline = headline };
 
             //User believes headline to be true
@@ -155,7 +167,6 @@ namespace BaitNews
             answers.Add(answer);
 
         }
-
         void FinishGame()
         {
             DismissViewController(true, null);
