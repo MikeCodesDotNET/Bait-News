@@ -5,15 +5,12 @@ Today's headlines are a little on the crazy side. I've built an app that uses Xa
 
 ## Interesting bits
 
-I wrote a Tinder-style swiping view as the component within the Xamarin component store didn't fulfill my needs. My control allows me to find cards for an index, get the top most visible card and quickly adjust the layout. 
-
-The app also uses SFSafariViewController. A brand new way to show webcontent within your iOS Apps. 
-
-Naturally the app makes use of Azure's offline sync capabilities. 
+Bait News uses the amazing new [App Service Helper](https://github.com/MikeCodesDotNet/App-Service-Helpers) Nuget package to interact with Azure App Service with only 5 lines of code! 
 
 --
-
-## Coming Soon(ish)
+## Download on the App Store
 
 * AppleTV Support
 * Android Version
+
+[![Download](http://pachaspajamas.com/wp-content/uploads/2016/04/downloadAppStoreBtn.png)](https://itunes.apple.com/us/app/bait-news/id1130961755?mt=8)
