@@ -8,9 +8,4 @@ Today's headlines are a little on the crazy side. I've built an app that uses Xa
 Bait News uses the amazing new [App Service Helper](https://github.com/MikeCodesDotNet/App-Service-Helpers) Nuget package to interact with Azure App Service with only 5 lines of code! 
 
 --
-## Download on the App Store
-
-* AppleTV Support
-* Android Version
-
 [![Download](http://pachaspajamas.com/wp-content/uploads/2016/04/downloadAppStoreBtn.png)](https://itunes.apple.com/us/app/bait-news/id1130961755?mt=8)
