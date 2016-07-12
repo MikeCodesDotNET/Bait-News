@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 using BaitNews.Models;
-using BaitNews.Services;
 using BaitNews.CustomControls;
 
 using Foundation;
@@ -14,30 +13,33 @@ using MikeCodesDotNET.iOS;
 using NotificationHub;
 using BaitNews;
 using Awesomizer;
+using AppServiceHelpers;
 
 namespace BaitNews
 {
     public partial class SwipeGameViewController : UIViewController
     {
         //CardView HeadLineCardView { get; set; }
-        HeadlineService headlineService;
-        List<Headline> headlines;
         Notifier incorrectHub;
         Notifier correctHub;
         List<Answer> answers;
         CardHolderView cardHolder;
 
+        ConnectedObservableCollection<Headline> headlines; 
+
         const string segueIdentifier = "RESULTS_SEGUE_IDENTIFIER";
 
         public SwipeGameViewController(IntPtr handle) : base(handle)
         {
-
-            var client = new AppServiceHelpers.EasyMobileServiceClient();
+            //Create our App Service Easy Client 
+            var client = new EasyMobileServiceClient();
             client.Initialize(Helpers.Keys.AzureServiceUrl);
+
+            //Register our objects
             client.RegisterTable<Headline>();
             client.FinalizeSchema();
 
-            headlineService = new HeadlineService(client);
+            headlines = new ConnectedObservableCollection<Headline>(client.Table<Headline>());
             answers = new List<Answer>();
         }
 
@@ -60,16 +62,13 @@ namespace BaitNews
             btnCorrect.Alpha = 0;
             btnIncorrect.Alpha = 0;
 
-            await headlineService.SyncHeadlines();
-
-            var result = headlineService.Collection;
-            headlines = result.ToList();
+            await headlines.Refresh();
             headlines.Shuffle();
 
             if (await Plugin.Connectivity.CrossConnectivity.Current.IsReachable("google.com"))
                 btnRead.Alpha = 1.0f;
 
-            cardHolder = new CardHolderView(cardPlaceholder.Frame, headlines);
+            cardHolder = new CardHolderView(cardPlaceholder.Frame, headlines.ToList());
             cardHolder.DidSwipeLeft += OnSwipeLeft;
             cardHolder.DidSwipeRight += OnSwipeRight;
             cardHolder.NoMoreCards += FinishGame;

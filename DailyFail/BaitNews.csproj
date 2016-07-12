@@ -176,10 +176,8 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="CustomControls\HeadlineView.cs" />
-    <Compile Include="Services\HeadlineService.cs" />
     <Compile Include="Helpers\Keys.cs" />
     <Compile Include="Models\Headline.cs" />
-    <Compile Include="Services\IHeadlineService.cs" />
     <Compile Include="ViewControllers\SwipeGameViewController.cs" />
     <Compile Include="ViewControllers\SwipeGameViewController.designer.cs">
       <DependentUpon>SwipeGameViewController.cs</DependentUpon>
@@ -223,7 +221,6 @@
     <BundleResource Include="Resources\read.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
