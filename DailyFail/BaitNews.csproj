@@ -43,7 +43,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <PlatformTarget>x86</PlatformTarget>
-    <MtouchLink>Full</MtouchLink>
+    <MtouchLink>SdkOnly</MtouchLink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <Optimize>true</Optimize>
@@ -131,6 +131,9 @@
     <Reference Include="Plugin.Connectivity.Abstractions">
       <HintPath>..\packages\Xam.Plugin.Connectivity.2.2.2\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Azure.Mobile">
+      <HintPath>..\..\Azure.Mobile\Azure.Mobile\bin\Release\Azure.Mobile.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json">
@@ -185,7 +188,6 @@
     <Compile Include="ViewControllers\StartViewController.designer.cs">
       <DependentUpon>StartViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\EntityData.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="ViewControllers\ResultsViewController.cs" />
     <Compile Include="ViewControllers\ResultsViewController.designer.cs">

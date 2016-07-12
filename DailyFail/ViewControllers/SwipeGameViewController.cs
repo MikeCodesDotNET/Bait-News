@@ -20,7 +20,7 @@ namespace BaitNews
     public partial class SwipeGameViewController : UIViewController
     {
         //CardView HeadLineCardView { get; set; }
-        IHeadlineService headlineService;
+        HeadlineService headlineService;
         List<Headline> headlines;
         Notifier incorrectHub;
         Notifier correctHub;
@@ -31,7 +31,13 @@ namespace BaitNews
 
         public SwipeGameViewController(IntPtr handle) : base(handle)
         {
-            headlineService = new HeadlineService();
+
+            var client = new AppServiceHelpers.EasyMobileServiceClient();
+            client.Initialize(Helpers.Keys.AzureServiceUrl);
+            client.RegisterTable<Headline>();
+            client.FinalizeSchema();
+
+            headlineService = new HeadlineService(client);
             answers = new List<Answer>();
         }
 
@@ -54,7 +60,9 @@ namespace BaitNews
             btnCorrect.Alpha = 0;
             btnIncorrect.Alpha = 0;
 
-            var result = await headlineService.GetHeadlines();
+            await headlineService.SyncHeadlines();
+
+            var result = headlineService.Collection;
             headlines = result.ToList();
             headlines.Shuffle();
 

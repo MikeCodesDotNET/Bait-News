@@ -1,5 +1,5 @@
 ﻿using System;
-using BaitNews.Helpers;
+using AppServiceHelpers.Models;
 
 namespace BaitNews.Models
 {
