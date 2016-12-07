@@ -21,9 +21,11 @@ namespace BaitNews
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
-
+            
 			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 			SQLitePCL.CurrentPlatform.Init();
+
+            Xamarin.Insights.Initialize(Helpers.Keys.InsightsKey);
 
 			UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes
 			{

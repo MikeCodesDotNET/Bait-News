@@ -15,5 +15,10 @@ namespace BaitNews
         {
             base.ViewDidLoad();
         }
+
+        partial void BtnStart_TouchUpInside(UIButton sender)
+        {
+
+        }
     }
 }

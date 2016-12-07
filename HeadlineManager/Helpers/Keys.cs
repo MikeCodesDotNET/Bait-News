@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BaitNews.Helpers
+namespace HeadlineManager.Helpers
 {
     public class Keys
     {
         public const string AzureServiceUrl = "http://danknews.azurewebsites.net";
-        public const string InsightsKey = "d61ea0e75307308595106fa61867bf77505a99ec";
     }
 }
-

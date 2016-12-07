@@ -11,7 +11,6 @@ using UIKit;
 
 using MikeCodesDotNET.iOS;
 using NotificationHub;
-using BaitNews;
 using Awesomizer;
 using AppServiceHelpers;
 
@@ -19,7 +18,6 @@ namespace BaitNews
 {
     public partial class SwipeGameViewController : UIViewController
     {
-        //CardView HeadLineCardView { get; set; }
         Notifier incorrectHub;
         Notifier correctHub;
         List<Answer> answers;
@@ -174,10 +172,10 @@ namespace BaitNews
             answers.Add(answer);
 
         }
+
         void FinishGame()
         {
             DismissViewController(true, null);
         }
-
-    }
+ }
 }
