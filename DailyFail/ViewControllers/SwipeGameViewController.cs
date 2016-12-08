@@ -13,6 +13,7 @@ using MikeCodesDotNET.iOS;
 using NotificationHub;
 using Awesomizer;
 using AppServiceHelpers;
+using AppServiceHelpers.Helpers;
 
 namespace BaitNews
 {
@@ -30,14 +31,13 @@ namespace BaitNews
         public SwipeGameViewController(IntPtr handle) : base(handle)
         {
             //Create our App Service Easy Client 
-            var client = new EasyMobileServiceClient();
-            client.Initialize(Helpers.Keys.AzureServiceUrl);
+            EasyMobileServiceClient.Current.Initialize(Helpers.Keys.AzureServiceUrl);
 
             //Register our objects
-            client.RegisterTable<Headline>();
-            client.FinalizeSchema();
+            EasyMobileServiceClient.Current.RegisterTable<Headline>();
+            EasyMobileServiceClient.Current.FinalizeSchema();
 
-            headlines = new ConnectedObservableCollection<Headline>(client.Table<Headline>());
+            headlines = new ConnectedObservableCollection<Headline>(EasyMobileServiceClient.Current.Table<Headline>());
             answers = new List<Answer>();
         }
 
