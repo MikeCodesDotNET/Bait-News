@@ -5,7 +5,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.mikejames.baitnews</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>14</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -40,5 +40,7 @@
 	<string>1.0</string>
 	<key>UIStatusBarHidden</key>
 	<true/>
+	<key>CFBundleDisplayName</key>
+	<string></string>
 </dict>
 </plist>
