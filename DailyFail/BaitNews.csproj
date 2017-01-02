@@ -145,12 +145,6 @@
     <Reference Include="MvvmHelpers">
       <HintPath>..\packages\Refractored.MvvmHelpers.1.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\MvvmHelpers.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Settings">
-      <HintPath>..\packages\Xam.Plugins.Settings.2.1.0\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.Settings.Abstractions">
-      <HintPath>..\packages\Xam.Plugins.Settings.2.1.0\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -161,11 +155,17 @@
     <Reference Include="NotificationHub">
       <HintPath>..\Components\notification-hub-1.0\lib\ios-unified\NotificationHub.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Connectivity">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.2.2.2\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
-    </Reference>
     <Reference Include="Plugin.Connectivity.Abstractions">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.2.2.2\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Xam.Plugin.Connectivity.2.2.12\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.2.2.12\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Settings.2.5.1.0\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings">
+      <HintPath>..\packages\Xam.Plugins.Settings.2.5.1.0\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -241,7 +241,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="CustomControls\HeadlineView.cs" />
     <Compile Include="Helpers\Keys.cs" />
@@ -267,6 +266,11 @@
     <Compile Include="CustomControls\DraggableEventArgs.cs" />
     <Compile Include="CustomControls\DraggableView.cs" />
     <Compile Include="CustomControls\CardHolderView.cs" />
+    <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="ResultsTableViewController.cs" />
+    <Compile Include="ResultsTableViewController.designer.cs">
+      <DependentUpon>ResultsTableViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="notification-hub">
@@ -287,6 +291,23 @@
     <BundleResource Include="Resources\740-gear%402x.png" />
     <BundleResource Include="Resources\740-gear%403x.png" />
     <BundleResource Include="Resources\read.png" />
+    <BundleResource Include="Resources\Me_Selected.png" />
+    <BundleResource Include="Resources\Me.png" />
+    <BundleResource Include="Resources\Me%402x.png" />
+    <BundleResource Include="Resources\Me%403x.png" />
+    <BundleResource Include="Resources\Search_Selected.png" />
+    <BundleResource Include="Resources\Search.png" />
+    <BundleResource Include="Resources\Search%402x.png" />
+    <BundleResource Include="Resources\Search%403x.png" />
+    <BundleResource Include="Resources\tabbar_discover.png" />
+    <BundleResource Include="Resources\tabbar_discover%402x.png" />
+    <BundleResource Include="Resources\tabbar_friends_selected.png" />
+    <BundleResource Include="Resources\tabbar_friends.png" />
+    <BundleResource Include="Resources\tabbar_friends%402x.png" />
+    <BundleResource Include="Resources\tabbar_me.png" />
+    <BundleResource Include="Resources\tabbar_me%402x.png" />
+    <BundleResource Include="Resources\tabbar_search.png" />
+    <BundleResource Include="Resources\tabbar_search%402x.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

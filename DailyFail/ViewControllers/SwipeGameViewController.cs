@@ -45,6 +45,7 @@ namespace BaitNews
         {
             base.ViewDidLoad();
 
+			UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.Default, true);
             btnRead.Alpha = 0;
 
             incorrectHub = new Notifier(btnIncorrect);

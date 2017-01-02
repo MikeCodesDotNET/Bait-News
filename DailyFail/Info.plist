@@ -38,9 +38,7 @@
 	<false/>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-	<key>UIStatusBarHidden</key>
-	<true/>
 	<key>CFBundleDisplayName</key>
-	<string></string>
+	<string>Bait News</string>
 </dict>
 </plist>

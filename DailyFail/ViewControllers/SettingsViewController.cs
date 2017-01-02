@@ -17,8 +17,12 @@ namespace BaitNews
             var versionNumber = NSBundle.MainBundle.ObjectForInfoDictionary("CFBundleShortVersionString").ToString();
             var buildNumber = NSBundle.MainBundle.ObjectForInfoDictionary("CFBundleVersion").ToString();
 
-
             lblBuildVersion.Text = $"Version {versionNumber} build {buildNumber}";
+
+			NSFWToggle.On = Helpers.Settings.NSFWEnabled;
+			NSFWToggle.ValueChanged += (sender, e) => { Helpers.Settings.NSFWEnabled = NSFWToggle.On; };
         }
     }
+
+
 }

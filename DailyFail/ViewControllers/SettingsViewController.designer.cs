@@ -18,11 +18,20 @@ namespace BaitNews
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblBuildVersion { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UISwitch NSFWToggle { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
             if (lblBuildVersion != null) {
                 lblBuildVersion.Dispose ();
                 lblBuildVersion = null;
+            }
+
+            if (NSFWToggle != null) {
+                NSFWToggle.Dispose ();
+                NSFWToggle = null;
             }
         }
     }
