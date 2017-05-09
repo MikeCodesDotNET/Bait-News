@@ -25,8 +25,6 @@ namespace BaitNews
 			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 			SQLitePCL.CurrentPlatform.Init();
 
-            Xamarin.Insights.Initialize(Helpers.Keys.InsightsKey);
-
 			UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes
 			{
 				Font = UIFont.FromName("AvenirNext-Medium", 18),
