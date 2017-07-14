@@ -15,6 +15,8 @@ using Awesomizer;
 using AppServiceHelpers;
 using AppServiceHelpers.Helpers;
 
+using System.Collections.ObjectModel;
+
 namespace BaitNews
 {
     public partial class SwipeGameViewController : UIViewController
@@ -30,16 +32,15 @@ namespace BaitNews
 
         public SwipeGameViewController(IntPtr handle) : base(handle)
         {
-            //Create our App Service Easy Client 
             EasyMobileServiceClient.Current.Initialize(Helpers.Keys.AzureServiceUrl);
-
-            //Register our objects
             EasyMobileServiceClient.Current.RegisterTable<Headline>();
-            EasyMobileServiceClient.Current.FinalizeSchema();
+			EasyMobileServiceClient.Current.FinalizeSchema();
 
             headlines = new ConnectedObservableCollection<Headline>(EasyMobileServiceClient.Current.Table<Headline>());
+
             answers = new List<Answer>();
         }
+
 
         async public override void ViewDidLoad()
         {
