@@ -4,6 +4,12 @@ using UIKit;
 using BaitNews.Models;
 using AppServiceHelpers;
 
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
+using Microsoft.Azure.Mobile.Distribute;
+using Microsoft.Azure.Mobile.Push;
+
 namespace BaitNews
 {
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
@@ -23,7 +29,9 @@ namespace BaitNews
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
-            
+			MobileCenter.Start("24e4411c-f9af-4392-b0d5-efa53e7c7ab7",
+			                   typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
+
 			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 			SQLitePCL.CurrentPlatform.Init();
 
