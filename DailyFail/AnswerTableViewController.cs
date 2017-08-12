@@ -21,6 +21,7 @@ namespace DailyFail
 		public override void ViewWillAppear(bool animated)
 		{
 			base.ViewWillAppear(animated);
+			TableView.SetNeedsDisplay();
 		}
 
 		public List<Answer> Answers = new List<Answer>();
@@ -42,6 +43,12 @@ namespace DailyFail
 		public void CommitViewController(IUIViewControllerPreviewing previewingContext, UIViewController viewControllerToCommit)
 		{
             ShowViewController(viewControllerToCommit,this);
+		}
+
+		public override async void RowSelected(UITableView tableView, NSIndexPath indexPath)
+		{
+			var safariViewController = new SFSafariViewController(new NSUrl(Answers[indexPath.Row].Headline.Url), true);
+			await ParentViewController.PresentViewControllerAsync(safariViewController, true);
 		}
 	}
 
@@ -110,12 +117,12 @@ namespace DailyFail
 
 			// Grab a controller and set it to the default sizes
 
-			var detailViewController = new SFSafariViewController(new NSUrl(MasterController.Answers[indexPath.Row].Headline.Url), true);
-			detailViewController.PreferredContentSize = new CGSize(0, 0);
+			var safariViewController = new SFSafariViewController(new NSUrl(MasterController.Answers[indexPath.Row].Headline.Url), true);
+			safariViewController.PreferredContentSize = new CGSize(0, 0);
 
 			// Set the source rect to the cell frame, so everything else is blurred.
 			previewingContext.SourceRect = cell.Frame;
-			return detailViewController;
+			return safariViewController;
 		}
 	 }
 }
