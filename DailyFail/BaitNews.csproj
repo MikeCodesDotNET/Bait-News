@@ -256,11 +256,21 @@
     <Compile Include="CustomControls\DraggableView.cs" />
     <Compile Include="CustomControls\CardHolderView.cs" />
     <Compile Include="Helpers\Settings.cs" />
-    <Compile Include="ResultsTableViewController.cs" />
-    <Compile Include="ResultsTableViewController.designer.cs">
-      <DependentUpon>ResultsTableViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Helpers\MockData.cs" />
+    <Compile Include="CustomControls\ScrollingTabView.cs" />
+    <Compile Include="AnswerTableViewController.cs" />
+    <Compile Include="AnswerTableViewController.designer.cs">
+      <DependentUpon>AnswerTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnswerTableViewCell.cs" />
+    <Compile Include="AnswerTableViewCell.designer.cs">
+      <DependentUpon>AnswerTableViewCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\SadPandaView.cs" />
+    <Compile Include="SadPandaViewController.cs" />
+    <Compile Include="SadPandaViewController.designer.cs">
+      <DependentUpon>SadPandaViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="notification-hub">
@@ -298,6 +308,7 @@
     <BundleResource Include="Resources\tabbar_me%402x.png" />
     <BundleResource Include="Resources\tabbar_search.png" />
     <BundleResource Include="Resources\tabbar_search%402x.png" />
+    <BundleResource Include="Resources\sadPanda.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

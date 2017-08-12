@@ -16,53 +16,35 @@ namespace BaitNews
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton btnClose { get; set; }
+        UIKit.UIButton btnOk { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView imgCross { get; set; }
+        UIKit.UIView contentView { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIImageView imgTick { get; set; }
+        UIKit.UILabel lblScore { get; set; }
 
-        [Outlet]
+        [Action ("BtnOk_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblCorrect { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblWrong { get; set; }
-
-        [Action ("BtnClose_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void BtnClose_TouchUpInside (UIKit.UIButton sender);
+        partial void BtnOk_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
-            if (btnClose != null) {
-                btnClose.Dispose ();
-                btnClose = null;
+            if (btnOk != null) {
+                btnOk.Dispose ();
+                btnOk = null;
             }
 
-            if (imgCross != null) {
-                imgCross.Dispose ();
-                imgCross = null;
+            if (contentView != null) {
+                contentView.Dispose ();
+                contentView = null;
             }
 
-            if (imgTick != null) {
-                imgTick.Dispose ();
-                imgTick = null;
-            }
-
-            if (lblCorrect != null) {
-                lblCorrect.Dispose ();
-                lblCorrect = null;
-            }
-
-            if (lblWrong != null) {
-                lblWrong.Dispose ();
-                lblWrong = null;
+            if (lblScore != null) {
+                lblScore.Dispose ();
+                lblScore = null;
             }
         }
     }

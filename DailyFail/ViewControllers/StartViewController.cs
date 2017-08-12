@@ -14,6 +14,7 @@ namespace BaitNews
         async public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+			this.NavigationController.NavigationBar.BarStyle = UIBarStyle.BlackTranslucent;
         }
 
         partial void BtnStart_TouchUpInside(UIButton sender)

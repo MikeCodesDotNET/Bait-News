@@ -1,6 +1,8 @@
 ﻿using MikeCodesDotNET.iOS;
 using Foundation;
 using UIKit;
+using BaitNews.Models;
+using AppServiceHelpers;
 
 namespace BaitNews
 {
@@ -24,6 +26,13 @@ namespace BaitNews
             
 			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
 			SQLitePCL.CurrentPlatform.Init();
+
+			EasyMobileServiceClient.Current.Initialize(Helpers.Keys.AzureServiceUrl);
+			EasyMobileServiceClient.Current.RegisterTable<Headline>();
+			EasyMobileServiceClient.Current.RegisterTable<Answer>();
+
+			EasyMobileServiceClient.Current.FinalizeSchema();
+
 
 			UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes
 			{

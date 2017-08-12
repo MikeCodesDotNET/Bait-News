@@ -13,6 +13,7 @@ namespace BaitNews
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+			UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.Default, true);
 
             var versionNumber = NSBundle.MainBundle.ObjectForInfoDictionary("CFBundleShortVersionString").ToString();
             var buildNumber = NSBundle.MainBundle.ObjectForInfoDictionary("CFBundleVersion").ToString();

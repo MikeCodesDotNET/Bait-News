@@ -32,12 +32,7 @@ namespace BaitNews
 
         public SwipeGameViewController(IntPtr handle) : base(handle)
         {
-            EasyMobileServiceClient.Current.Initialize(Helpers.Keys.AzureServiceUrl);
-            EasyMobileServiceClient.Current.RegisterTable<Headline>();
-			EasyMobileServiceClient.Current.FinalizeSchema();
-
             headlines = new ConnectedObservableCollection<Headline>(EasyMobileServiceClient.Current.Table<Headline>());
-
             answers = new List<Answer>();
         }
 
@@ -73,7 +68,8 @@ namespace BaitNews
             cardHolder.DidSwipeRight += OnSwipeRight;
             cardHolder.NoMoreCards += FinishGame;
 
-            View.AddSubview(cardHolder);
+			View.AddSubview(cardHolder);
+
         }
 
         async public override void ViewDidAppear(bool animated)
@@ -88,14 +84,22 @@ namespace BaitNews
 
         public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
         {
-            if (segue.Identifier == segueIdentifier)
-            {
-                var vc = (ResultsViewController)segue.DestinationViewController;
-                if (vc == null)
+			base.PrepareForSegue(segue, sender);
+
+			var type = segue.DestinationViewController.GetType();
+			if(type == typeof(UINavigationController))
+			 {
+				var nc = segue.DestinationViewController;
+                if (nc == null)
                     return;
 
-                vc.Answers = answers;
-            }
+				if (nc.ChildViewControllers.FirstOrDefault().GetType() == typeof(ResultsViewController))
+				{
+					var vc = nc.ChildViewControllers.FirstOrDefault() as ResultsViewController;
+					vc.Answers = answers;
+				}
+			}
+           
         }
 
         async partial void BtnRead_TouchUpInside(UIButton sender)
@@ -122,7 +126,7 @@ namespace BaitNews
             if (lblHelper.Alpha != 0)
                 lblHelper.Alpha = 0;
 
-            var answer = new Answer() { Headline = headline };
+            var answer = new Answer() { Headline = headline, HeadlineId = headline.Id};
 
             //User believes headline to be false
             if (headline.IsTrue)
@@ -132,6 +136,10 @@ namespace BaitNews
                 
                 incorrectHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = false;
+
+				var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Heavy);
+				impact.Prepare ();
+				impact.ImpactOccurred ();
             }
             else
             {
@@ -140,6 +148,10 @@ namespace BaitNews
                 
                 correctHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = true;
+
+				var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Light);
+				impact.Prepare ();
+				impact.ImpactOccurred ();
             }
             answers.Add(answer);
         }
@@ -152,7 +164,7 @@ namespace BaitNews
             if (lblHelper.Alpha != 0)
                 lblHelper.Alpha = 0;
             
-            var answer = new Answer() { Headline = headline };
+			var answer = new Answer() { Headline = headline, HeadlineId = headline.Id };
 
             //User believes headline to be true
             if (headline.IsTrue)
@@ -162,6 +174,9 @@ namespace BaitNews
                 
                 correctHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = true;
+				var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Light);
+				impact.Prepare ();
+				impact.ImpactOccurred ();
             }
             else
             {
@@ -170,6 +185,9 @@ namespace BaitNews
                 
                 incorrectHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = false;
+				var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Heavy);
+				impact.Prepare ();
+				impact.ImpactOccurred ();
             }
             answers.Add(answer);
 
