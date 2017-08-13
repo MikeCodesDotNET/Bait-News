@@ -44,9 +44,7 @@ namespace BaitNews
         async public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
-			UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.Default, true);
-            btnRead.Alpha = 0;
+			UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, true);
 
             incorrectHub = new Notifier(btnIncorrect);
             incorrectHub.MoveCircle(-48, -18);
@@ -64,25 +62,12 @@ namespace BaitNews
             await headlines.Refresh();
             headlines.Shuffle();
 
-            if (await Plugin.Connectivity.CrossConnectivity.Current.IsReachable("google.com"))
-                btnRead.Alpha = 1.0f;
-
             cardHolder = new CardHolderView(cardPlaceholder.Frame, headlines.ToList());
             cardHolder.DidSwipeLeft += OnSwipeLeft;
             cardHolder.DidSwipeRight += OnSwipeRight;
             cardHolder.NoMoreCards += FinishGame;
 
 			View.AddSubview(cardHolder);
-        }
-
-        async public override void ViewDidAppear(bool animated)
-        {
-            base.ViewDidAppear(animated);
-
-            var connected = await Plugin.Connectivity.CrossConnectivity.Current.IsReachable("google.com");
-            if (connected)
-                btnRead.FadeIn(1, 0);
-
         }
 
         public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
@@ -102,17 +87,6 @@ namespace BaitNews
 					vc.Answers = answers;
 				}
 			}
-        }
-
-        async partial void BtnRead_TouchUpInside(UIButton sender)
-        {
-            var headline = cardHolder.VisibleHeadline;
-            if (headline != null)
-            {
-                var safari = new SFSafariViewController(new NSUrl(headline.Url), true);
-                safari.View.TintColor = btnFinish.BackgroundColor;
-                await PresentViewControllerAsync(safari, true);
-            }
         }
 
         void OnSwipeLeft(HeadlineView sender)
@@ -188,6 +162,10 @@ namespace BaitNews
 			impact.Prepare ();
 			impact.ImpactOccurred ();
 			Analytics.TrackEvent("Answered Incorrectly");
+		}
+
+		partial void BtnFinish_TouchUpInside(UIButton sender)
+		{
 		}
 
         void FinishGame()

@@ -28,19 +28,15 @@ namespace BaitNews
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton btnRead { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIView cardPlaceholder { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblHelper { get; set; }
 
-        [Action ("BtnRead_TouchUpInside:")]
+        [Action ("BtnFinish_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
-        partial void BtnRead_TouchUpInside (UIKit.UIButton sender);
+        partial void BtnFinish_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
@@ -57,11 +53,6 @@ namespace BaitNews
             if (btnIncorrect != null) {
                 btnIncorrect.Dispose ();
                 btnIncorrect = null;
-            }
-
-            if (btnRead != null) {
-                btnRead.Dispose ();
-                btnRead = null;
             }
 
             if (cardPlaceholder != null) {
