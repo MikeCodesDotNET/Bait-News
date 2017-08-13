@@ -38,10 +38,6 @@ namespace BaitNews
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblHelper { get; set; }
 
-        [Action ("BtnFinish_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void BtnFinish_TouchUpInside (UIKit.UIButton sender);
-
         [Action ("BtnRead_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void BtnRead_TouchUpInside (UIKit.UIButton sender);

@@ -102,7 +102,6 @@ namespace BaitNews
 					vc.Answers = answers;
 				}
 			}
-           
         }
 
         async partial void BtnRead_TouchUpInside(UIButton sender)
@@ -114,11 +113,6 @@ namespace BaitNews
                 safari.View.TintColor = btnFinish.BackgroundColor;
                 await PresentViewControllerAsync(safari, true);
             }
-        }
-
-        partial void BtnFinish_TouchUpInside(UIButton sender)
-        {
-            //Could do something here..
         }
 
         void OnSwipeLeft(HeadlineView sender)
@@ -134,29 +128,13 @@ namespace BaitNews
             //User believes headline to be false
             if (headline.IsTrue)
             {
-                if (btnIncorrect.Alpha == 0)
-                    btnIncorrect.FadeIn(0.6, 0.2f);
-                
-                incorrectHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = false;
-
-				var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Heavy);
-				impact.Prepare ();
-				impact.ImpactOccurred ();
-				Analytics.TrackEvent("Answered Incorrectly");
+				IncorrectAnswer();
             }
             else
             {
-                if (btnCorrect.Alpha == 0)
-                    btnCorrect.FadeIn(0.6, 0.2f);
-                
-                correctHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = true;
-				Analytics.TrackEvent("Answered Correctly");
-
-				var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Light);
-				impact.Prepare ();
-				impact.ImpactOccurred ();
+				CorrectAnswer();
             }
             answers.Add(answer);
         }
@@ -174,32 +152,43 @@ namespace BaitNews
             //User believes headline to be true
             if (headline.IsTrue)
             {
-                if (btnCorrect.Alpha == 0)
-                    btnCorrect.FadeIn(0.6, 0.2f);
-                
-                correctHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = true;
-				var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Light);
-				impact.Prepare ();
-				impact.ImpactOccurred ();
-				Analytics.TrackEvent("Answered Correctly");
-            }
+                CorrectAnswer();
+			}
             else
             {
-                if (btnIncorrect.Alpha == 0)
-                    btnIncorrect.FadeIn(0.6, 0.2f);
-                
-                incorrectHub.Increment(1, NotificationAnimationType.Pop);
-                answer.CorrectAnswer = false;
-				var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Heavy);
-				impact.Prepare ();
-				impact.ImpactOccurred ();
-				Analytics.TrackEvent("Answered Incorrectly");
+              	answer.CorrectAnswer = false;
+				IncorrectAnswer();
 
             }
             answers.Add(answer);
-
         }
+
+		void CorrectAnswer()
+		{
+	        if (btnCorrect.Alpha == 0)
+                btnCorrect.FadeIn(0.6, 0.2f);
+                
+            correctHub.Increment(1, NotificationAnimationType.Pop);
+				
+			var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Light);
+			impact.Prepare ();
+			impact.ImpactOccurred ();
+			Analytics.TrackEvent("Answered Correctly");
+		}
+
+		void IncorrectAnswer()
+		{
+			 if (btnIncorrect.Alpha == 0)
+                    btnIncorrect.FadeIn(0.6, 0.2f);
+			
+            incorrectHub.Increment(1, NotificationAnimationType.Pop);
+
+			var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Heavy);
+			impact.Prepare ();
+			impact.ImpactOccurred ();
+			Analytics.TrackEvent("Answered Incorrectly");
+		}
 
         void FinishGame()
         {
