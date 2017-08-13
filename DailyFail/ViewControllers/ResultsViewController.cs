@@ -39,7 +39,6 @@ namespace BaitNews
 			tabView.BackgroundColor = UIColor.Clear;
 			tabView.TabbarBackgroundColor = UIColor.Clear;
 
-
 			contentView.Add(tabView);
 
         }
@@ -54,7 +53,7 @@ namespace BaitNews
 			base.ViewDidLoad();
 
             NavigationController.NavigationBar.BarStyle = UIBarStyle.BlackTranslucent;
-			contentView.Frame = new CoreGraphics.CGRect(0, 0, View.Bounds.Width, View.Bounds.Height);
+			contentView.Frame = new CGRect(0, 0, View.Bounds.Width, View.Bounds.Height);
 		}
 
 		public override void ViewDidAppear(bool animated)
@@ -62,7 +61,9 @@ namespace BaitNews
 			base.ViewDidAppear(animated);
 			View.BackgroundColor = "717276".ToUIColor();
 			var correctCount = Answers.Where(x => x.CorrectAnswer).Count();
-			lblScore.Text = ($"{correctCount} - {Answers.Count()}");
+
+			lblcount.Text = correctCount.ToString();
+			lbltotalCount.Text = Answers.Count().ToString();
 
 			var correctAnswers = Answers.Where(x => x.CorrectAnswer == true).ToList();
 			VcCorrect.Answers = correctAnswers;
@@ -82,18 +83,17 @@ namespace BaitNews
             {
 				if (index == 0)
 				{
-					lblScore.Text = ($"{correctCount} - {Answers.Count()}");
-					lblScore.Pop(0.2, 1, 1f);
+					lblcount.Text = correctCount.ToString();
+					lbltotalCount.Text = Answers.Count().ToString();
 				}
 				else
 				{
-					lblScore.Text = ($"{wrongAnswers.Count()} - {Answers.Count()}");
-					lblScore.Pop(0.2, 1, 1f);
+					lblcount.Text = wrongAnswers.Count.ToString();
+					lbltotalCount.Text = Answers.Count().ToString();
 				}
             };
 
 			btnOk.Layer.CornerRadius = 4;
-			lblScore.Pop(0.1, 1, 0.2f);
 			contentView.BackgroundColor = "1C1F27".ToUIColor();
 		}
 

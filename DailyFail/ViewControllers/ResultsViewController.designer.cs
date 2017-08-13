@@ -24,7 +24,15 @@ namespace BaitNews
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblcount { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lblScore { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lbltotalCount { get; set; }
 
         [Action ("BtnOk_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -42,9 +50,19 @@ namespace BaitNews
                 contentView = null;
             }
 
+            if (lblcount != null) {
+                lblcount.Dispose ();
+                lblcount = null;
+            }
+
             if (lblScore != null) {
                 lblScore.Dispose ();
                 lblScore = null;
+            }
+
+            if (lbltotalCount != null) {
+                lbltotalCount.Dispose ();
+                lbltotalCount = null;
             }
         }
     }

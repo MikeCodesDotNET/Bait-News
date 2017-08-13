@@ -36,7 +36,7 @@
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <MtouchFloat32>False</MtouchFloat32>
-    <CodesignProvision></CodesignProvision>
+    <CodesignProvision>BaitNews-Dev</CodesignProvision>
 <RunCodeAnalysis>true</RunCodeAnalysis><DeviceSpecificBuild>false</DeviceSpecificBuild>
 <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
   </PropertyGroup>
@@ -246,8 +246,8 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
     <None Include="packages.config" />
+    <None Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -331,6 +331,7 @@
     <BundleResource Include="Resources\tabbar_search.png" />
     <BundleResource Include="Resources\tabbar_search%402x.png" />
     <BundleResource Include="Resources\sadPanda.png" />
+    <BundleResource Include="Resources\BaitNews.entitlements" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

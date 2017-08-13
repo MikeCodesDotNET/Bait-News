@@ -7,6 +7,7 @@ using System.Linq;
 using MikeCodesDotNET.iOS;
 using CoreGraphics;
 using SafariServices;
+using Microsoft.Azure.Mobile.Analytics;
 
 namespace DailyFail
 {
@@ -36,19 +37,12 @@ namespace DailyFail
 			if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available)
 			{
                 RegisterForPreviewingWithDelegate(new PreviewingDelegate(this), View);
-				Console.WriteLine("Registered for 3D Touch");
 			}
 		}
 
 		public void CommitViewController(IUIViewControllerPreviewing previewingContext, UIViewController viewControllerToCommit)
 		{
             ShowViewController(viewControllerToCommit,this);
-		}
-
-		public override async void RowSelected(UITableView tableView, NSIndexPath indexPath)
-		{
-			var safariViewController = new SFSafariViewController(new NSUrl(Answers[indexPath.Row].Headline.Url), true);
-			await ParentViewController.PresentViewControllerAsync(safariViewController, true);
 		}
 	}
 
@@ -84,10 +78,10 @@ namespace DailyFail
 
 	public class PreviewingDelegate : UIViewControllerPreviewingDelegate
 	{
-		public AnswerTableViewController MasterController { get; set; }
-		public PreviewingDelegate(AnswerTableViewController masterController)
+		public AnswerTableViewController TableController { get; set; }
+		public PreviewingDelegate(AnswerTableViewController controller)
 		{
-			MasterController = masterController;
+			TableController = controller;
 		}
 
 		public PreviewingDelegate(NSObjectFlag t) : base(t)
@@ -102,22 +96,22 @@ namespace DailyFail
 		public override void CommitViewController(IUIViewControllerPreviewing previewingContext, UIViewController viewControllerToCommit)
 		{
 			// Reuse Peek view controller for details presentation
-			MasterController.ShowViewController(viewControllerToCommit, this);
+			TableController.ShowViewController(viewControllerToCommit, this);
 		}
 
 		/// Create a previewing view controller to be shown at "Peek".
 		public override UIViewController GetViewControllerForPreview(IUIViewControllerPreviewing previewingContext, CGPoint location)
 		{
-			Console.WriteLine("GetViewControllerForPreview-Called");
+			Analytics.TrackEvent("User used 3D Touch");
 
 			// Grab the item to preview
-			var indexPath = MasterController.TableView.IndexPathForRowAtPoint(location);
-			var cell = MasterController.TableView.CellAt(indexPath);
-			var item = MasterController.DataSource.Answers[indexPath.Row];
+			var indexPath = TableController.TableView.IndexPathForRowAtPoint(location);
+			var cell = TableController.TableView.CellAt(indexPath);
+			var item = TableController.DataSource.Answers[indexPath.Row];
 
 			// Grab a controller and set it to the default sizes
 
-			var safariViewController = new SFSafariViewController(new NSUrl(MasterController.Answers[indexPath.Row].Headline.Url), true);
+			var safariViewController = new SFSafariViewController(new NSUrl(TableController.Answers[indexPath.Row].Headline.Url), true);
 			safariViewController.PreferredContentSize = new CGSize(0, 0);
 
 			// Set the source rect to the cell frame, so everything else is blurred.

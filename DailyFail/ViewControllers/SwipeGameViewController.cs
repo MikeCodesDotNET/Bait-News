@@ -16,6 +16,8 @@ using AppServiceHelpers;
 using AppServiceHelpers.Helpers;
 
 using System.Collections.ObjectModel;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
 
 namespace BaitNews
 {
@@ -34,6 +36,8 @@ namespace BaitNews
         {
             headlines = new ConnectedObservableCollection<Headline>(EasyMobileServiceClient.Current.Table<Headline>());
             answers = new List<Answer>();
+
+			Analytics.TrackEvent("Games Started");
         }
 
 
@@ -69,7 +73,6 @@ namespace BaitNews
             cardHolder.NoMoreCards += FinishGame;
 
 			View.AddSubview(cardHolder);
-
         }
 
         async public override void ViewDidAppear(bool animated)
@@ -140,6 +143,7 @@ namespace BaitNews
 				var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Heavy);
 				impact.Prepare ();
 				impact.ImpactOccurred ();
+				Analytics.TrackEvent("Answered Incorrectly");
             }
             else
             {
@@ -148,6 +152,7 @@ namespace BaitNews
                 
                 correctHub.Increment(1, NotificationAnimationType.Pop);
                 answer.CorrectAnswer = true;
+				Analytics.TrackEvent("Answered Correctly");
 
 				var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Light);
 				impact.Prepare ();
@@ -177,6 +182,7 @@ namespace BaitNews
 				var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Light);
 				impact.Prepare ();
 				impact.ImpactOccurred ();
+				Analytics.TrackEvent("Answered Correctly");
             }
             else
             {
@@ -188,6 +194,8 @@ namespace BaitNews
 				var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Heavy);
 				impact.Prepare ();
 				impact.ImpactOccurred ();
+				Analytics.TrackEvent("Answered Incorrectly");
+
             }
             answers.Add(answer);
 
