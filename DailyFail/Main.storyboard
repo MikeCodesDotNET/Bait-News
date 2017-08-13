@@ -202,7 +202,6 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="BtnFinish_TouchUpInside:" destination="73" eventType="touchUpInside" id="177"/>
                                     <segue destination="330" kind="show" identifier="RESULTS_SEGUE_IDENTIFIER" id="d49-bK-gb0"/>
                                 </connections>
                             </button>
