@@ -29,7 +29,7 @@ namespace BaitNews
 		{
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
-			MobileCenter.Start("24e4411c-f9af-4392-b0d5-efa53e7c7ab7",
+			MobileCenter.Start("5a59ecc6-7522-4793-bb93-65f5aed040c1",
 			                   typeof(Analytics), typeof(Crashes), typeof(Distribute), typeof(Push));
 
 			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
