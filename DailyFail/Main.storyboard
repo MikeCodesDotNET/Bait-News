@@ -77,7 +77,7 @@
         <!--Bait News-->
         <scene sceneID="0Wj-1z-8wf">
             <objects>
-                <tableViewController id="hVw-bq-Zuw" sceneMemberID="viewController">
+                <tableViewController id="hVw-bq-Zuw" sceneMemberID="viewController" customClass="HomeTableViewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="137" sectionHeaderHeight="241" sectionFooterHeight="28" id="jja-M6-e1A">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

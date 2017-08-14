@@ -125,9 +125,6 @@
     <Reference Include="MvvmHelpers">
       <HintPath>..\packages\Refractored.MvvmHelpers.1.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\MvvmHelpers.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Awesomizer">
       <HintPath>..\packages\Awesomizer.1.0.2\lib\Awesomizer.dll</HintPath>
     </Reference>
@@ -177,6 +174,14 @@
     </Reference>
     <Reference Include="Microsoft.Azure.Mobile.Crashes.iOS.Bindings">
       <HintPath>..\packages\Microsoft.Azure.Mobile.Crashes.0.14.0\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Crashes.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core">
+      <HintPath>..\packages\Google.Apis.Core.1.28.0\lib\netstandard1.3\Google.Apis.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -256,23 +261,7 @@
     <Compile Include="CustomControls\HeadlineView.cs" />
     <Compile Include="Helpers\Keys.cs" />
     <Compile Include="Models\Headline.cs" />
-    <Compile Include="ViewControllers\SwipeGameViewController.cs" />
-    <Compile Include="ViewControllers\SwipeGameViewController.designer.cs">
-      <DependentUpon>SwipeGameViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\StartViewController.cs" />
-    <Compile Include="ViewControllers\StartViewController.designer.cs">
-      <DependentUpon>StartViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\Answer.cs" />
-    <Compile Include="ViewControllers\ResultsViewController.cs" />
-    <Compile Include="ViewControllers\ResultsViewController.designer.cs">
-      <DependentUpon>ResultsViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\SettingsViewController.cs" />
-    <Compile Include="ViewControllers\SettingsViewController.designer.cs">
-      <DependentUpon>SettingsViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="CustomControls\DraggableDirection.cs" />
     <Compile Include="CustomControls\DraggableEventArgs.cs" />
     <Compile Include="CustomControls\DraggableView.cs" />
@@ -280,30 +269,46 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Helpers\MockData.cs" />
     <Compile Include="CustomControls\ScrollingTabView.cs" />
-    <Compile Include="AnswerTableViewController.cs" />
-    <Compile Include="AnswerTableViewController.designer.cs">
-      <DependentUpon>AnswerTableViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AnswerTableViewCell.cs" />
-    <Compile Include="AnswerTableViewCell.designer.cs">
+    <Compile Include="CustomControls\SadPandaView.cs" />
+    <Compile Include="ViewControllers\Results\AnswerTableViewCell.cs" />
+    <Compile Include="ViewControllers\Results\AnswerTableViewCell.designer.cs">
       <DependentUpon>AnswerTableViewCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomControls\SadPandaView.cs" />
-    <Compile Include="SadPandaViewController.cs" />
-    <Compile Include="SadPandaViewController.designer.cs">
+    <Compile Include="ViewControllers\Results\AnswerTableViewController.cs" />
+    <Compile Include="ViewControllers\Results\AnswerTableViewController.designer.cs">
+      <DependentUpon>AnswerTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Results\ResultsViewController.cs" />
+    <Compile Include="ViewControllers\Results\ResultsViewController.designer.cs">
+      <DependentUpon>ResultsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Misc\SadPandaViewController.cs" />
+    <Compile Include="ViewControllers\Misc\SadPandaViewController.designer.cs">
       <DependentUpon>SadPandaViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubmitMasterViewController.cs" />
-    <Compile Include="SubmitMasterViewController.designer.cs">
-      <DependentUpon>SubmitMasterViewController.cs</DependentUpon>
+    <Compile Include="ViewControllers\Misc\SettingsViewController.cs" />
+    <Compile Include="ViewControllers\Misc\SettingsViewController.designer.cs">
+      <DependentUpon>SettingsViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubmitHeadline.cs" />
-    <Compile Include="SubmitHeadline.designer.cs">
+    <Compile Include="ViewControllers\Game\SwipeGameViewController.cs" />
+    <Compile Include="ViewControllers\Game\SwipeGameViewController.designer.cs">
+      <DependentUpon>SwipeGameViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Submit\SubmitHeadline.cs" />
+    <Compile Include="ViewControllers\Submit\SubmitHeadline.designer.cs">
       <DependentUpon>SubmitHeadline.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubmitPrintedNews.cs" />
-    <Compile Include="SubmitPrintedNews.designer.cs">
+    <Compile Include="ViewControllers\Submit\SubmitMasterViewController.cs" />
+    <Compile Include="ViewControllers\Submit\SubmitMasterViewController.designer.cs">
+      <DependentUpon>SubmitMasterViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Submit\SubmitPrintedNews.cs" />
+    <Compile Include="ViewControllers\Submit\SubmitPrintedNews.designer.cs">
       <DependentUpon>SubmitPrintedNews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Home\HomeTableViewController.cs" />
+    <Compile Include="ViewControllers\Home\HomeTableViewController.designer.cs">
+      <DependentUpon>HomeTableViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -350,6 +355,13 @@
     <BundleResource Include="Resources\submit-headlines-header.png" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewControllers\Home\" />
+    <Folder Include="ViewControllers\Game\" />
+    <Folder Include="ViewControllers\Results\" />
+    <Folder Include="ViewControllers\Misc\" />
+    <Folder Include="ViewControllers\Submit\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <PropertyGroup>
