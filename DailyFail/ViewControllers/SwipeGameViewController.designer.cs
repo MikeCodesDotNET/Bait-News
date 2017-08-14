@@ -16,15 +16,7 @@ namespace BaitNews
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton btnCorrect { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnFinish { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton btnIncorrect { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -32,7 +24,11 @@ namespace BaitNews
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel lblHelper { get; set; }
+        UIKit.UILabel lblcorrectCount { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lblWrongCount { get; set; }
 
         [Action ("BtnFinish_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -40,19 +36,9 @@ namespace BaitNews
 
         void ReleaseDesignerOutlets ()
         {
-            if (btnCorrect != null) {
-                btnCorrect.Dispose ();
-                btnCorrect = null;
-            }
-
             if (btnFinish != null) {
                 btnFinish.Dispose ();
                 btnFinish = null;
-            }
-
-            if (btnIncorrect != null) {
-                btnIncorrect.Dispose ();
-                btnIncorrect = null;
             }
 
             if (cardPlaceholder != null) {
@@ -60,9 +46,14 @@ namespace BaitNews
                 cardPlaceholder = null;
             }
 
-            if (lblHelper != null) {
-                lblHelper.Dispose ();
-                lblHelper = null;
+            if (lblcorrectCount != null) {
+                lblcorrectCount.Dispose ();
+                lblcorrectCount = null;
+            }
+
+            if (lblWrongCount != null) {
+                lblWrongCount.Dispose ();
+                lblWrongCount = null;
             }
         }
     }

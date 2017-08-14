@@ -293,6 +293,18 @@
     <Compile Include="SadPandaViewController.designer.cs">
       <DependentUpon>SadPandaViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubmitMasterViewController.cs" />
+    <Compile Include="SubmitMasterViewController.designer.cs">
+      <DependentUpon>SubmitMasterViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubmitHeadline.cs" />
+    <Compile Include="SubmitHeadline.designer.cs">
+      <DependentUpon>SubmitHeadline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubmitPrintedNews.cs" />
+    <Compile Include="SubmitPrintedNews.designer.cs">
+      <DependentUpon>SubmitPrintedNews.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="notification-hub">
@@ -332,6 +344,10 @@
     <BundleResource Include="Resources\tabbar_search%402x.png" />
     <BundleResource Include="Resources\sadPanda.png" />
     <BundleResource Include="Resources\BaitNews.entitlements" />
+    <BundleResource Include="Resources\Settings-Header.png" />
+    <BundleResource Include="Resources\default-header.png" />
+    <BundleResource Include="Resources\printed-news-headers.png" />
+    <BundleResource Include="Resources\submit-headlines-header.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

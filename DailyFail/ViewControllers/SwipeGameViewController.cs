@@ -6,7 +6,6 @@ using BaitNews.Models;
 using BaitNews.CustomControls;
 
 using Foundation;
-using SafariServices;
 using UIKit;
 
 using MikeCodesDotNET.iOS;
@@ -15,18 +14,15 @@ using Awesomizer;
 using AppServiceHelpers;
 using AppServiceHelpers.Helpers;
 
-using System.Collections.ObjectModel;
-using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Analytics;
 
 namespace BaitNews
 {
     public partial class SwipeGameViewController : UIViewController
-    {
-        Notifier incorrectHub;
-        Notifier correctHub;
+	{
         List<Answer> answers;
         CardHolderView cardHolder;
+		int correctAnswersCount = 0;
 
         ConnectedObservableCollection<Headline> headlines; 
 
@@ -45,20 +41,6 @@ namespace BaitNews
         {
             base.ViewDidLoad();
 			UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, true);
-
-            incorrectHub = new Notifier(btnIncorrect);
-            incorrectHub.MoveCircle(-48, -18);
-            incorrectHub.SetCircleColor(btnIncorrect.TitleColor(UIControlState.Normal), UIColor.White);
-            incorrectHub.ShowCount();
-
-            correctHub = new Notifier(btnCorrect);
-            correctHub.MoveCircle(-48, -18);
-            correctHub.SetCircleColor(btnCorrect.TitleColor(UIControlState.Normal), UIColor.White);
-            correctHub.ShowCount();
-
-            btnCorrect.Alpha = 0;
-            btnIncorrect.Alpha = 0;
-
             await headlines.Refresh();
             headlines.Shuffle();
 
@@ -94,9 +76,6 @@ namespace BaitNews
             var card = sender;
             var headline = card.Headline;
 
-            if (lblHelper.Alpha != 0)
-                lblHelper.Alpha = 0;
-
             var answer = new Answer() { Headline = headline, HeadlineId = headline.Id};
 
             //User believes headline to be false
@@ -118,9 +97,6 @@ namespace BaitNews
             var card = sender;
             var headline = card.Headline;
 
-            if (lblHelper.Alpha != 0)
-                lblHelper.Alpha = 0;
-            
 			var answer = new Answer() { Headline = headline, HeadlineId = headline.Id };
 
             //User believes headline to be true
@@ -140,11 +116,11 @@ namespace BaitNews
 
 		void CorrectAnswer()
 		{
-	        if (btnCorrect.Alpha == 0)
-                btnCorrect.FadeIn(0.6, 0.2f);
-                
-            correctHub.Increment(1, NotificationAnimationType.Pop);
-				
+			correctAnswersCount++;
+			lblcorrectCount.Text = correctAnswersCount.ToString();
+			lblWrongCount.Text = (answers.Count() + 1).ToString();
+			lblcorrectCount.Pop(0.2, 0, 1);
+
 			var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Light);
 			impact.Prepare ();
 			impact.ImpactOccurred ();
@@ -153,10 +129,7 @@ namespace BaitNews
 
 		void IncorrectAnswer()
 		{
-			 if (btnIncorrect.Alpha == 0)
-                    btnIncorrect.FadeIn(0.6, 0.2f);
-			
-            incorrectHub.Increment(1, NotificationAnimationType.Pop);
+			lblWrongCount.Text = (answers.Count() + 1).ToString();
 
 			var impact = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Heavy);
 			impact.Prepare ();

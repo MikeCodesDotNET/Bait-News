@@ -23,6 +23,8 @@ namespace BaitNews.CustomControls
 
             CurrentIndex = 0;
             TabItemSelected += HandleTabItemSelected;
+
+			Font = UIFont.FromName("Avenir-Medium", 16f);
         }
 
         public UIColor TabbarBackgroundColor { get; set;}
@@ -31,6 +33,7 @@ namespace BaitNews.CustomControls
         public UIColor TabTextColor { get; set; }
         public UIColor ContentBackgroundColor { get; set;}
         public int CurrentIndex { get; private set;}
+		public UIFont Font { get; set; }
 
         public List<UIViewController> ViewControllers { get; private set;}
 
@@ -54,7 +57,7 @@ namespace BaitNews.CustomControls
                 var button = new UIButton(UIButtonType.RoundedRect);
                 button.Tag = index;
                 button.SetTitle(viewController.Title, UIControlState.Normal);
-                button.Font = UIFont.FromName("Avenir-Medium", 16f);
+				button.Font = Font;
 
                 if(index == 0)
                     button.SetTitleColor(SelectedTabTextColor, UIControlState.Normal);
