@@ -34,7 +34,7 @@ namespace Awesomizer
           - Returns A new image
 		*/
 
-		public async static Task<UIImageView> ImageFromUrl(UIImageView imageView, string url, UIImage placeholder, bool fadeIn = true)
+		public static UIImageView ImageFromUrl(UIImageView imageView, string url, UIImage placeholder, bool fadeIn = true)
 		{
 			var image = FromUrl(url);
 			if (image == null)

@@ -3,7 +3,7 @@ using System;
 using UIKit;
 
 using Google.Apis;
-
+ 
 namespace DailyFail
 {
     public partial class HomeTableViewController : UITableViewController
@@ -14,6 +14,7 @@ namespace DailyFail
 
 		public override void ViewDidLoad()
 		{
+
 		}
     }
 }
