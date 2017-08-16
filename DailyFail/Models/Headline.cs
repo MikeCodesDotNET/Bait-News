@@ -19,6 +19,12 @@ namespace BaitNews.Models
 
 		[JsonProperty("publisher")]
         public string Publisher { get; set; }
+
+		[JsonProperty("source")]
+		public string Source { get; set; }
+
+		[JsonProperty("mainImageUrl")]
+		public string ImageUrl { get; set; }
 	}
 }
 

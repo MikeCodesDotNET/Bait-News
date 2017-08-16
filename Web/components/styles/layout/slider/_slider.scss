@@ -1,0 +1,97 @@
+// --- Slider text - Centered ---
+
+.tp--carousel-caption-center {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    max-width: 80%;
+    max-height: 25%;
+    z-index: 10;
+    margin: auto;
+    text-align: center;
+    width: 100%;
+
+    h1 {
+      
+    }
+
+    h2 {
+      font-size: 1.8em;
+      font-weight: 300;
+      color: rgba(255,255,255,0.9);
+    }
+
+    p {
+      color: rgba(255,255,255,0.9);
+      margin: 1em 10em;
+    }
+    
+    .btn {
+      margin: 1em 0;
+      padding: 1em 2em;
+      background: white;
+      color: black;
+      border: none;
+      @include transition(all 0.2s ease-in-out);
+
+      &:hover {
+        // background: darken(@theme-cta, 10%);
+      }
+    }
+  }
+      
+
+  .tp--carousel-caption-left {
+    position: absolute;
+    left: 29px;
+    bottom: 15%;
+    max-width: 550px;
+    z-index: 10;
+
+    h1 {
+      font-size: 3em;
+      font-weight: 800;
+      margin: 0 0 0.5em;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+    }
+
+    p {
+      font-size: 1.3em;
+      font-weight: 100;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.8);
+    }
+    
+    .btn {
+      margin: 1em 0;
+      padding: 1em 2em;
+      background: white;
+      color: black;
+      @include transition(all 0.2s ease-in-out);
+
+      &:hover {
+        // background: darken(@theme-cta, 10%);
+      }
+    }
+  }
+
+
+  // Owl Carousel - Dot Navigation
+
+  .owl-dots {
+    .owl-dot {
+      display: inline-block;
+      zoom: 1;
+    }
+  }
+
+.carousel-control {
+  background: none !important;
+}

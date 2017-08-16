@@ -1,0 +1,22 @@
+.tp--testimonials {
+
+	blockquote {
+		border-left: 0;
+		color: $text-color;
+
+		small {
+			color: inherit;
+			
+			&:before {
+				content: '';
+			}
+		}
+	}
+
+	&.tp--section-dark {
+		blockquote {
+			color: white;
+		}
+	}
+
+}

@@ -1,0 +1,91 @@
+// --- Portfolio Hover Effect ---
+
+.tp--portfolio.tp--portfolio-hover-1 {
+	.tp--portfolio-grid {
+		list-style-type: none;
+		margin: 0px;
+		padding: 0px;
+
+		.tp--portfolio-item {
+			float: left;
+			padding: 0px;
+			position: relative;
+			overflow: hidden;
+
+			&:hover .caption{
+				opacity: 1;
+			}
+		}
+
+		img{
+			margin: 0px;
+			padding: 0px;
+			float: left;
+			z-index: 4;
+			width: 100%;
+		}
+
+		.caption{
+			cursor: pointer;
+			position: absolute;
+			opacity: 0;
+			-webkit-transition:all 0.45s ease-in-out;
+			-moz-transition:all 0.45s ease-in-out;
+			-o-transition:all 0.45s ease-in-out;
+			-ms-transition:all 0.45s ease-in-out;
+			transition:all 0.45s ease-in-out;
+			left: 0;
+	    right: 0;
+	    top: 0;
+	    bottom: 0;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-color: rgba(0,0,0,0.65);
+				margin: auto;
+			}
+		}
+
+		.caption-text {
+			z-index: 10;
+			color: #fff;
+			position: absolute;
+			width: 100%;
+			text-align: center;
+			@include center;
+
+			h1{
+				text-transform: uppercase;
+				font-size: 24px;
+				font-weight: 600;
+			}
+
+			p {
+				a {
+					color: white;
+					margin: 0 15px;
+					opacity: 0.7;
+					transition: opacity 0.3s;
+
+					&:hover {
+						text-decoration: none;
+						opacity: 1;
+					}
+
+					i {
+						margin-right: 5px;
+						position: relative;
+						top: 1px;
+					}
+				}
+			}
+		} 
+	
+	}
+
+}

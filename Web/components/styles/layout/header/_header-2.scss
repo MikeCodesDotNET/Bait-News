@@ -1,0 +1,33 @@
+// --- Fixed Header ---
+
+.tp--header.tp--header-2 {
+	background-color: white;
+
+  .logo {
+	  line-height: 80px;
+
+  	a {
+	    color: inherit;
+  	}
+
+  }
+
+	nav {
+
+		.nav {
+			> li {
+		  	> a {
+	    		color: inherit;
+	    		line-height: 80px;
+
+			    &:hover {
+
+			    }
+			  }
+
+	    }
+		}
+    
+	}
+
+}

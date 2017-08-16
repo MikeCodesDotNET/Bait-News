@@ -64,7 +64,7 @@ namespace DailyFail
 
 			cell.Headlinee = Answers[indexPath.Row].Headline.Text;
 			cell.Numberr = (indexPath.Row + 1).ToString();
-			cell.Publisher = Answers[indexPath.Row].Headline.Publisher;
+			cell.Publisher = Answers[indexPath.Row].Headline.Source;
 			cell.SelectedBackgroundView.BackgroundColor = "222630".ToUIColor();
 			cell.SelectionStyle = UITableViewCellSelectionStyle.None;
         	return cell;

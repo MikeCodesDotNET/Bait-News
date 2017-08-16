@@ -1,0 +1,92 @@
+//
+// Footer
+// --------------------------------------------------
+
+.tp--footer {
+  background: white;
+  padding: 5em 0;
+
+  h2 {
+    font-size: 1.3em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-top: 2.1em;
+    margin-bottom: 1em;
+  }
+
+  p,
+  a {
+    font-size: 0.9em;
+    margin-right: 10px;
+    color: $text-color;
+  }
+
+  a:hover {
+    color: darken($text-color, 30%);
+    text-decoration: none;
+  }
+
+  .footer-text {
+    p {
+      line-height: 1.7;
+    }
+  }
+
+  .label {
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+	
+	.copyright {
+    line-height: 2;
+    font-weight: 200;
+    letter-spacing: 0.7px;
+	}
+	
+	.logo {
+		padding: 1em 0 0;
+	}
+
+  .tp--social {
+    margin-top: 2em;
+  }
+
+  .icon {
+    font-size: 1.3em;
+    margin: 1.5em 0.75em 0;
+  }
+
+  &.tp--section-dark {
+    background-color: $section-bg-dark;
+    color: white;
+
+    h1, h2, h3, h4, h5, h6 {
+      color: white;
+    }
+
+    a, p {
+      color: white;
+    }
+
+    a {
+      &:hover {
+        opacity: 1;
+        color: white;
+      }
+    }
+
+    &.tp--diagonal {
+      background-color: transparent !important;
+
+      &:before {
+        background: $section-bg-dark !important;
+      }
+
+    }
+  }
+}

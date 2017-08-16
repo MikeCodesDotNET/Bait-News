@@ -1,0 +1,222 @@
+.tp--inner {
+
+	.tp--inner-header {
+		background: #bcbcbc;
+		padding: 5em 0;
+		position: relative;
+
+		h1, h2, h3, h4, h5, h6 {
+			margin: 0;
+		}
+
+		h1 {
+			font-size: 2.2em;
+			font-weight: 800;
+			margin-top: 0.75em;
+
+			@include MQ($screen-phone) {
+				font-size: 2.5em;
+			}
+
+			@include MQ($screen-tablet) {
+				font-size: 3em;
+			}
+
+			@include MQ($screen-desktop) {
+				font-size: 3.5em;
+			}
+
+			@include MQ($screen-lg-desktop) {
+				font-size: 4em;
+			}
+		}
+
+		h2 {
+			font-size: 1.8em;
+			font-weight: 800;
+			margin-top: 0.75em;
+
+			@include MQ($screen-phone) {
+				font-size: 2.2em;
+			}
+
+			@include MQ($screen-tablet) {
+				font-size: 2.6em;
+			}
+
+			@include MQ($screen-desktop) {
+				font-size: 3em;
+			}
+
+			@include MQ($screen-lg-desktop) {
+				font-size: 3.5em;
+			}
+		}
+
+		p {
+			font-size: 1.25em;
+			opacity: 0.8;
+			margin: 1em 0 0 0;
+		}
+
+		.tp--breadcrumbs {
+			padding: 4em 0.1em 1em;
+			color: white;
+			font-size: 0.9em;
+
+			a {
+				color: white;
+				i {
+					font-size: 1.1em;
+				}
+			}
+		}
+
+	}
+
+
+	.tp--section {
+
+		.page-header {
+	    border-bottom: 0;
+	    
+	    h1 {
+	      font-size: 5.5em;
+	      padding: 0 1em;
+	    }
+
+	    h2 {
+	      font-size: 2em;
+	      font-weight: 800;
+	      margin: 0.3em auto 0.5em;
+	      padding: 0 1em;
+	      line-height: 1.3;
+
+	      @include MQ(M) {
+	        font-size: 2.4em;
+	      }
+
+	      @include MQ(L) {
+	        font-size: 2.8em;
+	        line-height: 1.2;
+	        margin: 0.3em auto 0.5em;
+	      }
+
+	      @include MQ(XL) {
+	        font-size: 3em;
+	        line-height: 1.2;
+	      }
+
+	      @include MQ(XXL) {
+	        font-size: 3em;
+	        line-height: 1.3;
+	      }
+	    }
+
+	    h3 {
+	      font-size: 1em;
+	      font-weight: 600;
+	      text-transform: uppercase;
+	      letter-spacing: 1px;
+	      opacity: 0.75;
+	      padding: 0 1em;
+
+	      @include MQ(L) {
+	        font-size: 1.2em;
+	      }
+	    }
+
+	    i {
+	      font-size: 1.3em;
+	      margin: 0 0 10px;
+	      display: inline-block;
+	      border-radius: 50%;
+	      background-color: #eaeaea;
+	      width: 44px;
+	      height: 44px;
+	      line-height: 44px;
+
+	      @include MQ(M) {
+	        font-size: 1.5em;
+	        width: 55px;
+	        height: 55px;
+	        line-height: 55px;
+	      }
+
+	      @include MQ(L) {
+	        font-size: 1.8em;
+	        width: 60px;
+	        height: 60px;
+	        line-height: 60px;
+	        margin: 0.3em auto 0.5em;
+	      }
+
+	      @include MQ(XL) {
+
+	      }
+
+	      @include MQ(XXL) {
+	        font-size: 2em;
+	        width: 65px;
+	        height: 65px;
+	        line-height: 65px;
+	      }
+	    }
+
+	    @include MQ(L) {
+
+	      &.tp--title-overlay {
+	        h2 {
+	          position: relative;
+
+	          &:before {
+	            content: attr(data-title);
+	            position: absolute;
+	            font-size: 2.1em;
+	            line-height: 1.1;
+	            color: #eee;
+	            width: 100%;
+	            left: 0;
+	            right: 0;
+	            top: -25px;
+	            text-transform: uppercase;
+	          }
+
+	          span {
+	            position: relative;
+	          }
+	        }
+	      }
+	    }
+
+	    @include MQ(XXL) {
+
+	      &.tp--title-overlay {
+	        h2 {
+	          position: relative;
+
+	          &:before {
+	            content: attr(data-title);
+	            position: absolute;
+	            font-size: 2.2em;
+	            line-height: 1.1;
+	            color: #eee;
+	            width: 100%;
+	            left: 0;
+	            right: 0;
+	            top: -36px;
+	            text-transform: uppercase;
+	          }
+
+	          span {
+	            position: relative;
+	          }
+	        }
+	      }
+	    }
+	  }
+
+	}
+
+
+}

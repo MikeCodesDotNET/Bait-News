@@ -1,0 +1,31 @@
+.tp--testimonials.tp--testimonials-1 {
+	text-align: center;
+
+	blockquote {
+		p {
+			font-size: 1.05em;
+			font-style: italic;
+
+			@include MQ(M) {
+	      font-size: 1.1em;
+	    }
+
+	    @include MQ(L) {
+	    	font-size: 1.2em;
+	    }
+
+	    @include MQ(XL) {
+
+	    }
+
+	    @include MQ(XXL) {
+
+	    }
+		}
+
+		small {
+			opacity: 0.7;
+		}
+	}
+
+}

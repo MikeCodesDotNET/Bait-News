@@ -1,0 +1,43 @@
+.tp--cta.tp--cta-2 {
+
+  h1 {
+    font-size: 4em;
+  }
+
+  h2 {
+    font-size: 2.5em;
+    margin: 0 auto 0.25em;
+  }
+
+  h3 {
+    font-weight: 1.2em;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.25em;
+    padding: 0;
+    
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  } 
+  
+  .btn {
+    background: black;
+    color: white;
+    font-size: 1em;
+    margin-top: 2em;
+
+    @include MQ(L) {
+      float: right;
+      margin-top: 0;
+    }
+    
+    &:hover {
+
+    }
+  }
+}

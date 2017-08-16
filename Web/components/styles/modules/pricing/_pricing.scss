@@ -1,0 +1,40 @@
+//
+// Pricing
+// --------------------------------------------------
+
+.tp--pricing {
+
+  .plan {
+
+    .plan-title {
+      h1, h2, h3, h4, h5, h6 {
+        color: $headings-color;
+      }
+    }
+
+    .plan-features {
+      list-style: none;
+      margin: 1em 0;
+      padding: 0;
+
+      li {
+        color: $text-color;
+      }
+    }
+
+    .plan-cta {
+
+      .plan-buy {
+
+        .btn {
+
+          &:hover {
+
+          }
+        }
+      } 
+    }
+
+  }
+
+}

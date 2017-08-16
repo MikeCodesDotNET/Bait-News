@@ -1,0 +1,46 @@
+.tp--testimonials.tp--testimonials-2 {
+
+	.tp--floating-box {
+		margin: 25px 10px 25px;
+	}
+
+	.tp--testimonial-header {
+
+		img {
+			margin: auto auto 1.5em;
+    	width: 80px;
+
+			@include MQ(L) {
+				margin: 5px;
+			} 
+		}
+
+		h4 {
+			margin-bottom: 0em;
+			color: initial;
+		}
+
+		p {
+			font-size: 0.9em;
+			margin-bottom: 0;
+			color: $text-color;
+		}
+
+	}
+
+	blockquote {
+		margin-bottom: 0;
+		padding: 1em 0 0;
+		line-height: 1.7;
+		color: $text-color;
+
+		p {
+			font-size: initial;
+		}
+	}
+
+}
+
+.is-IE .tp--testimonials.tp--testimonials-2 .tp--testimonial-header h4 {
+	color: $headings-color;
+}

@@ -107,7 +107,7 @@ namespace BaitNews
 			}
 			answers.Sync();
 
-			var navigationController = UIApplication.SharedApplication.KeyWindow.RootViewController as UINavigationController;
+			var navigationController = UIApplication.SharedApplication.KeyWindow.RootViewController.ChildViewControllers.First() as UINavigationController;
 			navigationController.DismissModalViewController(true);        
         }
 

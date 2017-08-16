@@ -207,6 +207,9 @@
     <Reference Include="IdentityModel.OidcClient">
       <HintPath>..\packages\IdentityModel.OidcClient.2.1.2\lib\netstandard1.4\IdentityModel.OidcClient.dll</HintPath>
     </Reference>
+    <Reference Include="SDWebImage">
+      <HintPath>..\packages\Xamarin.SDWebImage.3.7.5\lib\Xamarin.iOS\SDWebImage.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json">
@@ -334,10 +337,19 @@
     <Compile Include="ViewControllers\Home\HomeTableViewController.designer.cs">
       <DependentUpon>HomeTableViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="HeadlineViewTableCell.cs" />
+    <Compile Include="HeadlineViewTableCell.designer.cs">
+      <DependentUpon>HeadlineViewTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\HeadlineCardView.cs" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="notification-hub">
       <Version>1.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="sdwebimage">
+      <Version>3.7.5</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
@@ -377,6 +389,8 @@
     <BundleResource Include="Resources\default-header.png" />
     <BundleResource Include="Resources\printed-news-headers.png" />
     <BundleResource Include="Resources\submit-headlines-header.png" />
+    <BundleResource Include="Resources\cardContent1.png" />
+    <BundleResource Include="Resources\cardContent2.png" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

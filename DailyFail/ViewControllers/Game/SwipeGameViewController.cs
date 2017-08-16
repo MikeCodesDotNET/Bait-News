@@ -71,7 +71,7 @@ namespace BaitNews
 			}
         }
 
-        void OnSwipeLeft(HeadlineView sender)
+        void OnSwipeLeft(HeadlineCardView sender)
         {
             var card = sender;
             var headline = card.Headline;
@@ -92,7 +92,7 @@ namespace BaitNews
             answers.Add(answer);
         }
 
-        void OnSwipeRight(HeadlineView sender)
+        void OnSwipeRight(HeadlineCardView sender)
         {
             var card = sender;
             var headline = card.Headline;

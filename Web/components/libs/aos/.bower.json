@@ -1,0 +1,50 @@
+{
+  "name": "aos",
+  "version": "2.1.1",
+  "homepage": "git://github.com/michalsnik/aos.git",
+  "authors": [
+    "Michał Sajnóg <michal.sajnog@hotmail.com>"
+  ],
+  "main": [
+    "dist/aos.js",
+    "dist/aos.css"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node",
+    "es6"
+  ],
+  "keywords": [
+    "scroll",
+    "css3",
+    "transition",
+    "transform",
+    "mousewheel",
+    "smooth",
+    "wow",
+    "animate"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    ".gitignore",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "dependencies": {},
+  "_release": "2.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.1.1",
+    "commit": "2419bb5c19c5d7784a4bae883df599e1fca4ff83"
+  },
+  "_source": "https://github.com/michalsnik/aos.git",
+  "_target": "^2.1.1",
+  "_originalSource": "aos",
+  "_direct": true
+}

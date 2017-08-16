@@ -1,0 +1,42 @@
+.btn {
+	@include transition(all 0.3s);
+	padding: 10px 25px;
+
+	&:focus {
+		outline: none;
+	}
+
+	&.btn-square { 
+		border-radius: 0 !important;
+	}
+
+	&.btn-circular {
+		border-radius: 50px; 
+		box-shadow: none;
+	}
+
+	&.btn-empty {
+		background-color: transparent;
+		color: $headings-color;
+		box-shadow: none;
+	}
+
+	&.btn-lg {
+	  padding: 15px 25px;
+	}
+
+	&.btn-box-shadow {
+		box-shadow: 0 4px 6px rgba(39, 39, 80, 0.11), 0 1px 3px rgba(0,0,0,.08);
+	}
+
+	&.btn-white {
+    background-color: white !important;
+    border-color: white !important;
+    color: $headings-color !important;
+
+    &:hover {
+    	background-color: darken(white, 8%) !important;
+    	border-color: darken(white, 8%) !important;
+    }
+  } 
+}

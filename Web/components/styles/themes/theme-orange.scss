@@ -1,0 +1,28 @@
+/* -------------------
+THEME - ORANGE
+---------------------- */
+
+@import '../base/_variables'; 
+@import '../base/_mixins';
+@import '_theme';
+
+
+// --- Base color ---
+$theme-name: 					orange;
+$color-primary: 			map-get(map-get($theme-colors, $theme-name), primary);
+
+
+// --- Link Settings ---
+$link-color-hover:   	$color-primary;
+$link-color-active:   $color-primary;
+
+
+// --- Section Background Colours ---
+$section-bg-light:		lighten($color-primary, 34%);
+$section-bg-dark:			$color-primary;
+
+
+@import '_theme-content';
+@import '_theme-modules';
+@import '_theme-plugins';     
+
