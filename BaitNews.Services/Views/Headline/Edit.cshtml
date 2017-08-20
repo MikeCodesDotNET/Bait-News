@@ -7,9 +7,9 @@
     <div class="content">
     <div class="form-horizontal">
 	<h2>Edit Headline</h2>
+   <section id="tagline" class="tp--section p-top-sm-100 p-bottom-sm-50">
 
-        <h4>@Model.Text</h4>
-        <hr />
+    <div class="container">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
@@ -59,7 +59,9 @@
             </div>
         </div>
     </div>
+	</section>
 	</div>
+</div>
 }
 
 <div>
