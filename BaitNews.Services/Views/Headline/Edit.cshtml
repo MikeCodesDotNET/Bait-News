@@ -1,12 +1,13 @@
-﻿@model Models.Headline
+﻿@model BaitNews.Models.Headline
 
-<h2>Edit Headline</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+    <div class="content">
     <div class="form-horizontal">
+	<h2>Edit Headline</h2>
+
         <h4>@Model.Text</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -58,6 +59,7 @@
             </div>
         </div>
     </div>
+	</div>
 }
 
 <div>

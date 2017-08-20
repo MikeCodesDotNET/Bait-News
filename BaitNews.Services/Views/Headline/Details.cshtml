@@ -1,9 +1,12 @@
-﻿@model Models.Headline
+﻿@model BaitNews.Models.Headline
 
-<h2>@Model.Text</h2>
 
 <div>
+    <section id="tagline" class="tp--section p-top-sm-100 p-bottom-sm-50">
+
     <div class="container">
+		<h2>@Model.Text</h2>
+
         <div class="row">
             <div class="col-md-2">
                  <img src="@Model.ImageUrl"
@@ -53,9 +56,10 @@
         </div>
     </div>
 
-      
        
     </div>
+          </section>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
