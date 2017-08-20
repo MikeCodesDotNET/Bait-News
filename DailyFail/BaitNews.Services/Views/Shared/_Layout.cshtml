@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - BaitNews</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/plugins/loaders-css/loaders.css" />
+			<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800" rel="stylesheet">
+
+            <!-- Plugins -->
+		         
+            <link rel="stylesheet" href="~/css/plugins/owl-carousel/owl.carousel.custom.css" />         
+            <link rel="stylesheet" href="~/css/plugins/owl-carousel/owl.carousel.min.css" />         
+            <link rel="stylesheet" href="~/css/plugins/owl-carousel/owl.theme.default.min.css" />         
+            <link rel="stylesheet" href="~/css/plugins/devices/devices.min.css" />
+            <link rel="stylesheet" href="~/css/font-awesome.css" />
+			<link rel="stylesheet" href="~/css/simple-line-icons.css" />
+            <link rel="stylesheet" href="~/css/plugins/magnific-popup/magnific-popup.css" />
+            <link rel="stylesheet" href="~/css/plugins/aos/aos.css" />
+
+			<!-- Styles -->
+            <link rel="stylesheet" href="~/css/main.css" />
+			<link rel="stylesheet" href="~/css/theme.css" />
+            
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+			<link rel="stylesheet" href="~/css/plugins/loaders-css/loaders.min.css" asp-append-version="true" />
+
+    </environment>
+</head>
+<body>
+
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+    <header class="tp--header tp--header-fixed tp--header-shrink tp--header-1 shrink">
+
+      <a href="#0" class="nav-trigger">Open Nav<span aria-hidden="true"></span></a>
+
+      <nav class="navbar-wrapper">
+
+        <div class="container clearfix">
+
+          <!-- LOGO
+          ================================================== -->
+
+          <h1 class="logo">
+            <a href="index-home-1.html">
+              <img src="../images/logo.png" class="logo-main" alt="Olive.">
+              <img src="../images/logo-dark.png" class="logo-dark" alt="Olive.">
+            </a>
+          </h1>
+
+
+          <!-- NAVIGATION
+          ================================================== -->
+
+          <div class="navbar tp--nav-dropdown pull-right">
+
+            <div class="navbar-collapse collapse">
+
+              <ul class="nav navbar-nav">
+                <li>
+					<a asp-area="" asp-controller="Home" asp-action="Index">Home</a>               
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Home" asp-action="About">About</a>               
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>               
+                </li>
+                <li>
+                  <a href="page-pricing-1.html">Pricing</a>
+                </li>
+                <li class="has-dropdown links" data-content="more">
+                  <a href="#0">Moderate</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Dropdown Wrapper -->
+          <div class="morph-dropdown-wrapper">
+            <div class="morph-dropdown-container">
+              <div class="dropdown-list text-center">
+                <ul>
+
+                  <li class="links">
+                    <a href="index-home-1.html" class="tp--nav-label">Home</a>
+                  </li>
+
+                  <li class="links">
+                    <a href="#about" class="tp--nav-label tp--scroll">How it works</a>
+                  </li>
+
+                  <li class="links">
+                    <a href="#featured1" class="tp--nav-label tp--scroll">Features</a>
+                  </li>
+
+                  <li class="links">
+                    <a href="page-pricing-1.html" class="tp--nav-label">Pricing</a>
+                  </li>
+
+                  <li id="more" class="dropdown links">
+                    <a href="#0" class="tp--nav-label">Additional Links</a>
+                    
+                    <div class="content"> 
+                      <ul>
+                        <li>
+                           <a asp-area="" asp-controller="Headline" asp-action="Index">Headlines</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Headline" asp-action="Index">Answers</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Headline" asp-action="Index">Users</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+
+                  <li class="tp--nav-divider"><a></a></li>
+                </ul>
+
+                <div class="bg-layer" aria-hidden="true"></div>
+              </div> <!-- dropdown-list -->
+            </div>
+          </div> <!-- morph-dropdown-wrapper -->
+
+        </div>
+
+      </nav>
+      
+    </header>
+		
+		<!--
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Bait News</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li class="dropdown">
+				        <a class="dropdown-toggle" data-toggle="dropdown" href="#">App Data<span class="caret"></span></a>
+					        <ul class="dropdown-menu">
+                                <li><a asp-area="" asp-controller="Headline" asp-action="Index">Headlines</a></li>
+                                <li><a asp-area="" asp-controller="Headline" asp-action="Index">Answers</a></li>
+                                <li><a asp-area="" asp-controller="Headline" asp-action="Index">Users</a></li>
+					        </ul>
+					 </li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    !-->
+
+
+		
+    <div class="body">
+        @RenderBody()
+        <hr />
+
+            <!-- Footer
+    ================================================== -->
+    <footer id="footer" class="tp--footer tp--section-dark tp--gradient-3 tp--footer-1 text-xs-center">
+
+      <div class="container">
+
+        <div class="row tp--social">
+          <div class="col-lg-12 text-center">
+            <a class="icon" href="http://www.twitter.com/dparrelli" target="_blank"><i class="fa fa-twitter"></i></a>
+            <a class="icon" href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a class="icon" href="http://www.dribbble.com/dparrelli" target="_blank"><i class="fa fa-dribbble"></i></a>
+            <a class="icon" href="https://www.healthcoach.io" target="_blank"><i class="fa fa-globe"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+    </footer>  
+
+
+			
+    </div>
+
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/main.js" asp-append-version="true"></script>
+
+	    <script src="../js/plugins/classie/classie.js" asp-append-version="true"></script>
+        <script src="../js/plugins/owl-carousel/owl.carousel.min.js" asp-append-version="true"></script>
+        <script src="../js/plugins/isotope/isotope.pkgd.min.js" asp-append-version="true"></script>
+        <script src="../js/plugins/magnific-popup/jquery.magnific-popup.min.js" asp-append-version="true"></script>
+        <script src="../js/plugins/modernizr/modernizr-custom.js" asp-append-version="true"></script>
+        <script src="../js/plugins/aos/aos.js" asp-append-version="true"></script>
+			
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -12,7 +12,7 @@ using CoreGraphics;
 
 namespace BaitNews
 {
-    public partial class ResultsViewController : UIViewController, IUIViewControllerPreviewingDelegate
+    public partial class ResultsViewController : UIViewController
     {
         public List<Answer> Answers = new List<Answer>();
 		ScrollingTabView tabView;
@@ -111,15 +111,6 @@ namespace BaitNews
 			navigationController.DismissModalViewController(true);        
         }
 
-		public UIViewController GetViewControllerForPreview(IUIViewControllerPreviewing previewingContext, CGPoint location)
-		{
-			throw new NotImplementedException();
-		}
-
-		public void CommitViewController(IUIViewControllerPreviewing previewingContext, UIViewController viewControllerToCommit)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 

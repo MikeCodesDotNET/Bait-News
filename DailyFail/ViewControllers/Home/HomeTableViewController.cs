@@ -13,6 +13,8 @@ using AppServiceHelpers;
 using DailyFail;
 using CoreAnimation;
 using CoreGraphics;
+using Microsoft.Azure.Mobile.Analytics;
+using SafariServices;
 
 namespace DailyFail
 {
@@ -25,16 +27,23 @@ namespace DailyFail
 		public override void ViewDidLoad()
 		{
 			Refresh();
+
+			if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available)
+			{
+                RegisterForPreviewingWithDelegate(new HomePreviewingDelegate(this), View);
+			}
 		}
 
 		public async void Refresh()
 		{
 			var table = EasyMobileServiceClient.Current.Table<Headline>();
 			var headlines = await table.GetItemsAsync();
-			var datasource = new HomeTableViewDataSource(headlines.ToList());
-			TableView.DataSource = datasource;
+			DataSource = new HomeTableViewDataSource(headlines.ToList());
+			TableView.DataSource = DataSource;
 			TableView.ReloadData();
 		}
+
+		public HomeTableViewDataSource DataSource { get; set; }
 	}
 
 	public class HomeTableViewDataSource : UITableViewDataSource
@@ -68,6 +77,49 @@ namespace DailyFail
 		{
 			return Headline.Count();
 		}	
+	}
+
+	public class HomePreviewingDelegate : UIViewControllerPreviewingDelegate
+	{
+		public HomeTableViewController TableController { get; set; }
+		public HomePreviewingDelegate(HomeTableViewController controller)
+		{
+			TableController = controller;
+		}
+
+		public HomePreviewingDelegate(NSObjectFlag t) : base(t)
+		{
+		}
+
+		public HomePreviewingDelegate(IntPtr handle) : base(handle)
+		{
+		}
+
+		/// Present the view controller for the "Pop" action.
+		public override void CommitViewController(IUIViewControllerPreviewing previewingContext, UIViewController viewControllerToCommit)
+		{
+			// Reuse Peek view controller for details presentation
+			TableController.ShowViewController(viewControllerToCommit, this);
+		}
+
+		/// Create a previewing view controller to be shown at "Peek".
+		public override UIViewController GetViewControllerForPreview(IUIViewControllerPreviewing previewingContext, CGPoint location)
+		{
+			Analytics.TrackEvent("User used 3D Touch");
+
+			// Grab the item to preview
+			var indexPath = TableController.TableView.IndexPathForRowAtPoint(location);
+			var cell = TableController.TableView.CellAt(indexPath);
+			var item = TableController.DataSource.Headline[indexPath.Row];
+
+			var safariViewController = new SFSafariViewController(new NSUrl(item.Url), true);
+			safariViewController.PreferredContentSize = new CGSize(0, 0);
+
+			// Set the source rect to the cell frame, so everything else is blurred.
+			previewingContext.SourceRect = cell.Frame;
+			return safariViewController;
+		} 
+	
 	}
 
 }

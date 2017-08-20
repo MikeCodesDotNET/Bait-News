@@ -15,13 +15,15 @@ using AppServiceHelpers;
 using AppServiceHelpers.Helpers;
 
 using Microsoft.Azure.Mobile.Analytics;
+using SafariServices;
+using CoreGraphics;
 
 namespace BaitNews
 {
     public partial class SwipeGameViewController : UIViewController
 	{
         List<Answer> answers;
-        CardHolderView cardHolder;
+		public CardHolderView cardHolderView;
 		int correctAnswersCount = 0;
 
         ConnectedObservableCollection<Headline> headlines; 
@@ -37,6 +39,14 @@ namespace BaitNews
         }
 
 
+		public Headline CurrentHeadline
+		{
+			get
+			{
+				return cardHolderView.VisibleHeadline;
+			}
+		}
+
         async public override void ViewDidLoad()
         {
             base.ViewDidLoad();
@@ -44,12 +54,17 @@ namespace BaitNews
             await headlines.Refresh();
             headlines.Shuffle();
 
-            cardHolder = new CardHolderView(cardPlaceholder.Frame, headlines.ToList());
-            cardHolder.DidSwipeLeft += OnSwipeLeft;
-            cardHolder.DidSwipeRight += OnSwipeRight;
-            cardHolder.NoMoreCards += FinishGame;
+            cardHolderView = new CardHolderView(cardPlaceholder.Frame, headlines.ToList());
+            cardHolderView.DidSwipeLeft += OnSwipeLeft;
+            cardHolderView.DidSwipeRight += OnSwipeRight;
+            cardHolderView.NoMoreCards += FinishGame;
 
-			View.AddSubview(cardHolder);
+			View.AddSubview(cardHolderView);
+
+			if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available)
+			{
+                RegisterForPreviewingWithDelegate(new HeadlineCardPreviewingDelegate(this), cardHolderView);
+			}
         }
 
         public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
@@ -145,5 +160,50 @@ namespace BaitNews
         {
             DismissViewController(true, null);
         }
- }
+
+		public void CommitViewController(IUIViewControllerPreviewing previewingContext, UIViewController viewControllerToCommit)
+		{
+			ShowViewController(viewControllerToCommit, this);
+		}
+
+	}
+
+	public class HeadlineCardPreviewingDelegate : UIViewControllerPreviewingDelegate
+	{
+		SwipeGameViewController gameController;
+		public HeadlineCardPreviewingDelegate(SwipeGameViewController gameController)
+		{
+            this.gameController = gameController;
+		}
+
+		public HeadlineCardPreviewingDelegate(NSObjectFlag t) : base(t)
+		{
+		}
+
+		public HeadlineCardPreviewingDelegate(IntPtr handle) : base(handle)
+		{
+		}
+
+		/// Present the view controller for the "Pop" action.
+		public override void CommitViewController(IUIViewControllerPreviewing previewingContext, UIViewController viewControllerToCommit)
+		{
+			// Reuse Peek view controller for details presentation
+			gameController.ShowViewController(viewControllerToCommit, this);
+		}
+
+		/// Create a previewing view controller to be shown at "Peek".
+		public override UIViewController GetViewControllerForPreview(IUIViewControllerPreviewing previewingContext, CGPoint location)
+		{
+			Analytics.TrackEvent("User used 3D Touch");
+
+
+			// Grab a controller and set it to the default sizes
+			var safariViewController = new SFSafariViewController(new NSUrl(gameController.CurrentHeadline.Url), true);
+			safariViewController.PreferredContentSize = new CGSize(0, 0);
+
+			// Set the source rect to the cell frame, so everything else is blurred.
+			previewingContext.SourceRect = gameController.cardHolderView.Frame;
+			return safariViewController;
+		} 
+	}
 }

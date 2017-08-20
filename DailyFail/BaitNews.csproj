@@ -342,6 +342,7 @@
       <DependentUpon>HeadlineViewTableCell.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\HeadlineCardView.cs" />
+    <Compile Include="Helpers\CustomDelegateHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="notification-hub">
