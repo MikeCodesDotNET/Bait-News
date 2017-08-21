@@ -4,9 +4,11 @@ using System.Threading.Tasks;
 using BaitNews.Models;
 using BaitNews.Data.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BaitNews.Controllers
 {
+    [Authorize]
     public class HeadlineController : Controller
     {
         [ActionName("Index")]

@@ -86,16 +86,16 @@
                 <li>
                     <a asp-area="" asp-controller="Home" asp-action="Developers">Developers</a>               
                 </li>		
-                    @if (User.Identity.IsAuthenticated) 
-                    {
-
-                    } 
-					else 
-					{
-	                    <a asp-area="" asp-controller="Home" asp-action="Index">Login</a>               
-
-					}
-				
+                   <ul class="nav navbar-nav navbar-right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a  asp-controller="Account" asp-action="Logout">Logout</a></li>
+                }
+                else
+                {
+                    <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+                }
+            </ul>
                   <li class="tp--nav-divider"><a></a></li>
                 </ul>
 
