@@ -85,59 +85,17 @@
                 </li>
                 <li>
                     <a asp-area="" asp-controller="Home" asp-action="Developers">Developers</a>               
-                </li>
+                </li>		
+                    @if (User.Identity.IsAuthenticated) 
+                    {
 
-								
-       
-								
-                <li class="has-dropdown links" data-content="more">
-                  <a href="#0">Moderate</a>
-                </li>
-              </ul>
-            </div>
+                    } 
+					else 
+					{
+	                    <a asp-area="" asp-controller="Home" asp-action="Index">Login</a>               
 
-          </div>
-
-          <!-- Dropdown Wrapper -->
-          <div class="morph-dropdown-wrapper">
-            <div class="morph-dropdown-container">
-              <div class="dropdown-list text-center">
-                <ul>
-
-                  <li class="links">
-                    <a href="index-home-1.html" class="tp--nav-label">Home</a>
-                  </li>
-
-                  <li class="links">
-                    <a href="#about" class="tp--nav-label tp--scroll">How it works</a>
-                  </li>
-
-                  <li class="links">
-                    <a href="#featured1" class="tp--nav-label tp--scroll">Features</a>
-                  </li>
-
-                  <li class="links">
-                    <a href="page-pricing-1.html" class="tp--nav-label">Pricing</a>
-                  </li>
-
-                  <li id="more" class="dropdown links">
-                    <a href="#0" class="tp--nav-label">Additional Links</a>
-                    
-                    <div class="content"> 
-                      <ul>
-                        <li>
-                           <a asp-area="" asp-controller="Headline" asp-action="Index">Headlines</a>
-                        </li>
-                        <li>
-                            <a asp-area="" asp-controller="Headline" asp-action="Index">Answers</a>
-                        </li>
-                        <li>
-                            <a asp-area="" asp-controller="Headline" asp-action="Index">Users</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-
+					}
+				
                   <li class="tp--nav-divider"><a></a></li>
                 </ul>
 
@@ -204,15 +162,7 @@
           </div>
         </div>
 
-					@if (User.Identity.IsAuthenticated) 
-{
-    <p>User @User.Identity.Name is signed in. <a href="/Account/Logout">Logout</a> </p>
 
-} 
-else 
-{
-    <p>No user is signed in.</p>    
-}
 
       </div>
 

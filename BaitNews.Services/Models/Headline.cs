@@ -7,7 +7,9 @@ namespace BaitNews.Models
     public class Headline : BaseModel
     {
 		[JsonProperty("text")]
-		[DataType(System.ComponentModel.DataAnnotations.DataType.MultilineText)]
+		[DataType(DataType.MultilineText)]
+		[StringLength(360, MinimumLength = 10)]
+        [Display(Name ="Headline")]
 		public string Text { get; set; }
 
 		[JsonProperty("source")]
@@ -17,12 +19,15 @@ namespace BaitNews.Models
 		public string Url { get; set; }
 
 		[JsonProperty("isTrue")]
+		[Display(Name = "Is True")]
 		public bool IsTrue { get; set; }
 
 		[JsonProperty("isNSFW")]
+		[Display(Name = "NSFW")]
 		public bool IsNSFW { get; set; }
 
 		[JsonProperty("mainImageUrl")]
+		[Display(Name = "Image URL")]
 		public string ImageUrl { get; set; }
     }
 }
