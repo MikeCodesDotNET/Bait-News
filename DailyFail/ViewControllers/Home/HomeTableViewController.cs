@@ -4,19 +4,17 @@ using UIKit;
 
 using System.Collections.Generic;
 
-using Google.Apis;
 using MikeCodesDotNET.iOS;
 using BaitNews.Models;
 using SDWebImage;
 using System.Linq;
-using AppServiceHelpers;
-using DailyFail;
+using BaitNews;
 using CoreAnimation;
 using CoreGraphics;
 using Microsoft.Azure.Mobile.Analytics;
 using SafariServices;
 
-namespace DailyFail
+namespace BaitNews
 {
 	public partial class HomeTableViewController : UITableViewController
 	{
@@ -36,9 +34,10 @@ namespace DailyFail
 
 		public async void Refresh()
 		{
-			var table = EasyMobileServiceClient.Current.Table<Headline>();
-			var headlines = await table.GetItemsAsync();
-			DataSource = new HomeTableViewDataSource(headlines.ToList());
+            var headlineService = new Services.Headlines.HeadlineService(new Services.Headlines.HeadlineApiService());
+            var headlines = await headlineService.GetHeadlines(Fusillade.Priority.UserInitiated);
+
+            DataSource = new HomeTableViewDataSource(headlines.ToList());
 			TableView.DataSource = DataSource;
 			TableView.ReloadData();
 		}

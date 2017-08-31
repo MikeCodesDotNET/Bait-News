@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace DailyFail
+namespace BaitNews
 {
 	public class CustomDelegateHandler : DelegatingHandler
 	{

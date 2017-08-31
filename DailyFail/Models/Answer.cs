@@ -1,10 +1,9 @@
 ﻿using System;
-using AppServiceHelpers.Models;
 using Newtonsoft.Json;
 
 namespace BaitNews.Models
 {
-    public class Answer : EntityData
+    public class Answer : BaseModel
     {
         [JsonIgnore]
         public Headline Headline;

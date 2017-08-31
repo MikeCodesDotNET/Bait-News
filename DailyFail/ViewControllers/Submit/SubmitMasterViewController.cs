@@ -6,7 +6,7 @@ using BaitNews.CustomControls;
 using System.Collections.Generic;
 using MikeCodesDotNET.iOS;
 
-namespace DailyFail
+namespace BaitNews
 {
     public partial class SubmitMasterViewController : UIViewController
     {

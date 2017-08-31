@@ -4,15 +4,13 @@ using System.Linq;
 
 using BaitNews.Models;
 using BaitNews.CustomControls;
+using BaitNews.Services.Headlines;
 
 using Foundation;
 using UIKit;
 
 using MikeCodesDotNET.iOS;
-using NotificationHub;
 using Awesomizer;
-using AppServiceHelpers;
-using AppServiceHelpers.Helpers;
 
 using Microsoft.Azure.Mobile.Analytics;
 using SafariServices;
@@ -22,19 +20,18 @@ namespace BaitNews
 {
     public partial class SwipeGameViewController : UIViewController
 	{
-        List<Answer> answers;
+		HeadlineService headlineService = new HeadlineService(new HeadlineApiService());
+		List<Answer> answers;
+        List<Headline> headlines; 
 		public CardHolderView cardHolderView;
 		int correctAnswersCount = 0;
 
-        ConnectedObservableCollection<Headline> headlines; 
 
         const string segueIdentifier = "RESULTS_SEGUE_IDENTIFIER";
 
         public SwipeGameViewController(IntPtr handle) : base(handle)
         {
-            headlines = new ConnectedObservableCollection<Headline>(EasyMobileServiceClient.Current.Table<Headline>());
-            answers = new List<Answer>();
-
+			answers = new List<Answer>(); 
 			Analytics.TrackEvent("Games Started");
         }
 
@@ -51,10 +48,12 @@ namespace BaitNews
         {
             base.ViewDidLoad();
 			UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, true);
-            await headlines.Refresh();
+
+            headlines = await headlineService.GetHeadlines(Fusillade.Priority.UserInitiated);
+
             headlines.Shuffle();
 
-            cardHolderView = new CardHolderView(cardPlaceholder.Frame, headlines.ToList());
+            cardHolderView = new CardHolderView(cardPlaceholder.Frame, headlines);
             cardHolderView.DidSwipeLeft += OnSwipeLeft;
             cardHolderView.DidSwipeRight += OnSwipeRight;
             cardHolderView.NoMoreCards += FinishGame;

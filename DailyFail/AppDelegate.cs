@@ -2,15 +2,14 @@
 using Foundation;
 using UIKit;
 using BaitNews.Models;
-using AppServiceHelpers;
 
 using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Azure.Mobile.Crashes;
 using Microsoft.Azure.Mobile.Distribute;
 using Microsoft.Azure.Mobile.Push;
-using Microsoft.WindowsAzure.MobileServices;
-using DailyFail;
+using BaitNews;
+using Akavache;
 
 namespace BaitNews
 {
@@ -29,22 +28,11 @@ namespace BaitNews
 
 		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
 		{
-			// Override point for customization after application launch.
-			// If not required for your application you can safely delete this method
-			MobileCenter.Start("5a59ecc6-7522-4793-bb93-65f5aed040c1",
+            BlobCache.ApplicationName = "BaitNews";
+
+            MobileCenter.Start("5a59ecc6-7522-4793-bb93-65f5aed040c1",
 			                   typeof(Analytics), typeof(Crashes), typeof(Distribute));
-
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-			SQLitePCL.CurrentPlatform.Init();
-
-			EasyMobileServiceClient.Current.Initialize(Helpers.Keys.AzureServiceUrl);
-
-			EasyMobileServiceClient.Current.RegisterTable<Headline>();
-			EasyMobileServiceClient.Current.RegisterTable<Answer>();
-
-			EasyMobileServiceClient.Current.FinalizeSchema();
-
-
+            
 			UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes
 			{
 				Font = UIFont.FromName("AvenirNext-Medium", 18),
