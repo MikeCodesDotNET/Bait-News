@@ -6,19 +6,24 @@ using System.Threading.Tasks;
 using Microsoft.Azure.Documents;
 using Microsoft.Azure.Documents.Client;
 using Microsoft.Azure.Documents.Linq;
+using Microsoft.Extensions.Configuration;
 
 namespace BaitNews.Data.Services
 {   
     public static class DocumentDBRepository<T> where T : class
     {
-        static readonly string Endpoint = "https://baitnews.documents.azure.com:443/";
-        static readonly string Key = "UYMEejsculVeWelRIA83y9he0Sp16C2WAO86wZ2I1V7MydXFpALYQt3S4c6rhqTLHYQN0tn8XLHyyI5aIvGpZw==";
-        static readonly string DatabaseId = "BaitNews";
-        static readonly string CollectionId = "Headlines";
+        static string Endpoint = "https://baitnews.documents.azure.com:443/";
+        static string Key = "UYMEejsculVeWelRIA83y9he0Sp16C2WAO86wZ2I1V7MydXFpALYQt3S4c6rhqTLHYQN0tn8XLHyyI5aIvGpZw==";
+        static string DatabaseId = "BaitNews";
+
+        static string CollectionId;
         static DocumentClient client;
 
-		public static void Initialize()
+		public static void Initialize(string collectionId)
 		{
+            CollectionId = collectionId;
+
+
 			client = new DocumentClient(new Uri(Endpoint), Key, new ConnectionPolicy { EnableEndpointDiscovery = false });
 			CreateDatabaseIfNotExistsAsync().Wait();
 			CreateCollectionIfNotExistsAsync().Wait();

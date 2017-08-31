@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BaitNews.Controllers
+namespace BaitNews.Controllers.Web
 {
 	[Route("api")]
 	public class PingController : Controller

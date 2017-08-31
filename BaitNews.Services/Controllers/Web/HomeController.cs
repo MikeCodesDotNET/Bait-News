@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BaitNews.Controllers
+namespace BaitNews.Controllers.Web
 {
     public class HomeController : Controller
     {

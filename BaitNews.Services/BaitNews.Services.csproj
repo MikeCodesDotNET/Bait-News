@@ -17,6 +17,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="1.1.2" />
     <PackageReference Include="Auth0" Version="3.6.0" />
+    <PackageReference Include="Microsoft.ProjectOxford.ContentModerator.DotNetCore" Version="1.0.1" />
   </ItemGroup>
 
 
@@ -47,5 +48,8 @@
     <Folder Include="wwwroot\images\patterns\" />
     <Folder Include="wwwroot\fonts\" />
     <Folder Include="Views\Account\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Controllers\Web\" />
+    <Folder Include="Controllers\API\" />
   </ItemGroup>
 </Project>

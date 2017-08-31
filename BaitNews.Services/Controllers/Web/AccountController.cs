@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BaitNews.Controllers
+namespace BaitNews.Controllers.Web
 {
 	public class AccountController : Controller
 	{

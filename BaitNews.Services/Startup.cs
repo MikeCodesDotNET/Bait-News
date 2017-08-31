@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using System;
 using BaitNews.Data.Services;
 using BaitNews.Models;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BaitNews
 {
@@ -36,16 +37,22 @@ namespace BaitNews
 			services.AddAuthentication(
 				options => options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme);
 
+		    services.AddAuthorization(options =>
+			{
+				options.AddPolicy(
+					"admin",
+					policyBuilder => policyBuilder.RequireClaim("admin"));
+			});
+
 			// Add framework services.
 			services.AddMvc();
 
 			// Add functionality to inject IOptions<T>
-			services.AddOptions();
+            services.AddOptions();
 
 			// Add the Auth0 Settings object so it can be injected
 			services.Configure<Auth0Settings>(Configuration.GetSection("Auth0"));
-
-			DocumentDBRepository<Headline>.Initialize();
+			DocumentDBRepository<Headline>.Initialize("Headlines");
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -97,6 +104,13 @@ namespace BaitNews
 				// Configure the Claims Issuer to be Auth0
 				ClaimsIssuer = "Auth0",
 
+				TokenValidationParameters = new TokenValidationParameters
+				{
+					NameClaimType = "name",
+					RoleClaimType = "https://schemas.baitnews.io/roles"
+				},
+
+
 				Events = new OpenIdConnectEvents
 				{
 					// handle the logout redirection 
@@ -125,6 +139,7 @@ namespace BaitNews
 			};
 			options.Scope.Clear();
 			options.Scope.Add("openid");
+            options.Scope.Add("profile");
 			app.UseOpenIdConnectAuthentication(options);
 
 			app.UseMvc(routes =>
