@@ -6,8 +6,7 @@ using BaitNews.Models;
 using System.Linq;
 using MikeCodesDotNET.iOS;
 using BaitNews.CustomControls;
-using DailyFail;
-using AppServiceHelpers;
+using BaitNews;
 using CoreGraphics;
 
 namespace BaitNews
@@ -100,12 +99,7 @@ namespace BaitNews
       
         partial void BtnOk_TouchUpInside(UIButton sender)
         {
-			var answers = EasyMobileServiceClient.Current.Table<Answer>();
-			foreach (var answer in Answers)
-			{
-				answers.AddAsync(answer);
-			}
-			answers.Sync();
+			//TODO Save answers to backend.
 
 			var navigationController = UIApplication.SharedApplication.KeyWindow.RootViewController.ChildViewControllers.First() as UINavigationController;
 			navigationController.DismissModalViewController(true);        

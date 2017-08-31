@@ -1,12 +1,14 @@
-﻿using AppServiceHelpers.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace BaitNews.Models
 {
-    public class Headline : EntityData
+    public class Headline : BaseModel
     {
 		[JsonProperty("text")]
 		public string Text { get; set;}
+
+		[JsonProperty("source")]
+		public string Source { get; set; }
 
 		[JsonProperty("url")]
 		public string Url { get; set;}
@@ -20,11 +22,14 @@ namespace BaitNews.Models
 		[JsonProperty("publisher")]
         public string Publisher { get; set; }
 
-		[JsonProperty("source")]
-		public string Source { get; set; }
-
 		[JsonProperty("mainImageUrl")]
 		public string ImageUrl { get; set; }
+
+		[JsonProperty("commentCount")]
+		public int CommentCount { get; set; }
+
+		[JsonProperty("likeCount")]
+		public int LikeCount { get; set; }
 	}
 }
 

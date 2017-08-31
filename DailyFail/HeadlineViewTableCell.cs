@@ -4,7 +4,7 @@ using UIKit;
 using CoreGraphics;
 using CoreAnimation;
 
-namespace DailyFail
+namespace BaitNews
 {
     public partial class HeadlineViewTableCell : UITableViewCell
     {

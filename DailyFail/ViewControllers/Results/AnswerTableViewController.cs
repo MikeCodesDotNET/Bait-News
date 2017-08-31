@@ -9,7 +9,7 @@ using CoreGraphics;
 using SafariServices;
 using Microsoft.Azure.Mobile.Analytics;
 
-namespace DailyFail
+namespace BaitNews
 {
     public partial class AnswerTableViewController : UITableViewController
     {

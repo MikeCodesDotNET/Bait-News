@@ -2,7 +2,7 @@ using Foundation;
 using System;
 using UIKit;
 
-namespace DailyFail
+namespace BaitNews
 {
     public partial class SadPandaViewController : UIViewController
     {

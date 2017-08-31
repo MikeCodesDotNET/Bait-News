@@ -9,7 +9,6 @@ namespace BaitNews
 		static void Main(string[] args)
 		{
             UIApplication.Main(args, null, "AppDelegate");
-			AppServiceHelpers.CurrentPlatform.Init();
 		}
 	}
 }

@@ -3,7 +3,7 @@ using System;
 using UIKit;
 using MikeCodesDotNET.iOS;
 
-namespace DailyFail
+namespace BaitNews
 {
     public partial class AnswerTableViewCell : UITableViewCell
     {
