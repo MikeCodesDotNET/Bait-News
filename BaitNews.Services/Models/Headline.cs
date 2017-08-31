@@ -29,5 +29,13 @@ namespace BaitNews.Models
 		[JsonProperty("mainImageUrl")]
 		[Display(Name = "Image URL")]
 		public string ImageUrl { get; set; }
+
+		[JsonProperty("commentCount")]
+		[Display(Name = "Comment Count")]
+		public int CommentCount { get; set; }
+
+		[JsonProperty("likeCount")]
+		[Display(Name = "Like Count")]
+		public int LikeCount { get; set; }
     }
 }

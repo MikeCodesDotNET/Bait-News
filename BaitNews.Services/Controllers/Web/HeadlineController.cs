@@ -4,10 +4,12 @@ using System.Threading.Tasks;
 using BaitNews.Models;
 using BaitNews.Data.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
-namespace BaitNews.Controllers
+namespace BaitNews.Controllers.Web
 {
-    public class HeadlineController : Controller
+    [Authorize(Roles = "admin")]
+	public class HeadlineController : Controller
     {
         [ActionName("Index")]
         public async Task<IActionResult> Index()

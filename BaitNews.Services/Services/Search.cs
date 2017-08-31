@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System; 
+
 namespace BaitNews.Services
 {
     public class Search
@@ -6,5 +7,7 @@ namespace BaitNews.Services
         public Search()
         {
         }
+
+
     }
 }
