@@ -1,0 +1,330 @@
+// --- Main Content Styling ---
+
+.tp--section {
+  padding: 4.5em 0;
+  position: relative;
+
+  .page-header {
+    border-bottom: 0;
+    
+    h1 {
+      font-size: 5.5em;
+      padding: 0 1em;
+    }
+
+    h2 {
+      font-size: 2em;
+      font-weight: 800;
+      margin: 0.3em auto 0.5em;
+      padding: 0 1em;
+      line-height: 1.3;
+
+      @include MQ(M) {
+        font-size: 2.4em;
+      }
+
+      @include MQ(L) {
+        font-size: 2.8em;
+        line-height: 1.2;
+        margin: 0.3em auto 0.5em;
+      }
+
+      @include MQ(XL) {
+        font-size: 2.8em;
+        line-height: 1.2;
+      }
+
+      @include MQ(XXL) {
+        font-size: 3.5em;
+        line-height: 1.3;
+      }
+    }
+
+    h3 {
+      font-size: 1em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.75;
+      padding: 0 1em;
+
+      @include MQ(L) {
+        font-size: 1.2em;
+      }
+    }
+
+    i {
+      font-size: 1.3em;
+      margin: 0 0 10px;
+      display: inline-block;
+      border-radius: 50%;
+      background-color: #eaeaea;
+      width: 44px;
+      height: 44px;
+      line-height: 44px;
+
+      @include MQ(M) {
+        font-size: 1.5em;
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+      }
+
+      @include MQ(L) {
+        font-size: 1.8em;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        margin: 0.3em auto 0.5em;
+      }
+
+      @include MQ(XL) {
+
+      }
+
+      @include MQ(XXL) {
+        font-size: 2em;
+        width: 65px;
+        height: 65px;
+        line-height: 65px;
+      }
+    }
+
+    @include MQ(L) {
+
+      h2 {
+        font-size: 3em;
+      }
+
+      &.tp--title-overlay {
+        h2 {
+          position: relative;
+
+          &:before {
+            content: attr(data-title);
+            position: absolute;
+            font-size: 100px;
+            line-height: 1.1;
+            color: #eee;
+            width: 100%;
+            left: 0;
+            right: 0;
+            top: -25px;
+            text-transform: uppercase;
+          }
+
+          span {
+            position: relative;
+          }
+        }
+      }
+    }
+
+    @include MQ(XXL) {
+
+      h2 {
+        font-size: 3.7em;
+      }
+
+      &.tp--title-overlay {
+        h2 {
+          position: relative;
+
+          &:before {
+            content: attr(data-title);
+            position: absolute;
+            font-size: 134px;
+            line-height: 1.1;
+            color: #eee;
+            width: 100%;
+            left: 0;
+            right: 0;
+            top: -36px;
+            text-transform: uppercase;
+          }
+
+          span {
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+
+  p {
+    line-height: 2;
+  }
+
+  .sub-title {
+    text-transform: uppercase;
+    opacity: 0.75;
+    font-size: 1.05em;
+    font-weight: 800;
+    margin-bottom: 1.5em;
+  }
+
+  p.desc {
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 2;
+    margin: 0 0 2em;
+    padding: 0 14em;
+  }
+  
+  img {
+    margin: auto;
+  }
+
+  &.tp--section-with-bg {
+    background-repeat: no-repeat;
+
+    &.tp--section-with-bg-cover {
+      background-size: cover !important;
+    }
+
+  }
+
+  &.tp--section-with-bg-overlay {
+
+    &.tp--section-with-bg-cover {
+      background-size: cover !important;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 1;
+      background: rgba(0,0,0,0.5);
+      @include background(-webkit-radial-gradient(50% 55%,ellipse closest-corner,rgba(0,0,0,0.57) 1%,rgba(0,0,0,0.80) 100%));
+      @include transition(all .3s ease-in-out);
+      @include transform(translate3d(0,0,0));
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: white;
+      margin-bottom: 0.5em;
+    }
+
+    .text-muted {
+      color: rgba(255,255,255,0.7);
+    }
+    
+    p {
+      color: white;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  &.tp--section-dark {
+    background-color: $section-bg-dark;
+    color: white;
+    position: relative;
+    z-index: 1;
+
+    a {
+      color: white;
+    }
+
+    &.tp--diagonal {
+      background-color: transparent !important;
+
+      &:before {
+        background: $section-bg-dark !important;
+      }
+
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: white;
+    }
+  }
+
+  &.tp--section-light {
+    background-color: $section-bg-light;
+  }
+} 
+
+
+// --- Diagonal Page Divider Effect ---
+
+
+.tp--diagonal {
+  position: relative;
+  z-index: 1;
+  padding: 110px 0;
+  margin-top: 110px;
+  margin-bottom: 55px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: visible;
+    width: 100%;
+    height: 100%;
+    background: $section-bg-light;
+    z-index: -1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: initial;
+  }
+
+  &.tp--section-dark {
+    
+  }
+
+  &.tp--diagonal-1 {
+    
+    &:before {
+      @include transform(skewY(-9deg));
+    }
+
+  }
+
+  &.tp--diagonal-2 {
+
+    &:before {
+      @include transform(skewY(9deg));
+    }
+  }
+
+}
+
+
+// --- Floating Box ---
+
+.tp--floating-box {
+  background-color: white;
+  box-shadow: 0 10px 50px rgba(20, 50, 81, 0.04), 0 10px 50px rgba(0, 0, 0, 0.05);
+  padding: 2.5em;
+  border-radius: 5px;
+  color: initial;
+
+  a {
+    color: initial !important;
+  }
+}
+
+
+
+// --- IE Bug Fixes ---
+
+.is-IE .tp--floating-box a {
+  color: $headings-color;
+}

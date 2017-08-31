@@ -1,0 +1,40 @@
+.tp--cta.tp--cta-3 {
+
+  h1 {
+    font-size: 4em;
+  }
+
+  h2 {
+    font-size: 2.5em;
+    margin: 0 auto 1em;
+  }
+
+  h3 {
+    font-weight: 1.2em;
+    text-transform: uppercase;
+  }
+
+  p {
+    padding: 0 4em;
+    margin: 0;
+    font-size: 1.35em;
+    
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  } 
+  
+  .btn {
+    background: black;
+    color: white;
+    font-size: 1em;
+    margin: 0 1em;
+    border: 2px solid black;
+    
+    &:hover {
+      // background: darken(@theme-cta, 8%);
+      // border-color: darken(@theme-cta, 8%);
+    }
+  }
+}

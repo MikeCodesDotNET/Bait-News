@@ -1,0 +1,34 @@
+.tp--partners {
+
+	.owl-carousel {
+
+		.owl-item {
+			
+			img {
+				width: auto;
+				max-height: 30px;
+			}
+
+		}
+
+	}
+
+	&.tp--partners-greyscale {
+
+		.owl-carousel {
+
+			.owl-item {
+			
+				img {
+					width: auto;
+					max-height: 30px;
+					opacity: 0.25;
+				}
+
+			}
+
+		}
+
+	}
+
+}

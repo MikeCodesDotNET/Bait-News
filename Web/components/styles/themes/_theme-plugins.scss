@@ -1,0 +1,49 @@
+// Owl Slider
+
+.owl-theme {
+	.owl-dots {
+		.owl-dot {
+			span {
+				background-color: #eaeaea;
+			}
+
+			&.active {
+				span {
+					background-color: lighten($color-primary, 10%);
+				}
+			}
+
+			&:hover {
+				span {
+					background-color: lighten($color-primary, 10%);
+				}
+			}
+		}
+	}
+}
+
+.tp--section-dark {
+
+	.owl-theme {
+		.owl-dots {
+			.owl-dot {
+				span {
+					background-color: lighten($color-primary, 20%);
+				}
+
+				&.active {
+					span {
+						background-color: white;
+					}
+				}
+
+				&:hover {
+					span {
+						background-color: white;
+					}
+				}
+			}
+		}
+	}
+
+}

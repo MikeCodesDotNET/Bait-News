@@ -3,6 +3,7 @@ using UIKit;
 using CoreGraphics;
 using Foundation;
 using BaitNews.Models;
+using MikeCodesDotNET.iOS;
 
 namespace BaitNews.CustomControls
 {
@@ -49,8 +50,8 @@ namespace BaitNews.CustomControls
 			var context = UIGraphics.GetCurrentContext();
 
 			//// Color Declarations
-			var borderColor = UIColor.FromRGBA(0.856f, 0.856f, 0.856f, 1.000f);
-			var textColor = UIColor.FromRGBA(0.404f, 0.404f, 0.404f, 1.000f);
+			var borderColor = "606060".ToUIColor();
+			var textColor = UIColor.White;
 
 			//// Shadow Declarations
 			var shadow = new NSShadow();
@@ -62,7 +63,7 @@ namespace BaitNews.CustomControls
 			var rectanglePath = UIBezierPath.FromRoundedRect(new CGRect(rect.GetMinX() + 10.0f, rect.GetMinY() + 10.0f, rect.Width - 26.0f, rect.Height - 21.5f), 4.0f);
 			context.SaveState();
 			context.SetShadow(shadow.ShadowOffset, shadow.ShadowBlurRadius, shadow.ShadowColor.CGColor);
-			UIColor.White.SetFill();
+			"272727".ToUIColor().SetFill();
 			rectanglePath.Fill();
 			context.RestoreState();
 

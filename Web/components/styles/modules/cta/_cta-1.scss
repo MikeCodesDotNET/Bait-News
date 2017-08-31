@@ -1,0 +1,32 @@
+.tp--cta.tp--cta-1 {
+
+  h1 {
+    font-size: 4em;
+  }
+
+  h2 {
+    font-size: 2.5em;
+    margin: 0 auto 1em;
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+    font-size: 1.35em;
+    
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  } 
+  
+  .btn {
+    background: black;
+    color: white;
+    font-size: 0.9em;
+    margin: 0 1em;
+    
+    &:hover {
+    }
+  }
+}

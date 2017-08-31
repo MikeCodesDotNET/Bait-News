@@ -1,0 +1,417 @@
+// --- .tp--intro styles ---
+
+#intro.tp--intro {
+	&.tp--slider-single {
+
+		h1 {
+    	font-size: 2em;
+    	font-weight: 900;
+    	margin: 0 0 0.5em;
+  	}
+
+	  h2 {
+	    font-size: 1.8em;
+	    line-height: 1.3;
+		  font-weight: 900;
+		  margin: 0 0 0.5em;
+	  }
+
+	  h3 {
+	    font-size: 1.6em;
+	    line-height: 1.3;
+		  margin: 0 0 0.5em;
+	  }
+
+	  p {
+	    font-size: 1em;
+	    font-weight: 100;
+	    line-height: 1.7;
+	    opacity: 0.75;
+
+	    &:last-child {
+	    	margin-bottom: 0;
+	    }
+	  }
+
+		@include MQ(S) {
+
+		}
+
+		@include MQ(M) {
+			h1 {
+	    	font-size: 2.1em;
+	    	margin: 0 0 0.5em;
+	  	}
+
+		  h2 {
+		    font-size: 1.8em;
+		  }
+
+		  h3 {
+		    font-size: 1.6em;
+		  }
+
+		  p {
+		    font-size: 1.05em;
+		    line-height: 1.7;
+		  }
+		}
+
+		@include MQ(L) {
+			h1 {
+	    	font-size: 2.4em;
+	    	margin: 0 0 0.5em;
+	    	line-height: 1.4;
+	  	}
+
+		  h2 {
+		    font-size: 2.3em;
+		    line-height: 1.4;
+		  }
+
+		  h3 {
+		    font-size: 2.2em;
+		    line-height: 1.4;
+		  }
+
+		  p {
+		    font-size: 1.1em;
+		    line-height: 1.7;
+		  }
+		}
+
+		@include MQ(XL) {
+			h1 {
+	    	font-size: 2.8em;
+	    	margin: 0 0 0.5em;
+	  	}
+
+		  h2 {
+		    font-size: 2.4em;
+		  }
+
+		  h3 {
+		    font-size: 2.4em;
+		  }
+
+		  p {
+		    font-size: 1.1em;
+		    line-height: 1.7;
+		  }
+		}
+
+		@include MQ(XXL) {
+			h1 {
+	    	font-size: 3.2em;
+	    	line-height: 1.3;
+	    	font-weight: 900;
+	    	margin: 0 0 0.5em;
+	  	}
+
+		  h2 {
+		    font-size: 2.8em;
+		  }
+
+		  h3 {
+		    font-size: 2.5em;
+		  }
+
+		  p {
+		    font-size: 1.2em;
+		    font-weight: 100;
+		    line-height: 1.8;
+		  }
+		}
+
+		.owl-stage {
+			padding-bottom: 4em;
+		}
+
+		.owl-item {
+
+	    .item {
+
+	    	&.tp--with-image-light {
+					position: relative;
+					background-size: cover !important;
+
+					&:before {
+						content: '';
+						position: absolute;
+						left: 0;
+						right: 0;
+						top: 0;
+						bottom: 0;
+						background-color: rgba(35,35,35, 0.3);
+					}
+				}
+
+				&.tp--with-image {
+					position: relative;
+					background-size: cover !important;
+
+					&:before {
+						content: '';
+						position: absolute;
+						left: 0;
+						right: 0;
+						top: 0;
+						bottom: 0;
+						background-color: rgba(35,35,35, 0.7);
+					}
+				}
+
+				&.tp--with-image-dark {
+					position: relative;
+					background-size: cover !important;
+
+					&:before {
+						content: '';
+						position: absolute;
+						left: 0;
+						right: 0;
+						top: 0;
+						bottom: 0;
+						background-color: rgba(35,35,35, 0.9);
+					}
+				}	
+
+	      a.popup-gallery {
+	        img {
+	          width: 100%;
+	          height: auto;
+	        }
+	      }
+
+	      .btn-lg {
+	      	padding: 1em 2em;
+			    font-weight: 600;
+			    border: none;
+			    margin-top: 1em;
+			    font-size: 1em;
+
+			    @include MQ(XXL) {
+			    	font-size: 1.2em;
+				    line-height: 1.8;
+				    padding: 0.8em 2em;
+					}
+	      }
+
+	      h1{
+
+	      }
+
+	      h3{
+
+	      }
+
+	      h4{
+
+	      }
+
+	      p {
+
+	      }
+
+	      img {
+	      	margin: 0 auto;
+
+	      	@media only screen and (max-width: $screen-xs-max) {
+			
+			  	} 
+	      }
+
+	      @media only screen and (max-width: $screen-xs-max) {
+		  		[class^=col-xs],
+		  		[class^=col-sm],
+		  		[class^=col-md],
+		  		[class^=col-lg] {
+		  			margin-bottom: 2em;
+		  			padding: 2em 2em 0;
+		  		}
+		  	} 
+	    }
+	  }
+
+
+	  // === #intro content ===
+
+	  .tp--intro-content {
+	  	position: absolute;
+		  top: 50%;
+		  left: 53%;
+		  transform: translate(-50%, -50%);
+		  width: 100%;
+	  }
+
+	  .tp--intro-image {
+	  	position: absolute;
+		  top: 50%;
+		  left: 53%;
+		  transform: translate(-50%, -50%);
+		  width: 100%;
+
+	  	&.tp--intro-image-vertical {
+	  		position: absolute;
+		  	top: 0;
+		    bottom: 0;
+		    margin: auto;
+		  	margin-top: 6em;
+		  	padding-bottom: 8em;
+		  	height: 100%;
+
+		  	@include MQ(XXL) {
+		  		margin-top: 7em;
+		  		padding-bottom: 9em;
+		  	}
+	  	}
+
+	  	
+	  }
+
+
+	  // --- Slider Left Alignment ---
+
+	  .tp--intro-content-left {
+	  	text-align: left;
+
+	  	@media only screen and (max-width: $screen-xs-max) {
+	  		text-align: center;
+	  	} 
+
+	  }
+
+	  // --- Slider Center Alignment ---
+
+	  .tp--intro-content-center {
+	  	text-align: center;
+	  }
+
+	  // --- Slider Right Alignment ---
+
+	  .tp--intro-content-right {
+	  	text-align: left;
+
+	  	// [class*=col-] {
+	  	// 	float: right;
+	  	// }
+	  }
+
+	  // --- Diagonal Effect ---
+		.tp--intro-diagonal {
+			position: relative;
+
+			&:after {
+				content: '';
+		    height: 400px;
+		    width: 100%;
+		    display: block;
+		    position: relative;
+		    left: 0;
+		    top: 0px;
+		    background: white;
+		    transform: skewY(-9deg);
+		    transform-origin: top;
+		    -webkit-transform: skewY(-9deg);
+		    -webkit-transform-origin: 0 0;
+			}
+
+			> .container {
+				position: relative;
+				z-index: 10;
+			}
+
+			.tp--carousel-caption-center {
+				max-height: 35%;
+			}
+
+			&.tp--intro-diagonal-1 {
+		    &:after {
+		    	@include transform(skewY(-9deg));
+		    }
+		  }
+
+
+		  &.tp--intro-diagonal-2 {
+		  	&:after {
+		  		@include transform(skewY(9deg));
+		  		top: -77px;
+
+		  		@include MQ(M) {
+			      top: -93px;
+			    }
+
+			    @include MQ(L) {
+			      top: -120px;
+			    }
+
+			    @include MQ(XL) {
+			      top: -161px;
+			    }
+
+			    @include MQ(XXL) {
+			      top: -345px;
+			    }
+		  	}
+		    
+		  }
+		}
+	}
+
+	&.tp--intro-dark {
+		background-color: #4d4d4d;
+		color: white;
+
+		h1, h2, h3, h4, h5, h6 {
+			color: white;
+		}
+	}
+
+	&.tp--intro-height-100 {
+
+		&.tp--slider-single {
+			height: 100vh;
+
+			.owl-stage {
+				height: 100%;
+			}
+
+			.owl-item {
+				height: 100vh;
+
+		    .item {
+		    	height: 100vh;
+		    	padding-top: 100px;
+
+		    	.container,
+					.row {
+						height: 100%;
+					}
+
+					@include MQ(L) {
+		        .container,
+						.row {
+							height: 100%;
+						}
+		      }
+		    }
+			}
+
+		}
+
+	}
+
+}
+
+
+
+// --- IE Fixes ---
+
+.is-IE .tp--intro.tp--slider-single#intro .tp--intro-diagonal::after {
+	top: auto;
+	bottom: 134px !important;
+
+	@include MQ(1700px) {
+		bottom: 160px !important
+	}
+}

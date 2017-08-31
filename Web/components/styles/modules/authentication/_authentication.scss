@@ -1,0 +1,148 @@
+.tp--authentication {
+	padding: 2.5em;
+	font-size: 0.9em;
+
+	.page-header {
+		margin-top: 1em;
+		border-bottom: 0;
+		font-weight: 600;
+
+		* {
+			margin: 0;
+		}
+	}
+
+	.form-authentication {
+
+    .tp--social-login {
+    	margin-top: 1.5em;
+   		margin-bottom: 0;
+
+   		.btn-signup {
+		   	background-color: #eaeaea;
+		    display: block;
+		    color: white;
+		    padding: 15px 0;
+		    letter-spacing: 0.5px;
+		    transition: all 0.3s;
+		    font-size: 24px;
+   		}
+    }
+
+    .divider {
+    	text-align: center;
+	    margin: 2.5em 0;
+	    position: relative;
+	    color: #7c7c7c;
+
+	    &:before,
+	    &:after {
+	    	content: '';
+		    position: absolute;
+		    top: 10px;
+		    width: 165px;
+		    height: 1px;
+		    background: #eaeaea;
+	    }
+
+	    &:before {
+	    	left: 0;
+	    }
+
+	    &:after {
+	    	right: 0;
+	    }
+    }
+
+    .form-group {
+    	position: relative;
+    	text-align: left;
+
+    	i {
+    		position: absolute;
+		    font-size: 23px;
+		    color: #bcbcbc;
+		    top: 50%;
+		    @include transform(translateY(-50%));
+		    left: 22px;
+		    width: 25px;
+		    text-align: center;
+		    z-index: 1;
+    	}
+
+    	.form-control {
+    		display: block;
+		    width: 100%;
+		    color: #555;
+		    background-color: #fff;
+		    border-radius: 4px;
+		    font-size: 1em;
+		    @include transition(border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s);
+				padding: 1.4em 1.4em 1.4em 64px;
+		    height: auto;
+		    box-shadow: none;
+		    border-color: #e1e1e1;
+
+			  &:focus {
+		
+			  }
+			}
+
+    }
+
+		button[type='submit'],
+		input[type='submit'] {
+		  margin-bottom: 0;
+	    font-weight: normal;
+	    text-align: center;
+	    vertical-align: middle;
+	    touch-action: manipulation;
+	    cursor: pointer;
+	    background-image: none;
+	    border: 1px solid transparent;
+	    white-space: nowrap;
+	    border-radius: 4px;
+	    display: block;
+	    width: 100%;
+	    padding: 1em;
+	    font-size: 1.2em;
+	    margin-top: 1em;
+	    background: #4c4c4c;
+	    color: white;
+	    transition: all 0.3s;
+
+		  &:hover {
+				background: #3c3c3c;
+		  }
+		}
+
+		.tp--authentication-footer {
+			margin-top: 2.5em;
+			font-size: 0.9em;
+			opacity: 0.75;
+
+			.forgot-pw {
+			  display: block;
+			  margin-top: 2.5em;
+			  opacity: 0.5;
+			  font-size: 0.95em;
+			}
+
+			.disclaimer {
+			  padding: 0 1.5em;
+			  margin-bottom: 3em;
+			  line-height: 1.8;
+
+			  a {
+			  	text-decoration: underline;
+			  }
+			}
+
+			.links {
+				margin-bottom: 0;
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,22 @@
+.tp--footer.tp--footer-2 {
+	
+	ul {
+
+		li {
+      margin-bottom: 0.75em;
+      padding: 0 20px;
+			
+			a {
+				font-size: 1.1em;
+				font-weight: bold;
+				text-transform: uppercase;
+
+				&:hover {
+          text-decoration: none;
+				}
+			}
+		}
+
+	}
+	
+}

@@ -1,0 +1,356 @@
+//
+// Social Media Colours
+// --------------------------------------------------
+
+
+$behance:               #053eff;
+$dribbble:              #ea4c89;
+$facebook:              #3b5998;
+$foursquare:            #25a0ca;
+$google:                #db4a39;
+$instagram:             #634d40;
+$linkedin:              #0e76a8;
+$pinterest:             #c8232c;
+$skype:                 #00aff0;
+$tumblr:                #34526f;
+$twitter:               #00acee;
+$vimeo:                 #86c9ef;
+$youtube:               #c4302b;
+
+
+
+// --- Behance ---
+
+.tp--behance {
+  background: $behance !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($behance, 10%) !important;
+  }
+}
+
+.tp--icon-behance {
+  color: $behance !important;
+
+  &:hover {
+    color: darken($behance, 10%) !important;
+  }
+}
+
+.tp--icon-behance-hover {
+  &:hover {
+    color: $behance !important;
+  }
+}
+
+// --- Dribbble ---
+
+.tp--dribbble {
+  background: $dribbble !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($dribbble, 10%) !important;
+  }
+}
+
+.tp--icon-dribbble {
+  color: $dribbble !important;
+
+  &:hover {
+    color: darken($dribbble, 10%) !important;
+  }
+}
+
+.tp--icon-dribbble-hover {
+  &:hover {
+    color: $dribbble !important;
+  }
+}
+
+
+// --- Facebook ---
+
+.tp--facebook {
+  background: $facebook !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($facebook, 10%) !important;
+  }
+}
+
+.tp--icon-facebook {
+  color: $facebook !important;
+
+  &:hover {
+    color: darken($facebook, 10%) !important;
+  }
+}
+
+.tp--icon-facebook-hover {
+  &:hover {
+    color: $facebook !important;
+  }
+}
+
+
+// --- Foursquare ---
+
+.tp--foursquare {
+  background: $foursquare !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($foursquare, 10%) !important;
+  }
+}
+
+.tp--icon-foursquare {
+  color: $foursquare !important;
+
+  &:hover {
+    color: darken($foursquare, 10%) !important;
+  }
+}
+
+.tp--icon-foursquare-hover {
+  &:hover {
+    color: $foursquare !important;
+  }
+}
+
+
+// --- Google ---
+
+.tp--google {
+  background: $google !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($google, 10%) !important;
+  }
+}
+
+.tp--icon-google {
+  color: $google !important;
+
+  &:hover {
+    color: darken($google, 10%) !important;
+  }
+}
+
+.tp--icon-google-hover {
+  &:hover {
+    color: $google !important;
+  }
+}
+
+
+// --- Instagram ---
+
+.tp--instagram {
+  background: $instagram !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($instagram, 10%) !important;
+  }
+}
+
+.tp--icon-instagram {
+  color: $instagram !important;
+
+  &:hover {
+    color: darken($instagram, 10%) !important;
+  }
+}
+
+.tp--icon-instagram-hover {
+  &:hover {
+    color: $instagram !important;
+  }
+}
+
+
+// --- LinkedIn ---
+
+.tp--linkedin {
+  background: $linkedin !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($linkedin, 10%) !important;
+  }
+}
+
+.tp--icon-linkedin {
+  color: $linkedin !important;
+
+  &:hover {
+    color: darken($linkedin, 10%) !important;
+  }
+}
+
+.tp--icon-linkedin-hover {
+  &:hover {
+    color: $linkedin !important;
+  }
+}
+
+
+// --- Pinterest ---
+
+.tp--pinterest {
+  background: $pinterest !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($pinterest, 10%) !important;
+  }
+}
+
+.tp--icon-pinterest {
+  color: $pinterest !important;
+
+  &:hover {
+    color: darken($pinterest, 10%) !important;
+  }
+}
+
+.tp--icon-pinterest-hover {
+  &:hover {
+    color: $pinterest !important;
+  }
+}
+
+
+// --- Skype ---
+
+.tp--skype {
+  background: $skype !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($skype, 10%) !important;
+  }
+}
+
+.tp--icon-skype {
+  color: $skype !important;
+
+  &:hover {
+    color: darken($skype, 10%) !important;
+  }
+}
+
+.tp--icon-skype-hover {
+  &:hover {
+    color: $skype !important;
+  }
+}
+
+
+// --- Tumblr ---
+
+.tp--tumblr {
+  background: $tumblr !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($tumblr, 10%) !important;
+  }
+}
+
+.tp--icon-tumblr {
+  color: $tumblr !important;
+
+  &:hover {
+    color: darken($tumblr, 10%) !important;
+  }
+}
+
+.tp--icon-tumblr-hover {
+  &:hover {
+    color: $tumblr !important;
+  }
+}
+
+
+// --- Twitter ---
+
+.tp--twitter {
+  background: $twitter !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($twitter, 10%) !important;
+  }
+}
+
+.tp--icon-twitter {
+  color: $twitter !important;
+
+  &:hover {
+    color: darken($twitter, 10%) !important;
+  }
+}
+
+.tp--icon-twitter-hover {
+  &:hover {
+    color: $twitter !important;
+  }
+}
+
+
+// --- Vimeo ---
+
+.tp--vimeo {
+  background: $vimeo !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($vimeo, 10%) !important;
+  }
+}
+
+.tp--icon-vimeo {
+  color: $vimeo !important;
+
+  &:hover {
+    color: darken($vimeo, 10%) !important;
+  }
+}
+
+.tp--icon-vimeo-hover {
+  &:hover {
+    color: $vimeo !important;
+  }
+}
+
+
+// --- YouTube ---
+
+.tp--youtube {
+  background: $youtube !important;
+  color: white !important;
+
+  &:hover {
+    background: darken($youtube, 10%) !important;
+  }
+}
+
+.tp--icon-youtube {
+  color: $youtube !important;
+
+  &:hover {
+    color: darken($youtube, 10%) !important;
+  }
+}
+
+.tp--icon-youtube-hover {
+  &:hover {
+    color: $youtube !important;
+  }
+}
