@@ -61,11 +61,11 @@ namespace BaitNews
 			if (cell == null)
 				cell = new HeadlineViewTableCell(UITableViewCellStyle.Default, cellIdentifier);
 
-			cell.ImageView.SetImage(
-					url: new NSUrl(Headline[indexPath.Row].ImageUrl),
-					placeholder: UIImage.FromBundle("logo.png")
+            cell.ImageView.SetImage(new NSUrl(Headline[indexPath.Row].ImageUrl),
+                                    UIImage.FromBundle("logo.png"), 
+                                    SDWebImageOptions.ProgressiveDownload
 			);
-
+            
 			cell.SelectionStyle = UITableViewCellSelectionStyle.None;
 			cell.Headline = Headline[indexPath.Row].Text;
 

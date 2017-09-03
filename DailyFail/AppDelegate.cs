@@ -13,22 +13,26 @@ using Akavache;
 
 namespace BaitNews
 {
-	// The UIApplicationDelegate for the application. This class is responsible for launching the
-	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
-	[Register("AppDelegate")]
-	public class AppDelegate : UIApplicationDelegate
-	{
-		// class-level declarations
+    // The UIApplicationDelegate for the application. This class is responsible for launching the
+    // User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
+    [Register("AppDelegate")]
+    public class AppDelegate : UIApplicationDelegate
+    {
+        // class-level declarations
 
-		public override UIWindow Window
-		{
-			get;
-			set;
-		}
+        public override UIWindow Window
+        {
+            get;
+            set;
+        }
 
-		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
-		{
+        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+        {
             BlobCache.ApplicationName = "BaitNews";
+
+#if DEBUG
+            BlobCache.LocalMachine.InvalidateAll();
+#endif
 
             MobileCenter.Start("5a59ecc6-7522-4793-bb93-65f5aed040c1",
 			                   typeof(Analytics), typeof(Crashes), typeof(Distribute));

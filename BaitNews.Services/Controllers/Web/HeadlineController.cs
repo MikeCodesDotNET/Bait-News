@@ -5,13 +5,16 @@ using BaitNews.Models;
 using BaitNews.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.ApplicationInsights;
 
 namespace BaitNews.Controllers.Web
 {
-    [Authorize(Roles = "admin")]
+	[Authorize(Roles = "admin")]
 	public class HeadlineController : Controller
     {
-        [ActionName("Index")]
+		private TelemetryClient telemetry = new TelemetryClient();
+
+		[ActionName("Index")]
         public async Task<IActionResult> Index()
         {
             var items = await DocumentDBRepository<Headline>.GetItemsAsync(x => x.Text != null);
@@ -32,7 +35,9 @@ namespace BaitNews.Controllers.Web
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateAsync([Bind("Id,Text,IsTrue,Source,ImageUrl,Url")] Headline item)
         {
-            if (ModelState.IsValid)
+			telemetry.TrackEvent("CreateHeadline");
+
+			if (ModelState.IsValid)
             {
                 if (string.IsNullOrEmpty(item.Id))
                     item.Id = Guid.NewGuid().ToString();

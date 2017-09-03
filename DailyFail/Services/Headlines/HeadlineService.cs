@@ -24,13 +24,13 @@ namespace BaitNews.Services.Headlines
         }
 
         public async Task<List<Headline>> GetHeadlines(Priority priority)
-        {
+        {       
             var cache = BlobCache.LocalMachine;
             var cachedHeadlines = cache.GetAndFetchLatest("headlines", () => GetRemoteHeadlinesAsync(priority),
                 offset =>
                 {
                     TimeSpan elapsed = DateTimeOffset.Now - offset;
-                    return elapsed > new TimeSpan(hours: 0, minutes: 10, seconds: 0);
+                    return elapsed > new TimeSpan(hours: 0, minutes: 0, seconds: 5);
                 });
 
             var headlines = await cachedHeadlines.FirstOrDefaultAsync();
@@ -42,7 +42,7 @@ namespace BaitNews.Services.Headlines
             var cachedHeadlines = BlobCache.LocalMachine.GetAndFetchLatest(id, () => GetRemoteHeadline(priority, id), offset =>
             {
                 TimeSpan elapsed = DateTimeOffset.Now - offset;
-                return elapsed > new TimeSpan(hours: 0, minutes: 10, seconds: 0);
+                return elapsed > new TimeSpan(hours: 0, minutes: 0, seconds: 5);
             });
 
             var headline = await cachedHeadlines.FirstOrDefaultAsync();

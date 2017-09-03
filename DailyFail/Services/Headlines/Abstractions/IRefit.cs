@@ -7,13 +7,16 @@ using Refit;
 //This is for Refit
 namespace BaitNews.Services.Headlines
 {
-    [Headers("Accept: application/json", "Ocp-Apim-Subscription-Key: b5d8711fabd04837b55ed276b2adf9c3")]
+    [Headers("Accept: application/json")]
     public interface IRefit
 	{
-		[Get("/tables/headline")]
+		[Get("/headline")]
 		Task<List<Headline>> GetHeadlines();
 
-		[Get("/tables/headline/{id}")]
+		[Get("/headline?id={id}")]
 		Task<Headline> GetHeadline(string id);
+
+		[Post("/headline")]
+		Task<Headline> PutHeadline(Headline headline);
 	}
 }

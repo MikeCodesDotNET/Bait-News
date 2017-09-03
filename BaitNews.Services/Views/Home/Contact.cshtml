@@ -1,17 +1,34 @@
 ﻿@{
     ViewData["Title"] = "Contact";
 }
-<h2>@ViewData["Title"].</h2>
 <h3>@ViewData["Message"]</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<!-- Contact us -->
+        <div class="container" id="go-to-contact">
+            <div class="row">
+                <div class="col-sm-12 contact">
+                    <h2>Contact us</h2>
+                    <p>
+                        If you need to get in touch, then you can reach us via email. Fill in the form below, and someone will be in touch soon. 
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-7 contact-form">
+                    <h3>Send us a message</h3>
+                    <form method="post" action="assets/contact.php">
+                        <input type="text" name="email" placeholder="Email..." class="contact-email">
+                        <input type="text" name="subject" placeholder="Subject..." class="contact-subject">
+                        <textarea name="message" placeholder="Message..." class="contact-message"></textarea>
+                        <button type="submit">Send message</button>
+                    </form>
+                </div>
+                <div class="col-sm-5 contact-address">
+                    <h3>We're here</h3>
+                    <div class="map"></div>
+                    <h3>Contact details</h3>
+                    <p><i class="fa fa-map-marker"></i>Vittorio Veneto 9, Torino, Italy</p>
+                    <p><i class="fa fa-envelope"></i>Email: <a href="">contact@areta.com</a></p>
+                </div>
+            </div>
+        </div>

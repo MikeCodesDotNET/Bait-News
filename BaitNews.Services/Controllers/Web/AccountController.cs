@@ -4,13 +4,17 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.ApplicationInsights;
 
 namespace BaitNews.Controllers.Web
 {
 	public class AccountController : Controller
 	{
+        private TelemetryClient telemetry = new TelemetryClient();
+
 		public IActionResult Login(string returnUrl = "/")
 		{
+            telemetry.TrackEvent("LogIn");
 			return new ChallengeResult("Auth0", new AuthenticationProperties() { RedirectUri = returnUrl });
 		}
 
@@ -18,6 +22,8 @@ namespace BaitNews.Controllers.Web
 		[Authorize]
 		public async Task Logout()
 		{
+			telemetry.TrackEvent("LogOut");
+
 			await HttpContext.Authentication.SignOutAsync("Auth0", new AuthenticationProperties
 			{
 				// Indicate here where Auth0 should redirect the user after a logout.
@@ -41,6 +47,7 @@ namespace BaitNews.Controllers.Web
 
 		public IActionResult AccessDenied()
 		{
+			telemetry.TrackEvent("AccessDenied");
 			return View();
 		}
 

@@ -248,3 +248,5 @@ SSL-CSR/baitnews.io_csr.pem
 SSL-CSR/private-key.password
 
 SSL-CSR/README
+
+BaitNews.Services/appsettings.json
