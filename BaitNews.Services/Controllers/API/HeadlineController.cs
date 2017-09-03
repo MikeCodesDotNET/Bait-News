@@ -11,17 +11,24 @@ namespace BaitNews.Controllers.Api
     [Route("/api/headline")]
 	public class HeadlineController : Controller
 	{
+        DocumentDBRepositoryBase<Headline> DBRepository = new DocumentDBRepositoryBase<Headline>();
+
+        public HeadlineController()
+        {
+            DBRepository.Initialize();
+        }
+
 		[HttpGet]
 		public async Task<IActionResult> GetAll()
 		{
-			var items = await DocumentDBRepository<Headline>.GetItemsAsync(x => x.Text != null);
+			var items = await DBRepository.GetItemsAsync(x => x.Text != null);
 			return Json(items);
 		}
 
         [HttpGet("ID/{id}")]
 		public async Task<IActionResult> GetById(string id)
 		{
-			var items = await DocumentDBRepository<Headline>.GetItemsAsync(x => x.Id != id);
+			var items = await DBRepository.GetItemsAsync(x => x.Id != id);
 			return Json(items);
 		}
 
@@ -34,7 +41,7 @@ namespace BaitNews.Controllers.Api
 				if (string.IsNullOrEmpty(item.Id))
 					item.Id = Guid.NewGuid().ToString();
 
-				await DocumentDBRepository<Headline>.CreateItemAsync(item);
+				await DBRepository.CreateItemAsync(item);
 				return RedirectToAction("Index");
 			}
 
@@ -46,7 +53,7 @@ namespace BaitNews.Controllers.Api
 		{
 			if (ModelState.IsValid)
 			{
-				await DocumentDBRepository<Headline>.UpdateItemAsync(item.Id, item);
+				await DBRepository.UpdateItemAsync(item.Id, item);
 				return RedirectToAction("Index");
 			}
 
@@ -61,13 +68,13 @@ namespace BaitNews.Controllers.Api
 				return BadRequest();
 			}
 
-			Headline item = await DocumentDBRepository<Headline>.GetItemAsync(id);
+			Headline item = await DBRepository.GetItemAsync(id);
 			if (item == null)
 			{
 				return NotFound();
 			}
 
-			await DocumentDBRepository<Headline>.DeleteItemAsync(id);
+			await DBRepository.DeleteItemAsync(id);
 			return RedirectToAction("Index");
 
 		}

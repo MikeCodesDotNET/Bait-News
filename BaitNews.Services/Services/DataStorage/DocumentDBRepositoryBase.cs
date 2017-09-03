@@ -10,23 +10,33 @@ using Microsoft.Extensions.Configuration;
 
 namespace BaitNews.Data.Services
 {   
-    public static class DocumentDBRepository<T> where T : class
+    public class DocumentDBRepositoryBase<T> where T : class
     {
-        static string Endpoint = "https://baitnews.documents.azure.com:443/";
-        static string Key = "UYMEejsculVeWelRIA83y9he0Sp16C2WAO86wZ2I1V7MydXFpALYQt3S4c6rhqTLHYQN0tn8XLHyyI5aIvGpZw==";
-        static string DatabaseId = "BaitNews";
+        string Endpoint = "https://baitnews.documents.azure.com:443/";
+        string Key = "UYMEejsculVeWelRIA83y9he0Sp16C2WAO86wZ2I1V7MydXFpALYQt3S4c6rhqTLHYQN0tn8XLHyyI5aIvGpZw==";
+        string DatabaseId = "BaitNews";
 
-        static string CollectionId;
-        static DocumentClient client;
+        string CollectionId;
+        DocumentClient client;
 
-		public static void Initialize()
+		public void Initialize()
 		{
 			client = new DocumentClient(new Uri(Endpoint), Key, new ConnectionPolicy { EnableEndpointDiscovery = false });
 			CreateDatabaseIfNotExistsAsync().Wait();
 			CreateCollectionIfNotExistsAsync().Wait();
 		}
 
-		public static async Task<T> GetItemAsync(string id)
+		string GetCollectionName()
+		{
+            //This is a horrible hack because I named my collections as purals.
+			var name = typeof(T).Name;
+            if(name.ToCharArray().Last().ToString() != "s")
+                return $"{name}s";
+            return name;
+		}
+
+
+		public async Task<T> GetItemAsync(string id)
         {
             try
             {
@@ -43,11 +53,11 @@ namespace BaitNews.Data.Services
             }
         }
 
-        public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
         {
-            CollectionId = typeof(T).ToString();
+            CollectionId = GetCollectionName();
 
-            IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
+			IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
                 UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId),
                 new FeedOptions { MaxItemCount = -1 })
                 .Where(predicate)
@@ -62,25 +72,25 @@ namespace BaitNews.Data.Services
             return results;
         }
 
-        public static async Task<Document> CreateItemAsync(T item)
+        public async Task<Document> CreateItemAsync(T item)
         {
-			CollectionId = typeof(T).ToString();
+			CollectionId = GetCollectionName();
 			return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
         }
 
-        public static async Task<Document> UpdateItemAsync(string id, T item)
+        public async Task<Document> UpdateItemAsync(string id, T item)
         {
-			CollectionId = typeof(T).ToString();
+			CollectionId = GetCollectionName();
 			return await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id), item);
         }
 
-        public static async Task DeleteItemAsync(string id)
+        public async Task DeleteItemAsync(string id)
         {
-			CollectionId = typeof(T).ToString();
+			CollectionId = GetCollectionName();
 			await client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
         }
 
-        static async Task CreateDatabaseIfNotExistsAsync()
+        async Task CreateDatabaseIfNotExistsAsync()
         {
             try
             {
@@ -99,9 +109,9 @@ namespace BaitNews.Data.Services
             }
         }
 
-        static async Task CreateCollectionIfNotExistsAsync()
+        async Task CreateCollectionIfNotExistsAsync()
         {
-			CollectionId = typeof(T).ToString();
+			CollectionId = GetCollectionName();
 
 			try
             {

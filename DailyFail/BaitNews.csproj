@@ -393,11 +393,14 @@
     <Compile Include="Helpers\CustomDelegateHandler.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
-    <Compile Include="Services\Headlines\Abstractions\IApiService.cs" />
-    <Compile Include="Services\Headlines\Abstractions\IRefit.cs" />
-    <Compile Include="Services\Headlines\HeadlineApiService.cs" />
     <Compile Include="Services\Headlines\HeadlineService.cs" />
-    <Compile Include="Services\Headlines\Abstractions\IHeadlineService.cs" />
+    <Compile Include="Services\IApiService.cs" />
+    <Compile Include="Services\Refit\IHeadlineRefit.cs" />
+    <Compile Include="Services\Refit\IAnswerRefit.cs" />
+    <Compile Include="Services\Refit\ICommentRefit.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Services\ApiService.cs" />
+    <Compile Include="Services\Headlines\IHeadlineService.cs" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="notification-hub">
@@ -457,7 +460,7 @@
     <Folder Include="ViewControllers\Submit\" />
     <Folder Include="Services\" />
     <Folder Include="Services\Headlines\" />
-    <Folder Include="Services\Headlines\Abstractions\" />
+    <Folder Include="Services\Refit\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

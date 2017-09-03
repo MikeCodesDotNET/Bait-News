@@ -10,6 +10,8 @@ namespace BaitNews.Controllers.Web
 {
 	public class AccountController : Controller
 	{
+
+
         private TelemetryClient telemetry = new TelemetryClient();
 
 		public IActionResult Login(string returnUrl = "/")

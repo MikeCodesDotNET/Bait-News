@@ -11,17 +11,24 @@ namespace BaitNews.Controllers.Api
     [Route("/api/answer")]
 	public class AnswerController : Controller
 	{
+		DocumentDBRepositoryBase<Answer> DBRepository = new DocumentDBRepositoryBase<Answer>();
+
+		public AnswerController()
+		{
+			DBRepository.Initialize();
+		}
+
 		[HttpGet]
 		public async Task<IActionResult> GetAll()
 		{
-			var items = await DocumentDBRepository<Answer>.GetItemsAsync(x => x.HeadlineId != null);
+			var items = await DBRepository.GetItemsAsync(x => x.HeadlineId != null);
 			return Json(items);
 		}
 
         [HttpGet("ID/{id}")]
 		public async Task<IActionResult> GetById(string id)
 		{
-			var items = await DocumentDBRepository<Answer>.GetItemsAsync(x => x.Id != id);
+			var items = await DBRepository.GetItemsAsync(x => x.Id != id);
 			return Json(items);
 		}
 
@@ -34,7 +41,7 @@ namespace BaitNews.Controllers.Api
 				if (string.IsNullOrEmpty(item.Id))
 					item.Id = Guid.NewGuid().ToString();
 
-				await DocumentDBRepository<Answer>.CreateItemAsync(item);
+				await DBRepository.CreateItemAsync(item);
 				return RedirectToAction("Index");
 			}
 
@@ -46,7 +53,7 @@ namespace BaitNews.Controllers.Api
 		{
 			if (ModelState.IsValid)
 			{
-				await DocumentDBRepository<Answer>.UpdateItemAsync(item.Id, item);
+				await DBRepository.UpdateItemAsync(item.Id, item);
 				return RedirectToAction("Index");
 			}
 
@@ -61,13 +68,13 @@ namespace BaitNews.Controllers.Api
 				return BadRequest();
 			}
 
-			Answer item = await DocumentDBRepository<Answer>.GetItemAsync(id);
+			Answer item = await DBRepository.GetItemAsync(id);
 			if (item == null)
 			{
 				return NotFound();
 			}
 
-			await DocumentDBRepository<Answer>.DeleteItemAsync(id);
+			await DBRepository.DeleteItemAsync(id);
 			return RedirectToAction("Index");
 
 		}

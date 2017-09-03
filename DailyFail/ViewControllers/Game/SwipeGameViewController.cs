@@ -20,7 +20,7 @@ namespace BaitNews
 {
     public partial class SwipeGameViewController : UIViewController
 	{
-		HeadlineService headlineService = new HeadlineService(new HeadlineApiService());
+		ApiService<IHeadlineRefit> headlineService = new ApiService<IHeadlineRefit>();
 		List<Answer> answers;
         List<Headline> headlines; 
 		public CardHolderView cardHolderView;
@@ -49,7 +49,7 @@ namespace BaitNews
             base.ViewDidLoad();
 			UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, true);
 
-            headlines = await headlineService.GetHeadlines(Fusillade.Priority.UserInitiated);
+            headlines = await headlineService.UserInitiated.GetHeadlines();
 
             headlines.Shuffle();
 

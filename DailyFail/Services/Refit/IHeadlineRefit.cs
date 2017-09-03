@@ -7,8 +7,8 @@ using Refit;
 //This is for Refit
 namespace BaitNews.Services.Headlines
 {
-    [Headers("Accept: application/json")]
-    public interface IRefit
+	[Headers("Accept: application/json")]
+	public interface IHeadlineRefit
 	{
 		[Get("/headline")]
 		Task<List<Headline>> GetHeadlines();

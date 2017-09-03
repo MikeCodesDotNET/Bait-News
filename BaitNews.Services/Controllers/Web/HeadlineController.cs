@@ -12,12 +12,19 @@ namespace BaitNews.Controllers.Web
 	[Authorize(Roles = "admin")]
 	public class HeadlineController : Controller
     {
+		DocumentDBRepositoryBase<Headline> DBRepository = new DocumentDBRepositoryBase<Headline>();
+
+		public HeadlineController()
+		{
+			DBRepository.Initialize();
+		}
+
 		private TelemetryClient telemetry = new TelemetryClient();
 
 		[ActionName("Index")]
         public async Task<IActionResult> Index()
         {
-            var items = await DocumentDBRepository<Headline>.GetItemsAsync(x => x.Text != null);
+            var items = await DBRepository.GetItemsAsync(x => x.Text != null);
             return View(items);
         }
 
@@ -42,7 +49,7 @@ namespace BaitNews.Controllers.Web
                 if (string.IsNullOrEmpty(item.Id))
                     item.Id = Guid.NewGuid().ToString();
                                     
-                await DocumentDBRepository<Headline>.CreateItemAsync(item);
+                await DBRepository.CreateItemAsync(item);
                 return RedirectToAction("Index");
             }
 
@@ -56,7 +63,7 @@ namespace BaitNews.Controllers.Web
         {
             if (ModelState.IsValid)
             {
-                await DocumentDBRepository<Headline>.UpdateItemAsync(item.Id, item);
+                await DBRepository.UpdateItemAsync(item.Id, item);
                 return RedirectToAction("Index");
             }
 
@@ -71,7 +78,7 @@ namespace BaitNews.Controllers.Web
                 return BadRequest();
             }
 
-            Headline item = await DocumentDBRepository<Headline>.GetItemAsync(id);
+            Headline item = await DBRepository.GetItemAsync(id);
             if (item == null)
             {
                 return NotFound();
@@ -88,7 +95,7 @@ namespace BaitNews.Controllers.Web
                 return BadRequest();
             }
 
-            Headline item = await DocumentDBRepository<Headline>.GetItemAsync(id);
+            Headline item = await DBRepository.GetItemAsync(id);
             if (item == null)
             {
                 return NotFound();
@@ -102,14 +109,14 @@ namespace BaitNews.Controllers.Web
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmedAsync([Bind("Id")] string id)
         {
-            await DocumentDBRepository<Headline>.DeleteItemAsync(id);
+            await DBRepository.DeleteItemAsync(id);
             return RedirectToAction("Index");
         }
 
         [ActionName("Details")]
         public async Task<ActionResult> DetailsAsync(string id)
         {
-            Headline item = await DocumentDBRepository<Headline>.GetItemAsync(id);
+            Headline item = await DBRepository.GetItemAsync(id);
             return View(item);
         }
     }

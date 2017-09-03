@@ -12,15 +12,15 @@ using Polly;
 using BaitNews.Models;
 using BaitNews.Services.Headlines.Abstractions;
 
-namespace BaitNews.Services.Headlines
+namespace BaitNews.Services.Answers
 {
     public class HeadlineService : IHeadlineService
     {
-        IApiService<IHeadlineRefit> _apiService;
+        readonly IApiService _apiService;
 
-        public HeadlineService()
+        public HeadlineService(IApiService apiService)
         {
-            _apiService = new ApiService<IHeadlineRefit>();
+            _apiService = apiService;
         }
 
         public async Task<List<Headline>> GetHeadlines(Priority priority)

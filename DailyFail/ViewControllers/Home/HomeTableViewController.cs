@@ -13,11 +13,14 @@ using CoreAnimation;
 using CoreGraphics;
 using Microsoft.Azure.Mobile.Analytics;
 using SafariServices;
+using BaitNews.Services.Headlines;
 
 namespace BaitNews
 {
 	public partial class HomeTableViewController : UITableViewController
 	{
+		ApiService<IHeadlineRefit> headlineService = new ApiService<IHeadlineRefit>();
+
 		public HomeTableViewController(IntPtr handle) : base(handle)
 		{
 		}
@@ -34,8 +37,7 @@ namespace BaitNews
 
 		public async void Refresh()
 		{
-            var headlineService = new Services.Headlines.HeadlineService(new Services.Headlines.HeadlineApiService());
-            var headlines = await headlineService.GetHeadlines(Fusillade.Priority.UserInitiated);
+            var headlines = await headlineService.Speculative.GetHeadlines();
 
             DataSource = new HomeTableViewDataSource(headlines.ToList());
 			TableView.DataSource = DataSource;
@@ -51,7 +53,7 @@ namespace BaitNews
 		public List<Headline> Headline;
 		public HomeTableViewDataSource(List<Headline> headlines)
 		{
-			Headline = headlines.Where(x => x.ImageUrl != null).ToList();
+            Headline = headlines.Where(x => x.ImageUrl.Contains("https://")).ToList();
 		}
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)

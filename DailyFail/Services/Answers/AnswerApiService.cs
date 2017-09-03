@@ -2,17 +2,18 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.Remoting.Messaging;
+using BaitNews.Services.Headlines;
 using Fusillade;
 using ModernHttpClient;
 using Refit;
 
-namespace BaitNews.Services.Headlines
+namespace BaitNews.Services.Answers
 {
-    public class HeadlineApiService : IApiService
+    public class AnswerApiService : IApiService
     {
         public const string ApiBaseAddress = Helpers.Keys.ApiEndpoint;
 
-        public HeadlineApiService(string apiBaseAddress = null)
+        public AnswerApiService(string apiBaseAddress = null)
         {
 			Func<HttpMessageHandler, IRefit> createClient = messageHandler =>
             {
@@ -48,6 +49,6 @@ namespace BaitNews.Services.Headlines
 		{
 			get { return speculative.Value; }
 		}
-		
+
     }
 }
