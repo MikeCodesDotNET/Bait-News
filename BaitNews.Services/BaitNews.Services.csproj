@@ -52,5 +52,6 @@
     <Folder Include="Helpers\" />
     <Folder Include="Controllers\Web\" />
     <Folder Include="Controllers\API\" />
+    <Folder Include="Views\Answer\" />
   </ItemGroup>
 </Project>

@@ -19,11 +19,8 @@ namespace BaitNews.Data.Services
         static string CollectionId;
         static DocumentClient client;
 
-		public static void Initialize(string collectionId)
+		public static void Initialize()
 		{
-            CollectionId = collectionId;
-
-
 			client = new DocumentClient(new Uri(Endpoint), Key, new ConnectionPolicy { EnableEndpointDiscovery = false });
 			CreateDatabaseIfNotExistsAsync().Wait();
 			CreateCollectionIfNotExistsAsync().Wait();
@@ -42,15 +39,14 @@ namespace BaitNews.Data.Services
                 {
                     return null;
                 }
-                else
-                {
-                    throw;
-                }
+                throw;
             }
         }
 
         public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
         {
+            CollectionId = typeof(T).ToString();
+
             IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
                 UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId),
                 new FeedOptions { MaxItemCount = -1 })
@@ -68,20 +64,23 @@ namespace BaitNews.Data.Services
 
         public static async Task<Document> CreateItemAsync(T item)
         {
-            return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
+			CollectionId = typeof(T).ToString();
+			return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
         }
 
         public static async Task<Document> UpdateItemAsync(string id, T item)
         {
-            return await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id), item);
+			CollectionId = typeof(T).ToString();
+			return await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id), item);
         }
 
         public static async Task DeleteItemAsync(string id)
         {
-            await client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
+			CollectionId = typeof(T).ToString();
+			await client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
         }
 
-        private static async Task CreateDatabaseIfNotExistsAsync()
+        static async Task CreateDatabaseIfNotExistsAsync()
         {
             try
             {
@@ -100,9 +99,11 @@ namespace BaitNews.Data.Services
             }
         }
 
-        private static async Task CreateCollectionIfNotExistsAsync()
+        static async Task CreateCollectionIfNotExistsAsync()
         {
-            try
+			CollectionId = typeof(T).ToString();
+
+			try
             {
                 await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
             }
@@ -113,7 +114,7 @@ namespace BaitNews.Data.Services
                     await client.CreateDocumentCollectionAsync(
                         UriFactory.CreateDatabaseUri(DatabaseId),
                         new DocumentCollection { Id = CollectionId },
-                        new RequestOptions { OfferThroughput = 1000 });
+                        new RequestOptions { OfferThroughput = 400 });
                 }
                 else
                 {

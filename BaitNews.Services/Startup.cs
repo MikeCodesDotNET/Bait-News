@@ -53,7 +53,7 @@ namespace BaitNews
 
 			// Add the Auth0 Settings object so it can be injected
 			services.Configure<Auth0Settings>(Configuration.GetSection("Auth0"));
-			DocumentDBRepository<Headline>.Initialize("Headlines");
+			DocumentDBRepository<Headline>.Initialize();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
