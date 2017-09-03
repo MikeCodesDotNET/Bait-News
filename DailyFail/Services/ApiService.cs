@@ -6,7 +6,7 @@ using Fusillade;
 using ModernHttpClient;
 using Refit;
 
-namespace BaitNews.Services.Headlines
+namespace BaitNews.Services
 {
     public class ApiService<T> : IApiService<T>
     {

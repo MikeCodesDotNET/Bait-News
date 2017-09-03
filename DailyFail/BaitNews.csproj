@@ -401,6 +401,9 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\Headlines\IHeadlineService.cs" />
+    <Compile Include="Services\Answers\AnswerService.cs" />
+    <Compile Include="Services\Answers\IAnswerService.cs" />
+    <Compile Include="Helpers\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="notification-hub">
@@ -461,6 +464,7 @@
     <Folder Include="Services\" />
     <Folder Include="Services\Headlines\" />
     <Folder Include="Services\Refit\" />
+    <Folder Include="Services\Answers\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

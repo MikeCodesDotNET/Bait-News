@@ -10,101 +10,102 @@ using Plugin.Connectivity;
 using Polly;
 
 using BaitNews.Models;
-using BaitNews.Services.Headlines.Abstractions;
+using BaitNews.Services.Answers.Abstractions;
+using BaitNews.Services;
 
 namespace BaitNews.Services.Answers
 {
-    public class HeadlineService : IHeadlineService
+    public class AnswerService : IAnswerService
     {
-        readonly IApiService _apiService;
+        readonly IApiService<IAnswerRefit> _apiService;
 
-        public HeadlineService(IApiService apiService)
+        public AnswerService()
         {
-            _apiService = apiService;
+            _apiService = new ApiService<IAnswerRefit>();
         }
 
-        public async Task<List<Headline>> GetHeadlines(Priority priority)
-        {       
+        public async Task<List<Answer>> GetAnswers(Priority priority)
+        {
             var cache = BlobCache.LocalMachine;
-            var cachedHeadlines = cache.GetAndFetchLatest("headlines", () => GetRemoteHeadlinesAsync(priority),
+            var cachedAnswers = cache.GetAndFetchLatest("answers", () => GetRemoteAnswersAsync(priority),
                 offset =>
                 {
                     TimeSpan elapsed = DateTimeOffset.Now - offset;
-                    return elapsed > new TimeSpan(hours: 0, minutes: 0, seconds: 5);
+                    return elapsed > Helpers.Constants.CacheInvalidationAge;
                 });
 
-            var headlines = await cachedHeadlines.FirstOrDefaultAsync();
-            return headlines;
+            var answers = await cachedAnswers.FirstOrDefaultAsync();
+            return answers;
         }
 
-        public async Task<Headline> GetHeadline(Priority priority, string id)
+        public async Task<Answer> GetAnswer(Priority priority, string id)
         {
-            var cachedHeadlines = BlobCache.LocalMachine.GetAndFetchLatest(id, () => GetRemoteHeadline(priority, id), offset =>
+            var cachedAnswers = BlobCache.LocalMachine.GetAndFetchLatest(id, () => GetRemoteAnswer(priority, id), offset =>
             {
                 TimeSpan elapsed = DateTimeOffset.Now - offset;
-                return elapsed > new TimeSpan(hours: 0, minutes: 0, seconds: 5);
+                return elapsed > Helpers.Constants.CacheInvalidationAge;
             });
 
-            var headline = await cachedHeadlines.FirstOrDefaultAsync();
-            return headline;
+            var answer = await cachedAnswers.FirstOrDefaultAsync();
+            return answer;
         }
 
-        async Task<List<Headline>> GetRemoteHeadlinesAsync(Priority priority)
+        async Task<List<Answer>> GetRemoteAnswersAsync(Priority priority)
         {
-            List<Headline> headlines = null;
-            Task<List<Headline>> getHeadlinesTask;
+            List<Answer> answers = null;
+            Task<List<Answer>> getAnswersTask;
             switch (priority)
             {
                 case Priority.Background:
-                    getHeadlinesTask = _apiService.Background.GetHeadlines();
+                    getAnswersTask = _apiService.Background.GetAnswers();
                     break;
                 case Priority.UserInitiated:
-                    getHeadlinesTask = _apiService.UserInitiated.GetHeadlines();
+                    getAnswersTask = _apiService.UserInitiated.GetAnswers();
                     break;
                 case Priority.Speculative:
-                    getHeadlinesTask = _apiService.Speculative.GetHeadlines();
+                    getAnswersTask = _apiService.Speculative.GetAnswers();
                     break;
                 default:
-                    getHeadlinesTask = _apiService.UserInitiated.GetHeadlines();
+                    getAnswersTask = _apiService.UserInitiated.GetAnswers();
                     break;
             }
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                headlines = await getHeadlinesTask;
+                answers = await getAnswersTask;
             }
-            return headlines;
+            return answers;
         }
 
-        public async Task<Headline> GetRemoteHeadline(Priority priority, string id)
+        public async Task<Answer> GetRemoteAnswer(Priority priority, string id)
         {
-            Headline headline = null;
+            Answer answer = null;
 
-            Task<Headline> getConferenceTask;
+            Task<Answer> getAnswerTask;
             switch (priority)
             {
                 case Priority.Background:
-                    getConferenceTask = _apiService.Background.GetHeadline(id);
+                    getAnswerTask = _apiService.Background.GetAnswer(id);
                     break;
                 case Priority.UserInitiated:
-                    getConferenceTask = _apiService.UserInitiated.GetHeadline(id);
+                    getAnswerTask = _apiService.UserInitiated.GetAnswer(id);
                     break;
                 case Priority.Speculative:
-                    getConferenceTask = _apiService.Speculative.GetHeadline(id);
+                    getAnswerTask = _apiService.Speculative.GetAnswer(id);
                     break;
                 default:
-                    getConferenceTask = _apiService.UserInitiated.GetHeadline(id);
+                    getAnswerTask = _apiService.UserInitiated.GetAnswer(id);
                     break;
             }
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                headline = await Policy
+                answer = await Policy
                     .Handle<Exception>()
                     .RetryAsync(retryCount: 5)
-                    .ExecuteAsync(async () => await getConferenceTask);
+                    .ExecuteAsync(async () => await getAnswerTask);
             }
-            return headline;
+            return answer;
         }
     }
 }

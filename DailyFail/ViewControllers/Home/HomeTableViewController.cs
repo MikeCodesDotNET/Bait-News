@@ -14,6 +14,7 @@ using CoreGraphics;
 using Microsoft.Azure.Mobile.Analytics;
 using SafariServices;
 using BaitNews.Services.Headlines;
+using BaitNews.Services;
 
 namespace BaitNews
 {

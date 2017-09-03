@@ -8,7 +8,7 @@ namespace BaitNews.Services.Answers.Abstractions
 {
 	public interface IAnswerService
 	{
-		Task<List<Headline>> GetAnswers(Priority priority);
-		Task<Headline> GetAnswer (Priority priority, string id);
+		Task<List<Answer>> GetAnswers(Priority priority);
+		Task<Answer> GetAnswer (Priority priority, string id);
 	}
 }

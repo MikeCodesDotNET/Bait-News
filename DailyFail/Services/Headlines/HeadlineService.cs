@@ -30,7 +30,7 @@ namespace BaitNews.Services.Headlines
                 offset =>
                 {
                     TimeSpan elapsed = DateTimeOffset.Now - offset;
-                    return elapsed > new TimeSpan(hours: 0, minutes: 0, seconds: 5);
+                    return elapsed > Helpers.Constants.CacheInvalidationAge;
                 });
 
             var headlines = await cachedHeadlines.FirstOrDefaultAsync();
@@ -42,7 +42,7 @@ namespace BaitNews.Services.Headlines
             var cachedHeadlines = BlobCache.LocalMachine.GetAndFetchLatest(id, () => GetRemoteHeadline(priority, id), offset =>
             {
                 TimeSpan elapsed = DateTimeOffset.Now - offset;
-                return elapsed > new TimeSpan(hours: 0, minutes: 0, seconds: 5);
+                return elapsed > Helpers.Constants.CacheInvalidationAge;
             });
 
             var headline = await cachedHeadlines.FirstOrDefaultAsync();

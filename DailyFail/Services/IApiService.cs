@@ -2,7 +2,7 @@
 using BaitNews.Services.Headlines;
 
 //Used for Fusillade
-namespace BaitNews.Services.Headlines
+namespace BaitNews.Services
 
 {
 	public interface IApiService<T>

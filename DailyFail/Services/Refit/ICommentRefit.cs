@@ -11,12 +11,12 @@ namespace BaitNews.Services.Headlines
 	public interface IRefit
 	{
 		[Get("/comment?headlineId={headlineId}")]
-		Task<List<Headline>> GetCommentsFor(string headlineId);
+		Task<List<Comment>> GetCommentsFor(string headlineId);
 
 		[Get("/comment?id={id}")]
-		Task<Headline> GetComment(string id);
+		Task<Comment> GetComment(string id);
 
 		[Post("/comment")]
-		Task<Headline> PutComment(Comment comment);
+		Task<Comment> PutComment(Comment comment);
 	}
 }

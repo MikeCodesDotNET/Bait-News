@@ -15,6 +15,7 @@ using Awesomizer;
 using Microsoft.Azure.Mobile.Analytics;
 using SafariServices;
 using CoreGraphics;
+using BaitNews.Services;
 
 namespace BaitNews
 {

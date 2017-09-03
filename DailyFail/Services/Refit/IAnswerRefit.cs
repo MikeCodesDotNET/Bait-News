@@ -11,12 +11,12 @@ namespace BaitNews.Services.Answers
     public interface IAnswerRefit
 	{
 		[Get("/answer")]
-		Task<List<Headline>> GetAnswers();
+		Task<List<Answer>> GetAnswers();
 
 		[Get("/answer?id={id}")]
-		Task<Headline> GetAnswer(string id);
+		Task<Answer> GetAnswer(string id);
 
 		[Post("/answer")]
-		Task<Headline> PutAnswer(Answer answer);
+		Task<Answer> PutAnswer(Answer answer);
 	}
 }
