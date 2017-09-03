@@ -37,7 +37,7 @@ namespace BaitNews
 
 		public async void Refresh()
 		{
-            var headlines = await headlineService.Speculative.GetHeadlines();
+            var headlines = await headlineService.UserInitiated.GetHeadlines();
 
             DataSource = new HomeTableViewDataSource(headlines.ToList());
 			TableView.DataSource = DataSource;
