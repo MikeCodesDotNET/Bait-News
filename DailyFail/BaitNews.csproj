@@ -28,14 +28,14 @@
     <MtouchLink>None</MtouchLink>
     <MtouchArch>i386</MtouchArch>
     <PlatformTarget>x86</PlatformTarget>
-    <MtouchSdkVersion>10.3</MtouchSdkVersion>
+    <MtouchSdkVersion></MtouchSdkVersion>
     <MtouchUseLlvm>False</MtouchUseLlvm>
     <MtouchUseThumb>False</MtouchUseThumb>
     <MtouchEnableBitcode>False</MtouchEnableBitcode>
     <OptimizePNGs>false</OptimizePNGs>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-    <MtouchFloat32>False</MtouchFloat32>
+    <MtouchFloat32>true</MtouchFloat32>
     <CodesignProvision>BaitNews-Dev</CodesignProvision>
 <RunCodeAnalysis>true</RunCodeAnalysis><DeviceSpecificBuild>false</DeviceSpecificBuild>
 <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>

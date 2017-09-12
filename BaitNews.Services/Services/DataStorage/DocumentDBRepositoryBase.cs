@@ -13,7 +13,7 @@ namespace BaitNews.Data.Services
     public class DocumentDBRepositoryBase<T> where T : class
     {
         string Endpoint = "https://baitnews.documents.azure.com:443/";
-        string Key = "UYMEejsculVeWelRIA83y9he0Sp16C2WAO86wZ2I1V7MydXFpALYQt3S4c6rhqTLHYQN0tn8XLHyyI5aIvGpZw==";
+        string Key = "My9nez8S2mT49U0mVKNuupx1Qxv23lnEilqfkDckPr3RFhgwED5KfwJbEdav8HXnloDUcUdHmERJJplFyP3KRw==";
         string DatabaseId = "BaitNews";
 
         string CollectionId;

@@ -28,8 +28,7 @@ namespace BaitNews
 
 		public override void ViewDidLoad()
 		{
-			Refresh();
-
+			//Refresh();
 			if (TraitCollection.ForceTouchCapability == UIForceTouchCapability.Available)
 			{
                 RegisterForPreviewingWithDelegate(new HomePreviewingDelegate(this), View);
@@ -41,8 +40,9 @@ namespace BaitNews
             var headlines = await headlineService.UserInitiated.GetHeadlines();
 
             DataSource = new HomeTableViewDataSource(headlines.ToList());
-			TableView.DataSource = DataSource;
-			TableView.ReloadData();
+            TableView.DataSource = DataSource;
+            TableView.ReloadData();
+
 		}
 
 		public HomeTableViewDataSource DataSource { get; set; }

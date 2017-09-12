@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace BaitNews.Controllers.Api
 {
-    [Route("/api/headline")]
-	public class HeadlineController : BaseController<Headline>
+    [Route("/api/like")]
+	public class LikeController : BaseController<Like>
 	{
+        
 	}
 }
