@@ -53,6 +53,24 @@ namespace BaitNews.Data.Services
             }
         }
 
+
+        public async Task<T> GetItemsCount()
+        {
+            try
+            {
+                var document = client.CreateDocumentCollectionQuery(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId),"SELECT c.id FROM c");
+                return (T)(dynamic)document.Count();
+            }
+            catch (DocumentClientException e)
+            {
+                if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
+                {
+                    return null;
+                }
+                throw;
+            }
+        }
+     
         public async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
         {
             CollectionId = GetCollectionName();

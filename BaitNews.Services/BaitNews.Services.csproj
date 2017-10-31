@@ -53,5 +53,6 @@
     <Folder Include="Controllers\Web\" />
     <Folder Include="Controllers\API\" />
     <Folder Include="Views\Answer\" />
+    <Folder Include="Views\Admin\" />
   </ItemGroup>
 </Project>

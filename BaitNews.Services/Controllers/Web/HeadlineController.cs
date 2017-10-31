@@ -119,5 +119,12 @@ namespace BaitNews.Controllers.Web
             Headline item = await DBRepository.GetItemAsync(id);
             return View(item);
         }
+
+        [ActionName("Count")]
+        public async Task<ActionResult> CountAsync()
+        {
+            var count = await DBRepository.GetItemsCount();
+            return View(count);
+        }
     }
 }

@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -20,11 +21,11 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lovingly made in Guildford, UK." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gA-xm-SIC">
-                                <rect key="frame" x="34" y="624" width="307" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lovingly made in Amsterdam" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gA-xm-SIC">
+                                <rect key="frame" x="38" y="557" width="524" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="XHk-ar-iK0"/>
                                 </constraints>
@@ -33,13 +34,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="massive_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="wwg-7u-HyI">
-                                <rect key="frame" x="16" y="152" width="343" height="196"/>
+                                <rect key="frame" x="20" y="127" width="560" height="196"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="196" id="n5b-6n-Ky3"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bait News" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHw-3j-tXA">
-                                <rect key="frame" x="16" y="373" width="343" height="35"/>
+                                <rect key="frame" x="20" y="348" width="560" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="FTJ-Bs-kkI"/>
                                 </constraints>
@@ -69,5 +70,30 @@
     </scenes>
     <resources>
         <image name="massive_icon.png" width="511" height="823"/>
+        <image name="refresh.png" width="60" height="59"/>
+        <image name="fail.png" width="87" height="87"/>
+        <image name="success.png" width="87" height="87"/>
+        <image name="cross.png" width="87" height="87"/>
+        <image name="tick.png" width="87" height="87"/>
+        <image name="heart.png" width="23" height="20"/>
+        <image name="settings.png" width="55" height="55"/>
+        <image name="740-gear.png" width="28" height="28"/>
+        <image name="read.png" width="124" height="85"/>
+        <image name="Me_Selected.png" width="15" height="34"/>
+        <image name="Me.png" width="15" height="34"/>
+        <image name="Search_Selected.png" width="35" height="35"/>
+        <image name="Search.png" width="35" height="35"/>
+        <image name="tabbar_discover.png" width="30" height="30"/>
+        <image name="tabbar_friends_selected.png" width="27" height="34"/>
+        <image name="tabbar_friends.png" width="30" height="30"/>
+        <image name="tabbar_me.png" width="30" height="30"/>
+        <image name="tabbar_search.png" width="30" height="30"/>
+        <image name="sadPanda.png" width="713" height="883"/>
+        <image name="Settings-Header.png" width="750" height="446"/>
+        <image name="default-header.png" width="750" height="446"/>
+        <image name="printed-news-headers.png" width="753" height="446"/>
+        <image name="submit-headlines-header.png" width="753" height="446"/>
+        <image name="cardContent1.png" width="225" height="224"/>
+        <image name="cardContent2.png" width="225" height="234"/>
     </resources>
 </document>

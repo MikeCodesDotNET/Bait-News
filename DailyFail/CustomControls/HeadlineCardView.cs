@@ -69,8 +69,8 @@ private void DrawHeadlineCardView(CGRect frame, string title)
 	var strokeColor3 = UIColor.FromRGBA(0.580f, 0.580f, 0.580f, 0.223f);
 	var textForeground3 = UIColor.FromRGBA(0.582f, 0.582f, 0.582f, 0.517f);
 
-	//// Image Declarations
-	var image = UIImage.FromBundle("cardContent1.png");
+            //// Image Declarations
+            var image = new UIImage();
 
 
 	//// Subframes

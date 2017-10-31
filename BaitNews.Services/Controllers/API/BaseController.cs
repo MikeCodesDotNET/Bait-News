@@ -8,7 +8,7 @@ namespace BaitNews.Controllers.Api
 {
     public class BaseController<T> : Controller where T : Models.BaseModel
 	{
-		DocumentDBRepositoryBase<T> DBRepository = new DocumentDBRepositoryBase<T>();
+		public DocumentDBRepositoryBase<T> DBRepository = new DocumentDBRepositoryBase<T>();
 
 		public BaseController()
 		{

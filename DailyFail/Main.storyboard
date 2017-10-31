@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kSb-GV-gfg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kSb-GV-gfg">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Black</string>
+            <string>Avenir-Heavy</string>
+            <string>Avenir-Medium</string>
+        </array>
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home-->
         <scene sceneID="jBS-5R-rW7">
@@ -16,7 +26,7 @@
                 <navigationController id="ozy-Pn-RjS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" selectedImage="tabbar_discover.png" id="QXX-r3-9lJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Sce-Ty-t8k">
-                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.7803921568627451" green="0.12941176470588237" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -63,11 +73,11 @@
                         <viewControllerLayoutGuide type="bottom" id="rsj-SS-oHO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Jxv-Zv-MUx">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNa-DO-u5e">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="623"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -101,7 +111,7 @@
             <objects>
                 <tableViewController id="hVw-bq-Zuw" customClass="HomeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="241" sectionHeaderHeight="1" sectionFooterHeight="28" id="jja-M6-e1A">
-                        <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.12941176470588234" green="0.14509803921568626" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="ZSk-ZW-a5n">
@@ -428,11 +438,11 @@
                                         <rect key="frame" x="0.0" y="241" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZJL-pt-xyl" id="yRt-M1-tD5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Enable Analytics Reporting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bkz-g5-Akr">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="56.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="379" height="56.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -451,11 +461,11 @@
                                         <rect key="frame" x="0.0" y="298" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E3o-oc-VSA" id="5d7-bg-pYA">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Show NSFW Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bSd-lH-XG3">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="56.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="379" height="56.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -474,11 +484,11 @@
                                         <rect key="frame" x="0.0" y="355" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XoB-EW-CCC" id="V6P-rc-vyM">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Clear Local Cache" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BfE-bI-JLr">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="56.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="379" height="56.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -505,7 +515,7 @@
             </objects>
             <point key="canvasLocation" x="-828" y="42"/>
         </scene>
-        <!--Title-->
+        <!--Results View Controller-->
         <scene sceneID="WKV-vb-1Bw">
             <objects>
                 <viewController id="PDF-1l-AX5" customClass="ResultsViewController" sceneMemberID="viewController">
@@ -517,8 +527,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iS5-nG-7Ga">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iS5-nG-7Ga">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ht9-0C-XW9">
                                         <rect key="frame" x="227" y="44" width="164" height="52"/>
@@ -540,7 +550,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOJ-NN-yZl">
-                                        <rect key="frame" x="342" y="18" width="49" height="33"/>
+                                        <rect key="frame" x="342" y="28" width="49" height="33"/>
                                         <color key="backgroundColor" red="0.0" green="0.65558826923370361" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="33" id="ZnH-G2-bHj"/>
@@ -567,7 +577,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.13333333333333333" green="0.14901960784313725" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="ZOJ-NN-yZl" firstAttribute="top" secondItem="iS5-nG-7Ga" secondAttribute="top" constant="18" id="8wz-5f-bie"/>
+                                    <constraint firstItem="ZOJ-NN-yZl" firstAttribute="top" secondItem="iS5-nG-7Ga" secondAttribute="top" constant="28" id="8wz-5f-bie"/>
                                     <constraint firstAttribute="height" constant="112" id="KjN-G3-uK5"/>
                                     <constraint firstItem="Ht9-0C-XW9" firstAttribute="top" secondItem="iS5-nG-7Ga" secondAttribute="top" constant="44" id="LIJ-nn-8vF"/>
                                     <constraint firstAttribute="trailing" secondItem="ZOJ-NN-yZl" secondAttribute="trailing" constant="23" id="MhE-XU-E7f"/>
@@ -581,7 +591,7 @@
                                 </constraints>
                             </view>
                             <view autoresizesSubviews="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="WHl-H6-ynu">
-                                <rect key="frame" x="0.0" y="111" width="414" height="625"/>
+                                <rect key="frame" x="0.0" y="131" width="414" height="605"/>
                                 <color key="backgroundColor" red="0.082352941176470587" green="0.090196078431372548" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -593,11 +603,12 @@
                             <constraint firstItem="WHl-H6-ynu" firstAttribute="leading" secondItem="1nA-yP-oYt" secondAttribute="leading" id="Cgf-a3-bab"/>
                             <constraint firstAttribute="trailing" secondItem="iS5-nG-7Ga" secondAttribute="trailing" id="D5T-MI-fTF"/>
                             <constraint firstAttribute="trailing" secondItem="WHl-H6-ynu" secondAttribute="trailing" id="GqX-s2-2gv"/>
-                            <constraint firstItem="iS5-nG-7Ga" firstAttribute="top" secondItem="FPu-uc-elD" secondAttribute="bottom" id="hbG-NG-5dI"/>
+                            <constraint firstItem="iS5-nG-7Ga" firstAttribute="top" secondItem="FPu-uc-elD" secondAttribute="bottom" constant="-20" id="hbG-NG-5dI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="480"/>
+                    <navigationItem key="navigationItem" id="480"/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="btnOk" destination="ZOJ-NN-yZl" id="name-outlet-ZOJ-NN-yZl"/>
                         <outlet property="contentView" destination="WHl-H6-ynu" id="name-outlet-WHl-H6-ynu"/>
@@ -608,7 +619,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7F3-Jn-AYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1891" y="-686"/>
+            <point key="canvasLocation" x="1889.8550724637682" y="-686.41304347826087"/>
         </scene>
         <!--Answer Table View Controller-->
         <scene sceneID="uH6-0E-SGr">
@@ -624,7 +635,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKR-e6-KFM" id="eZN-Ky-JVy">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="83.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="83.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New cafe opens for men trapped in friends zone" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sh-08-Xw5">
@@ -686,13 +697,13 @@
         <!--Navigation Controller-->
         <scene sceneID="329">
             <objects>
-                <navigationController navigationBarHidden="YES" id="330" sceneMemberID="viewController">
+                <navigationController id="330" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="332">
-                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.83248049020000003" green="0.21579802040000001" blue="0.24246501919999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.213571697473526" green="0.60953640937805176" blue="0.91692870855331421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.17558437585830688" green="0.19911080598831177" blue="0.24895185232162476" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="textShadowColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -827,11 +838,11 @@
                                         <rect key="frame" x="0.0" y="241" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZUq-uM-Wo6" id="8QN-if-SOi">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Headline:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VCy-fh-f2k">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="56.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="379" height="56.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -852,11 +863,11 @@
                                         <rect key="frame" x="0.0" y="298" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AiJ-sL-YS8" id="W3z-fB-8Ju">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Publisher:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="G36-Xx-kYT">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="56.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="379" height="56.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -877,11 +888,11 @@
                                         <rect key="frame" x="0.0" y="355" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CFx-Vp-zUR" id="bCQ-M3-wGM">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Country:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fcH-nS-BXK">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="56.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="379" height="56.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -902,11 +913,11 @@
                                         <rect key="frame" x="0.0" y="412" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yhJ-7j-V3E" id="vYr-fK-GOw">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Is True:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Zsz-jr-VbH">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="56.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="379" height="56.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -925,11 +936,11 @@
                                         <rect key="frame" x="0.0" y="469" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oh2-Jl-JKA" id="zpI-9u-8bT">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Is NSFW:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Quz-8F-8dc">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="56.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="379" height="56.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1054,11 +1065,11 @@ the word</string>
                                         <rect key="frame" x="0.0" y="241" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="32p-oK-qto" id="RzL-Mk-3vU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Enable Analytics Reporting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9hg-zg-7vZ">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="56.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="379" height="56.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1077,11 +1088,11 @@ the word</string>
                                         <rect key="frame" x="0.0" y="298" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2MU-Th-g2A" id="iza-ar-9j2">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Show NSFW Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a8c-tu-bga">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="56.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="379" height="56.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1100,11 +1111,11 @@ the word</string>
                                         <rect key="frame" x="0.0" y="355" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zvn-Kt-6HL" id="xDK-go-tDp">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Clear Local Cache" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gEe-fv-9oV">
-                                                    <rect key="frame" x="15" y="0.0" width="384" height="56.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="379" height="56.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
