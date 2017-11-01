@@ -76,7 +76,7 @@ namespace BaitNews.Services.Headlines
             return headlines;
         }
 
-        public async Task<Headline> GetRemoteHeadline(Priority priority, string id)
+        async Task<Headline> GetRemoteHeadline(Priority priority, string id)
         {
             Headline headline = null;
 
