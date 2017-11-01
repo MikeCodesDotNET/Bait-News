@@ -45,16 +45,17 @@ namespace BaitNews.Forms.PageModels
             }*/
 
 
-            headlines.Add (new Headline () { Text = "Pizza to go", ImageUrl = "one.jpg", Url = "30 meters away", Source = "Pizza" });
-            headlines.Add (new Headline () { Text = "Dragon & Peacock", ImageUrl = "two.jpg", Url = "800 meters away", Source = "Sweet & Sour"});
-            headlines.Add (new Headline () { Text = "Murrays Food Palace", ImageUrl = "three.jpg", Url = "9 miles away", Source = "Salmon Plate" });
-            headlines.Add (new Headline () { Text = "Food to go", ImageUrl = "four.jpg", Url = "4 miles away", Source = "Salad Wrap" });
-            headlines.Add (new Headline () { Text = "Mexican Joint", ImageUrl = "five.jpg", Url = "2 miles away", Source = "Chilli Bites" });
-            headlines.Add (new Headline () { Text = "Mr Bens", ImageUrl = "six.jpg", Url = "1 mile away", Source = "Beef" });
-            headlines.Add (new Headline () { Text = "Corner Shop", ImageUrl = "seven.jpg", Url = "100 meters away", Source = "Burger & Chips" });
-            headlines.Add (new Headline () { Text = "Sarah's Cafe", ImageUrl = "eight.jpg", Url = "6 miles away", Source = "House Breakfast" });
-            headlines.Add (new Headline () { Text = "Pata Place", ImageUrl = "nine.jpg", Url = "2 miles away", Source = "Chicken Curry" });
-            headlines.Add (new Headline () { Text = "Jerrys", ImageUrl = "ten.jpg", Url = "8 miles away", Source = "Pasta Salad" });
+            headlines.Add (new Headline() { Text = "Man that dreamed of opening trampoline studio becomes paralyzed after trampoline accident" });
+            headlines.Add(new Headline() { Text = "Man sacked for delivering box of own faeces to pharmacy by mistake" });
+            headlines.Add(new Headline() { Text = "Spontaneous dancing still illegal in Sweden" });
+            headlines.Add(new Headline() { Text = "Gainesville High School gets new sign, asks drivers not to crash into it like the old sign" });
+            headlines.Add(new Headline() { Text = "Dog that mauled owner to death had 'probably taken crack cocaine'" });
+            headlines.Add(new Headline() { Text = "Trump dedicates golf trophy to hurricane victims" });
+            headlines.Add(new Headline() { Text = "Uber’s search for a female CEO has been narrowed down to 3 men" });
+            headlines.Add(new Headline() { Text = "British politician wants death penalty for suicide bombers" });
+            headlines.Add(new Headline() { Text = "Michigan woman gets life in prison for murder parrot allegedly witnessed" });
+            headlines.Add(new Headline() { Text = "This half-naked Ontario man just wants his weed and bong back" });
+
         }
 	}
 }

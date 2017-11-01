@@ -45,24 +45,25 @@ namespace BaitNews.Forms.Controls
             {
                 TextColor = Color.White,
                 FontFamily = "Avenir",
+                LineBreakMode = LineBreakMode.WordWrap,
                 FontSize = 18,
                 InputTransparent = true,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalTextAlignment = TextAlignment.Center,
-                VerticalOptions = LayoutOptions.CenterAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
                 VerticalTextAlignment = TextAlignment.Center,
-			};
+            };
 
 
             //This is some Horrible code
 			relativeLayout.Children.Add (Headline,
                 Constraint.Constant (10), Constraint.RelativeToParent((parent) => {
-                    return parent.Height / 2 - 10;
+                    return parent.Height / 2 - 40;
                 }),
 				Constraint.RelativeToParent ((parent) => {					
-					return parent.Width;
+					return parent.Width - 20;
 				}),
-				Constraint.Constant (28)
+				Constraint.Constant (120)
 			);
             
 			StackLayout stack = new StackLayout {
