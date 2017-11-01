@@ -45,7 +45,7 @@ namespace BaitNews.Forms.Controls
 		public Action<int> SwipedLeft = null;
 
 		public static readonly BindableProperty ItemsSourceProperty =
-			BindableProperty.Create(nameof(ItemsSource), typeof(System.Collections.IList), typeof(CardStackView), null,
+            BindableProperty.Create(nameof(ItemsSource), typeof(System.Collections.IList), typeof(CardStackView), null,
     		propertyChanged: OnItemsSourcePropertyChanged);
     
 		public List<Headline> ItemsSource {
@@ -106,10 +106,7 @@ namespace BaitNews.Forms.Controls
 			for (int i = 0; i < Math.Min(NumCards, ItemsSource.Count); i++)	{
 				if (itemIndex >= ItemsSource.Count) break;
 				var card = cards[i];
-				card.Name.Text = ItemsSource[itemIndex].Text;
-				card.Location.Text = ItemsSource[itemIndex].Url;
-				card.Description.Text = ItemsSource[itemIndex].Source;
-                card.Photo.Source = ImageSource.FromFile(ItemsSource[itemIndex].ImageUrl);
+				card.Headline.Text = ItemsSource[itemIndex].Text;
 				card.IsVisible = true;
 				card.Scale = GetScale(i);
 				card.RotateTo (0, 0);
@@ -119,7 +116,7 @@ namespace BaitNews.Forms.Controls
 			}
 		}
 		
-		void OnPanUpdated (object sender, PanUpdatedEventArgs e)
+        void OnPanUpdated (object sender, PanUpdatedEventArgs e)
 		{
 			switch (e.StatusType) {
 				case GestureStatus.Started:
@@ -235,10 +232,7 @@ namespace BaitNews.Forms.Controls
 				topCard.TranslateTo(0, -topCard.Y, 0);
 
 				// set the data
-				topCard.Name.Text = ItemsSource[itemIndex].Text;
-				topCard.Location.Text = ItemsSource[itemIndex].Url;
-				topCard.Description.Text = ItemsSource[itemIndex].Source;
-                topCard.Photo.Source = ImageSource.FromFile(ItemsSource[itemIndex].ImageUrl);
+				topCard.Headline.Text = ItemsSource[itemIndex].Text;
 
 				topCard.IsVisible = true;
 				itemIndex++;

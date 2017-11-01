@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using BaitNews.Forms.Pages;
+using FreshMvvm;
 
 namespace BaitNews.Forms
 {
@@ -9,8 +10,10 @@ namespace BaitNews.Forms
         {
             InitializeComponent();
 
-            MainPage = new SwipeGamePage();
-        }
+            var page = FreshPageModelResolver.ResolvePageModel<PageModels.SwipeGamePageModel>();
+            var basicNavContainer = new FreshNavigationContainer(page);
+            MainPage = basicNavContainer;
+       }
 
         protected override void OnStart()
         {

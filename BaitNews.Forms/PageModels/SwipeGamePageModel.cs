@@ -16,41 +16,23 @@ using BaitNews.Forms.Models;
 
 namespace BaitNews.Forms.PageModels
 {
-	public class SwipeGamePageModel : INotifyPropertyChanged
-	{
-		public event PropertyChangedEventHandler PropertyChanged;
-	
-		List<Headline> items = new List<Headline>();
-		public List<Headline> ItemsList
+	public class SwipeGamePageModel : FreshMvvm.FreshBasePageModel
+	{	
+        List<Headline> headlines = new List<Headline>();
+        public List<Headline> Headlines
 		{
 			get	{
-				return items;
+				return headlines;
 			}
 			set	{
-				if (items == value)	{
+				if (headlines == value)	{
 					return;
 				}
-				items = value;
-				OnPropertyChanged();
+				headlines = value;
+                RaisePropertyChanged();
 			}
 		}
-		
-		protected virtual void OnPropertyChanged ([CallerMemberName] string propertyName = null)
-		{
-			PropertyChangedEventHandler handler = PropertyChanged;
-			if (handler != null) {
-				handler(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-			
-		protected virtual void SetProperty<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
-		{
-			field = value;
-			PropertyChangedEventHandler handler = PropertyChanged;
-			if (handler != null) {
-				handler(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
+
 		
 		public SwipeGamePageModel()
 		{
@@ -63,16 +45,16 @@ namespace BaitNews.Forms.PageModels
             }*/
 
 
-            items.Add (new Headline () { Text = "Pizza to go", ImageUrl = "one.jpg", Url = "30 meters away", Source = "Pizza" });
-            items.Add (new Headline () { Text = "Dragon & Peacock", ImageUrl = "two.jpg", Url = "800 meters away", Source = "Sweet & Sour"});
-            items.Add (new Headline () { Text = "Murrays Food Palace", ImageUrl = "three.jpg", Url = "9 miles away", Source = "Salmon Plate" });
-            items.Add (new Headline () { Text = "Food to go", ImageUrl = "four.jpg", Url = "4 miles away", Source = "Salad Wrap" });
-            items.Add (new Headline () { Text = "Mexican Joint", ImageUrl = "five.jpg", Url = "2 miles away", Source = "Chilli Bites" });
-            items.Add (new Headline () { Text = "Mr Bens", ImageUrl = "six.jpg", Url = "1 mile away", Source = "Beef" });
-            items.Add (new Headline () { Text = "Corner Shop", ImageUrl = "seven.jpg", Url = "100 meters away", Source = "Burger & Chips" });
-            items.Add (new Headline () { Text = "Sarah's Cafe", ImageUrl = "eight.jpg", Url = "6 miles away", Source = "House Breakfast" });
-            items.Add (new Headline () { Text = "Pata Place", ImageUrl = "nine.jpg", Url = "2 miles away", Source = "Chicken Curry" });
-            items.Add (new Headline () { Text = "Jerrys", ImageUrl = "ten.jpg", Url = "8 miles away", Source = "Pasta Salad" });
+            headlines.Add (new Headline () { Text = "Pizza to go", ImageUrl = "one.jpg", Url = "30 meters away", Source = "Pizza" });
+            headlines.Add (new Headline () { Text = "Dragon & Peacock", ImageUrl = "two.jpg", Url = "800 meters away", Source = "Sweet & Sour"});
+            headlines.Add (new Headline () { Text = "Murrays Food Palace", ImageUrl = "three.jpg", Url = "9 miles away", Source = "Salmon Plate" });
+            headlines.Add (new Headline () { Text = "Food to go", ImageUrl = "four.jpg", Url = "4 miles away", Source = "Salad Wrap" });
+            headlines.Add (new Headline () { Text = "Mexican Joint", ImageUrl = "five.jpg", Url = "2 miles away", Source = "Chilli Bites" });
+            headlines.Add (new Headline () { Text = "Mr Bens", ImageUrl = "six.jpg", Url = "1 mile away", Source = "Beef" });
+            headlines.Add (new Headline () { Text = "Corner Shop", ImageUrl = "seven.jpg", Url = "100 meters away", Source = "Burger & Chips" });
+            headlines.Add (new Headline () { Text = "Sarah's Cafe", ImageUrl = "eight.jpg", Url = "6 miles away", Source = "House Breakfast" });
+            headlines.Add (new Headline () { Text = "Pata Place", ImageUrl = "nine.jpg", Url = "2 miles away", Source = "Chicken Curry" });
+            headlines.Add (new Headline () { Text = "Jerrys", ImageUrl = "ten.jpg", Url = "8 miles away", Source = "Pasta Salad" });
         }
 	}
 }

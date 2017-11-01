@@ -23,13 +23,15 @@ namespace BaitNews.Forms.Pages
 	
 		public SwipeGamePage ()
 		{
+            Title = "Game Demo";
+
 			this.BindingContext = viewModel;	
-			this.BackgroundColor = Color.Black;
+            this.BackgroundColor = Color.FromHex("#1C1F27");
 
 			RelativeLayout view = new RelativeLayout ();
 
 			cardStack = new CardStackView ();
-			cardStack.SetBinding(CardStackView.ItemsSourceProperty, "ItemsList");
+            cardStack.SetBinding(CardStackView.ItemsSourceProperty, "Headlines");
 			cardStack.SwipedLeft += SwipedLeft;
 			cardStack.SwipedRight += SwipedRight;
 
