@@ -11,6 +11,8 @@ using Microsoft.Azure.Mobile.Push;
 using BaitNews;
 using Akavache;
 
+
+
 namespace BaitNews
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the
