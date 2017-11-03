@@ -29,8 +29,14 @@ namespace BaitNews.Services.Headlines
             var cachedHeadlines = cache.GetAndFetchLatest("headlines", () => GetRemoteHeadlinesAsync(priority),
                 offset =>
                 {
-                    TimeSpan elapsed = DateTimeOffset.Now - offset;
-                    return elapsed > Helpers.Constants.CacheInvalidationAge;
+                    //If there is no network connection available, always return false so that the user will get cached data if available
+                    if (CrossConnectivity.Current.IsConnected)
+                    {
+                        TimeSpan elapsed = DateTimeOffset.Now - offset;
+                        return elapsed > Helpers.Constants.CacheInvalidationAge;
+                    }
+                    else
+                        return false;
                 });
 
             var headlines = await cachedHeadlines.FirstOrDefaultAsync();
@@ -41,8 +47,14 @@ namespace BaitNews.Services.Headlines
         {
             var cachedHeadlines = BlobCache.LocalMachine.GetAndFetchLatest(id, () => GetRemoteHeadline(priority, id), offset =>
             {
-                TimeSpan elapsed = DateTimeOffset.Now - offset;
-                return elapsed > Helpers.Constants.CacheInvalidationAge;
+                //If there is no network connection available, always return false so that the user will get cached data if available
+                if (CrossConnectivity.Current.IsConnected)
+                {
+                    TimeSpan elapsed = DateTimeOffset.Now - offset;
+                    return elapsed > Helpers.Constants.CacheInvalidationAge;
+                }
+                else
+                    return false;
             });
 
             var headline = await cachedHeadlines.FirstOrDefaultAsync();

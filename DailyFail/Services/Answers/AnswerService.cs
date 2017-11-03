@@ -30,8 +30,14 @@ namespace BaitNews.Services.Answers
             var cachedAnswers = cache.GetAndFetchLatest("answers", () => GetRemoteAnswersAsync(priority),
                 offset =>
                 {
-                    TimeSpan elapsed = DateTimeOffset.Now - offset;
-                    return elapsed > Helpers.Constants.CacheInvalidationAge;
+                    //If there is no network connection available, always return false so that the user will get cached data if available
+                    if (CrossConnectivity.Current.IsConnected)
+                    {
+                        TimeSpan elapsed = DateTimeOffset.Now - offset;
+                        return elapsed > Helpers.Constants.CacheInvalidationAge;
+                    }
+                    else
+                        return false;
                 });
 
             var answers = await cachedAnswers.FirstOrDefaultAsync();
@@ -42,8 +48,14 @@ namespace BaitNews.Services.Answers
         {
             var cachedAnswers = BlobCache.LocalMachine.GetAndFetchLatest(id, () => GetRemoteAnswer(priority, id), offset =>
             {
-                TimeSpan elapsed = DateTimeOffset.Now - offset;
-                return elapsed > Helpers.Constants.CacheInvalidationAge;
+                //If there is no network connection available, always return false so that the user will get cached data if available
+                if (CrossConnectivity.Current.IsConnected)
+                {
+                    TimeSpan elapsed = DateTimeOffset.Now - offset;
+                    return elapsed > Helpers.Constants.CacheInvalidationAge;
+                }
+                else
+                    return false;
             });
 
             var answer = await cachedAnswers.FirstOrDefaultAsync();
