@@ -1,0 +1,25 @@
+.tp--features-2 {
+	.tp--feature {
+		margin-top: 2.5em;
+		
+		.tp--feature-wrapper {
+			background-color: white;
+			box-shadow: 0 10px 50px rgba(20, 50, 81, 0.04), 0 10px 50px rgba(0, 0, 0, 0.05);
+			padding: 1em;
+			border-radius: 5px;
+		}
+	}
+
+	&.tp--section-dark {
+    .tp--feature {
+      h3,
+      p {
+        color: $text-color;
+      }
+
+      .tp--icon-wrapper {
+      	color: $text-color;
+      }
+    }
+  }
+}

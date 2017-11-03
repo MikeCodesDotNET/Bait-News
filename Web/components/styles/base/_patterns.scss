@@ -1,0 +1,85 @@
+// --- Background Patterns ---
+
+[class*=tp--pattern-] {
+	&:before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+    left: 0;
+	}
+} 
+
+.tp--pattern-1 {
+	&:before {
+		background: url('../images/patterns/bg-pattern-1.png') !important;
+		background-size: cover !important;
+	}
+}
+
+.tp--pattern-2 {
+	&:before {
+		background: url('../images/patterns/bg-pattern-2.png') !important;
+	}
+}
+
+.tp--pattern-3 {
+	&:before {
+		background: url('../images/patterns/bg-pattern-3.png') !important;
+	}
+}
+
+.tp--pattern-4 {
+	&:before {
+		background: url('../images/patterns/bg-pattern-4.png') !important;
+	}
+}
+
+.tp--pattern-5 {
+	&:before {
+		background: url('../images/patterns/bg-pattern-5.png') !important;
+	}
+}
+
+.tp--pattern-6 {
+	&:before {
+		background: url('../images/patterns/bg-pattern-6.png') !important;
+	}
+}
+
+.tp--pattern-7 {
+	&:before {
+		background: url('../images/patterns/bg-pattern-7.png') !important;
+	}
+}
+
+.tp--pattern-8 {
+	&:before {
+		background: url('../images/patterns/bg-pattern-8.png') !important;
+	}
+}
+
+.tp--pattern-9 {
+	&:before {
+		background: url('../images/patterns/bg-pattern-9.png') !important;
+	}
+}
+
+.tp--pattern-10 {
+	&:before {
+		background: url('../images/patterns/bg-pattern-10.png') !important;
+	}
+}
+
+.tp--pattern-11 {
+	&:before {
+		background: url('../images/patterns/bg-pattern-11.png') !important;
+	}
+}
+
+.tp--pattern-12 {
+	&:before {
+		background: url('../images/patterns/bg-pattern-12.png') !important;
+	}
+}

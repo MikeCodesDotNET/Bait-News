@@ -1,0 +1,66 @@
+.tp--team {
+
+	.item {
+		padding: 1em;
+
+		.display-pic {
+			width: 80px;
+	    height: 80px;
+	    margin: 0;
+	    display: block;
+
+	    @include MQ(L) {
+				width: 120px;
+	    	height: 120px;
+			}
+		}
+
+		.name {
+			font-size: 1.15em;
+    	font-weight: 500;
+    	margin: 1.3em 0 0;
+    	text-transform: none;
+
+    	@include MQ(L) {
+				font-size: 1.3em;
+			}
+		}
+
+		.title {
+			margin: 0.75em 0 1.5em;
+    	font-size: 0.95em;
+    	font-weight: 300;
+		}
+
+		.desc {
+	    font-size: 0.9em;
+	    padding: 0
+		}
+
+		.icon {
+		  border-radius: 50%;
+		  width: 31px;
+		  height: 31px;
+		  line-height: 30px;
+		  display: inline-block;
+		  text-align: center;
+		  font-size: 1em;
+		  color: $text-color;
+		  opacity: 0.7;
+
+		  &:hover {
+		  	opacity: 1;
+		  }
+		}
+	}
+
+	&.tp--section-dark {
+		.item {
+			color: white;
+			.icon {
+				color: white;
+			}
+		}
+	}
+
+}

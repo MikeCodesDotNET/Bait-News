@@ -1,30 +1,42 @@
 ﻿using MikeCodesDotNET.iOS;
 using Foundation;
 using UIKit;
+using BaitNews.Models;
+
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
+using Microsoft.Azure.Mobile.Distribute;
+using Microsoft.Azure.Mobile.Push;
+using BaitNews;
+using Akavache;
 
 namespace BaitNews
 {
-	// The UIApplicationDelegate for the application. This class is responsible for launching the
-	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
-	[Register("AppDelegate")]
-	public class AppDelegate : UIApplicationDelegate
-	{
-		// class-level declarations
+    // The UIApplicationDelegate for the application. This class is responsible for launching the
+    // User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
+    [Register("AppDelegate")]
+    public class AppDelegate : UIApplicationDelegate
+    {
+        // class-level declarations
 
-		public override UIWindow Window
-		{
-			get;
-			set;
-		}
+        public override UIWindow Window
+        {
+            get;
+            set;
+        }
 
-		public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
-		{
-			// Override point for customization after application launch.
-			// If not required for your application you can safely delete this method
+        public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
+        {
+            BlobCache.ApplicationName = "BaitNews";
+
+#if DEBUG
+            BlobCache.LocalMachine.InvalidateAll();
+#endif
+
+            MobileCenter.Start("5a59ecc6-7522-4793-bb93-65f5aed040c1",
+			                   typeof(Analytics), typeof(Crashes), typeof(Distribute));
             
-			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-			SQLitePCL.CurrentPlatform.Init();
-
 			UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes
 			{
 				Font = UIFont.FromName("AvenirNext-Medium", 18),

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<BaitNews.Models.Headline>
+
+@{
+    ViewBag.Title = "Headlines";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <section id="tagline" class="tp--section p-top-sm-100 p-bottom-sm-50">
+
+	    <div class="container">
+            <div class="alert alert-danger">
+			  <strong>Warning! </strong> You're editing the production database.
+			</div>
+		    <h2>Headlines</h2>
+		
+	        <table class="table">
+	        <tr>
+	        <th>
+	            <b>Headline Image</b>
+	        </th>
+	        <th>
+	            @Html.DisplayNameFor(model => model.Text)
+	        </th>
+	        <th>
+	            @Html.DisplayNameFor(model => model.Source)
+	        </th>
+	        <th>
+	            @Html.DisplayNameFor(model => model.Url)
+	        </th>
+	        <th>
+	            @Html.DisplayNameFor(model => model.IsTrue)
+	        </th>
+	        <th>
+	            @Html.DisplayNameFor(model => model.IsNSFW)
+	        </th>
+
+	     
+	        <th></th>
+	    </tr>
+
+	@foreach (var item in Model) {
+	    <tr>
+	        <td>
+	     
+	            <img src="@item.ImageUrl"
+	                    alt="Headline Image"
+	                    height="80" />
+	         
+	        </td>
+	        <td>
+	            @Html.DisplayFor(modelItem => item.Text)
+	        </td>
+	        <td>
+	            @Html.DisplayFor(modelItem => item.Source)
+	        </td>
+	        <td>
+	            @Html.DisplayFor(modelItem => item.Url)
+	        </td>
+	        <td>
+	            @Html.DisplayFor(modelItem => item.IsTrue)
+	        </td>
+	        <td>
+	            @Html.DisplayFor(modelItem => item.IsNSFW)
+	        </td>
+	        <td>
+	            @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class= "btn btn-default" })
+	            @Html.ActionLink("Details", "Details", new { id=item.Id }, new { @class= "btn btn-info" })
+	            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class= "btn btn-danger" })
+	        </td>
+	    </tr>
+	}
+
+	</table>
+
+        <p>
+    @Html.ActionLink("Create New", "Create", new { @class= "btn btn-primary" })
+</p>
+		
+	    </div>
+
+    </section>
+

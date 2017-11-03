@@ -6,7 +6,7 @@
     <ProjectGuid>{E0D53868-4C48-48CB-8562-F257930012D4}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DailyFail</RootNamespace>
+    <RootNamespace>BaitNews</RootNamespace>
     <AssemblyName>DailyFail</AssemblyName>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <NuGetPackageImportStamp>
@@ -23,21 +23,22 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
     <MtouchDebug>True</MtouchDebug>
-    <MtouchFastDev>True</MtouchFastDev>
+    <MtouchFastDev>false</MtouchFastDev>
     <MtouchProfiling>False</MtouchProfiling>
-    <MtouchUseSGen>True</MtouchUseSGen>
-    <MtouchUseRefCounting>True</MtouchUseRefCounting>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>i386</MtouchArch>
     <PlatformTarget>x86</PlatformTarget>
-    <MtouchSdkVersion>10.1</MtouchSdkVersion>
+    <MtouchSdkVersion></MtouchSdkVersion>
     <MtouchUseLlvm>False</MtouchUseLlvm>
     <MtouchUseThumb>False</MtouchUseThumb>
     <MtouchEnableBitcode>False</MtouchEnableBitcode>
-    <OptimizePNGs>True</OptimizePNGs>
+    <OptimizePNGs>false</OptimizePNGs>
     <MtouchTlsProvider>Default</MtouchTlsProvider>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
-    <MtouchFloat32>False</MtouchFloat32>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignProvision>BaitNews-Dev</CodesignProvision>
+<RunCodeAnalysis>true</RunCodeAnalysis><DeviceSpecificBuild>false</DeviceSpecificBuild>
+<MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <Optimize>true</Optimize>
@@ -46,8 +47,6 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchUseSGen>true</MtouchUseSGen>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
@@ -61,12 +60,10 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
-    <MtouchUseSGen>true</MtouchUseSGen>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchLink>None</MtouchLink>
     <MtouchArch>i386</MtouchArch>
     <PlatformTarget>x86</PlatformTarget>
-  </PropertyGroup>
+<RunCodeAnalysis>true</RunCodeAnalysis>  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -81,43 +78,14 @@
     <MtouchDebug>true</MtouchDebug>
     <MtouchFastDev>false</MtouchFastDev>
     <MtouchProfiling>true</MtouchProfiling>
-    <MtouchUseSGen>true</MtouchUseSGen>
-    <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchLink>SdkOnly</MtouchLink>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
     <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision></CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AppServiceHelpers, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AppService.Helpers.1.1.0-prerelease-13\lib\Xamarin.iOS10\AppServiceHelpers.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AppServiceHelpers.Ext, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AppService.Helpers.1.1.0-prerelease-13\lib\Xamarin.iOS10\AppServiceHelpers.Ext.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="HockeySDK, Version=1.0.6103.22142, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HockeySDK.Xamarin.4.1.0\lib\Xamarin.iOS10\HockeySDK.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="HockeySDK.iOSBindings, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HockeySDK.Xamarin.4.1.0\lib\Xamarin.iOS10\HockeySDK.iOSBindings.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Mobile, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Client.2.1.1\lib\Xamarin.iOS10\Microsoft.WindowsAzure.Mobile.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Mobile.Ext, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Client.2.1.1\lib\Xamarin.iOS10\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Mobile.SQLiteStore, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Mobile.Client.SQLiteStore.2.1.1\lib\portable-win+net45+wp8+wpa81+monotouch+monoandroid\Microsoft.WindowsAzure.Mobile.SQLiteStore.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -137,9 +105,6 @@
     <Reference Include="MvvmHelpers">
       <HintPath>..\packages\Refractored.MvvmHelpers.1.0.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\MvvmHelpers.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Awesomizer">
       <HintPath>..\packages\Awesomizer.1.0.2\lib\Awesomizer.dll</HintPath>
     </Reference>
@@ -147,17 +112,149 @@
     <Reference Include="NotificationHub">
       <HintPath>..\Components\notification-hub-1.0\lib\ios-unified\NotificationHub.dll</HintPath>
     </Reference>
-    <Reference Include="Plugin.Connectivity.Abstractions">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.2.2.12\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.Connectivity">
-      <HintPath>..\packages\Xam.Plugin.Connectivity.2.2.12\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
-    </Reference>
     <Reference Include="Plugin.Settings.Abstractions">
       <HintPath>..\packages\Xam.Plugins.Settings.2.5.1.0\lib\Xamarin.iOS10\Plugin.Settings.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Settings">
       <HintPath>..\packages\Xam.Plugins.Settings.2.5.1.0\lib\Xamarin.iOS10\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="Microsoft.IdentityModel.Logging">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.3\lib\netstandard1.4\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.1.1.1\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.1.1.1\lib\netstandard1.1\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="IdentityModel">
+      <HintPath>..\packages\IdentityModel.2.6.0\lib\netstandard1.3\IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.3\lib\netstandard1.4\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.1.3\lib\netstandard1.4\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="IdentityModel.OidcClient">
+      <HintPath>..\packages\IdentityModel.OidcClient.2.1.2\lib\netstandard1.4\IdentityModel.OidcClient.dll</HintPath>
+    </Reference>
+    <Reference Include="SDWebImage">
+      <HintPath>..\packages\Xamarin.SDWebImage.3.7.5\lib\Xamarin.iOS\SDWebImage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>..\packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.3.0\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.4.0\lib\netstandard1.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.1.1.1\lib\netstandard1.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.1.1.2\lib\netstandard1.1\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.WebUtilities">
+      <HintPath>..\packages\Microsoft.AspNetCore.WebUtilities.1.1.2\lib\netstandard1.3\Microsoft.AspNetCore.WebUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Refit">
+      <HintPath>..\packages\Refit.4.0.1\lib\netstandard1.4\Refit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\packages\SQLitePCLRaw.core.1.1.0\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.lib.e_sqlite3">
+      <HintPath>..\packages\SQLitePCLRaw.lib.e_sqlite3.ios_unified.static.1.1.0\lib\Xamarin.iOS10\SQLitePCLRaw.lib.e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.internal">
+      <HintPath>..\packages\SQLitePCLRaw.provider.internal.ios_unified.1.1.0\lib\Xamarin.iOS10\SQLitePCLRaw.provider.internal.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_e_sqlite3">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.1.1.0\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_e_sqlite3.1.1.0\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="Akavache">
+      <HintPath>..\packages\akavache.core.5.0.0\lib\Xamarin.iOS10\Akavache.dll</HintPath>
+    </Reference>
+    <Reference Include="Akavache.Sqlite3">
+      <HintPath>..\packages\akavache.sqlite3.5.0.0\lib\Portable-Net45+Win8+WP8+Wpa81\Akavache.Sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.2\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.3.0.2\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Punchclock">
+      <HintPath>..\packages\Punchclock.1.1.1\lib\Portable-net45+win+wpa81+wp80\Punchclock.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat">
+      <HintPath>..\packages\Splat.1.6.2\lib\Xamarin.iOS10\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="Fusillade">
+      <HintPath>..\packages\fusillade.0.7.0\lib\Portable-net45+win+wpa81+wp80\Fusillade.dll</HintPath>
+    </Reference>
+    <Reference Include="Polly">
+      <HintPath>..\packages\Polly.5.3.1\lib\netstandard1.1\Polly.dll</HintPath>
+    </Reference>
+    <Reference Include="ModernHttpClient">
+      <HintPath>..\packages\modernhttpclient.2.4.2\lib\Xamarin.iOS10\ModernHttpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.0.14.2\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.0.14.2\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Analytics">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Analytics.0.14.2\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Analytics.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Analytics.0.14.2\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Analytics.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Crashes">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Crashes.0.14.2\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Crashes.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Crashes.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Crashes.0.14.2\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Crashes.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Push">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Push.0.14.2\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Push.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Push.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Push.0.14.2\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Push.iOS.Bindings.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Distribute">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Distribute.0.14.2\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Distribute.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Distribute.iOS.Bindings">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Distribute.0.14.2\lib\Xamarin.iOS10\Microsoft.Azure.Mobile.Distribute.iOS.Bindings.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -227,8 +324,10 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Info.plist" />
-    <None Include="Entitlements.plist" />
     <None Include="packages.config" />
+    <None Include="Entitlements.plist" />
+    <None Include="FodyWeavers.xml" />
+    <None Include="Fody_ToBeDeleted.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -237,36 +336,82 @@
     <Compile Include="CustomControls\HeadlineView.cs" />
     <Compile Include="Helpers\Keys.cs" />
     <Compile Include="Models\Headline.cs" />
-    <Compile Include="ViewControllers\SwipeGameViewController.cs" />
-    <Compile Include="ViewControllers\SwipeGameViewController.designer.cs">
-      <DependentUpon>SwipeGameViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\StartViewController.cs" />
-    <Compile Include="ViewControllers\StartViewController.designer.cs">
-      <DependentUpon>StartViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\Answer.cs" />
-    <Compile Include="ViewControllers\ResultsViewController.cs" />
-    <Compile Include="ViewControllers\ResultsViewController.designer.cs">
-      <DependentUpon>ResultsViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\SettingsViewController.cs" />
-    <Compile Include="ViewControllers\SettingsViewController.designer.cs">
-      <DependentUpon>SettingsViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="CustomControls\DraggableDirection.cs" />
     <Compile Include="CustomControls\DraggableEventArgs.cs" />
     <Compile Include="CustomControls\DraggableView.cs" />
     <Compile Include="CustomControls\CardHolderView.cs" />
     <Compile Include="Helpers\Settings.cs" />
-    <Compile Include="ResultsTableViewController.cs" />
-    <Compile Include="ResultsTableViewController.designer.cs">
-      <DependentUpon>ResultsTableViewController.cs</DependentUpon>
+    <Compile Include="Helpers\MockData.cs" />
+    <Compile Include="CustomControls\ScrollingTabView.cs" />
+    <Compile Include="CustomControls\SadPandaView.cs" />
+    <Compile Include="ViewControllers\Results\AnswerTableViewCell.cs" />
+    <Compile Include="ViewControllers\Results\AnswerTableViewCell.designer.cs">
+      <DependentUpon>AnswerTableViewCell.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\Results\AnswerTableViewController.cs" />
+    <Compile Include="ViewControllers\Results\AnswerTableViewController.designer.cs">
+      <DependentUpon>AnswerTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Results\ResultsViewController.cs" />
+    <Compile Include="ViewControllers\Results\ResultsViewController.designer.cs">
+      <DependentUpon>ResultsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Misc\SadPandaViewController.cs" />
+    <Compile Include="ViewControllers\Misc\SadPandaViewController.designer.cs">
+      <DependentUpon>SadPandaViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Misc\SettingsViewController.cs" />
+    <Compile Include="ViewControllers\Misc\SettingsViewController.designer.cs">
+      <DependentUpon>SettingsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Game\SwipeGameViewController.cs" />
+    <Compile Include="ViewControllers\Game\SwipeGameViewController.designer.cs">
+      <DependentUpon>SwipeGameViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Submit\SubmitHeadline.cs" />
+    <Compile Include="ViewControllers\Submit\SubmitHeadline.designer.cs">
+      <DependentUpon>SubmitHeadline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Submit\SubmitMasterViewController.cs" />
+    <Compile Include="ViewControllers\Submit\SubmitMasterViewController.designer.cs">
+      <DependentUpon>SubmitMasterViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Submit\SubmitPrintedNews.cs" />
+    <Compile Include="ViewControllers\Submit\SubmitPrintedNews.designer.cs">
+      <DependentUpon>SubmitPrintedNews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Home\HomeTableViewController.cs" />
+    <Compile Include="ViewControllers\Home\HomeTableViewController.designer.cs">
+      <DependentUpon>HomeTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HeadlineViewTableCell.cs" />
+    <Compile Include="HeadlineViewTableCell.designer.cs">
+      <DependentUpon>HeadlineViewTableCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\HeadlineCardView.cs" />
+    <Compile Include="Helpers\CustomDelegateHandler.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="AkavacheSqliteLinkerOverride.cs" />
+    <Compile Include="Services\Headlines\HeadlineService.cs" />
+    <Compile Include="Services\IApiService.cs" />
+    <Compile Include="Services\Refit\IHeadlineRefit.cs" />
+    <Compile Include="Services\Refit\IAnswerRefit.cs" />
+    <Compile Include="Services\Refit\ICommentRefit.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Services\ApiService.cs" />
+    <Compile Include="Services\Headlines\IHeadlineService.cs" />
+    <Compile Include="Services\Answers\AnswerService.cs" />
+    <Compile Include="Services\Answers\IAnswerService.cs" />
+    <Compile Include="Helpers\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="notification-hub">
       <Version>1.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="sdwebimage">
+      <Version>3.7.5</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
@@ -300,8 +445,32 @@
     <BundleResource Include="Resources\tabbar_me%402x.png" />
     <BundleResource Include="Resources\tabbar_search.png" />
     <BundleResource Include="Resources\tabbar_search%402x.png" />
+    <BundleResource Include="Resources\sadPanda.png" />
+    <BundleResource Include="Resources\BaitNews.entitlements" />
+    <BundleResource Include="Resources\Settings-Header.png" />
+    <BundleResource Include="Resources\default-header.png" />
+    <BundleResource Include="Resources\printed-news-headers.png" />
+    <BundleResource Include="Resources\submit-headlines-header.png" />
+    <BundleResource Include="Resources\cardContent1.png" />
+    <BundleResource Include="Resources\cardContent2.png" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewControllers\Home\" />
+    <Folder Include="ViewControllers\Game\" />
+    <Folder Include="ViewControllers\Results\" />
+    <Folder Include="ViewControllers\Misc\" />
+    <Folder Include="ViewControllers\Submit\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Headlines\" />
+    <Folder Include="Services\Refit\" />
+    <Folder Include="Services\Answers\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <PropertyGroup>
+    <CscToolExe>mcs.exe</CscToolExe>
+</PropertyGroup>
+  <Import Project="..\packages\Refit.4.0.1\build\netstandard1.4\refit.targets" Condition="Exists('..\packages\Refit.4.0.1\build\netstandard1.4\refit.targets')" />
+  <Import Project="..\packages\Fody.2.0.0\build\netstandard1.4\Fody.targets" Condition="Exists('..\packages\Fody.2.0.0\build\netstandard1.4\Fody.targets')" />
 </Project>

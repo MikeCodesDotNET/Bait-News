@@ -1,0 +1,253 @@
+body {
+	color: $text-color !important;
+}
+
+a {
+	color: darken($text-color, 20%);
+
+	&:hover {
+		color: darken($text-color, 35%);
+	}
+}
+
+
+
+// --- Preloader ---
+
+// --- Preloader ---
+
+.tp--preloader {
+
+    .tp--spinner {
+
+      .loader-inner {
+        div {
+          background-color: $color-primary;
+        }
+      }
+
+    }
+}
+
+
+
+// --- Labels ---
+
+.label-primary {
+  background-color: $color-primary !important;
+}
+
+
+
+// --- Buttons ---
+
+.btn-primary {
+	background-color: $color-primary !important;
+	border-color: $color-primary !important;
+
+	&:hover {
+		background-color: darken($color-primary, 5%) !important;
+		border-color: darken($color-primary, 5%) !important;
+	}
+
+	&.btn-empty {
+		background-color: transparent !important;
+	}
+}
+
+.btn-cta {
+	background-color: $color-primary !important;
+	border-color: $color-primary !important;
+
+	&:hover {
+		background-color: darken($color-primary, 5%) !important;
+		border-color: darken($color-primary, 5%) !important;
+	}
+}
+
+
+// --- Sections ---
+
+.tp--section-light {
+	background-color: $section-bg-light !important;
+}
+
+.tp--section-dark {
+	background-color: $section-bg-dark !important;
+	@include tp--linear-gradient(to bottom, $color-primary, lighten($color-primary, 10%));
+}
+
+
+
+// --- Intro Section ---
+
+#intro {
+	&.tp--intro-dark {
+		background-color: $section-bg-dark !important;
+	}
+}
+
+
+
+// --- Diagonal Effect ---
+
+.tp--section.tp--diagonal {
+
+	&:before {
+		background-color: $section-bg-light !important;
+	}
+
+	&.tp--section-dark {
+		background: none !important;
+
+    &:before {
+			background-color: $section-bg-dark !important;
+		}
+  }
+
+  &.tp--section-light {
+		background: none !important;
+
+    &:before {
+			background-color: $section-bg-light !important;
+		}
+  }
+
+}
+
+
+// --- Gradients ---
+
+@each $gradient, $val in $theme-gradients {
+	.tp--#{$gradient} {
+	    @include tp--linear-gradient(to left, map-get($val, color-a), map-get($val, color-b));
+
+	    .page-header {
+
+				&.tp--title-overlay {
+
+					h2 {
+
+		        &:before {
+		        	@include background(linear-gradient(to left, darken(map-get($val, color-a), 2%), darken(map-get($val, color-b), 2%)));
+		        	-webkit-background-clip: text;
+						  -webkit-text-fill-color: transparent;
+						  display: initial; /* reset Font Awesome's display:inline-block */
+		        }
+
+		      }
+
+				}
+			}
+
+			&.tp--section.tp--diagonal {
+				background: none !important;
+
+				&:before {
+					@include tp--linear-gradient(to left, map-get($val, color-a), map-get($val, color-b));
+				}
+			}
+	}
+}
+
+
+
+// --- Page/Section Headers ---
+
+.tp--section {
+
+	.page-header {
+
+		i {
+			@include tp--linear-gradient(to bottom, darken($color-primary, 15%), lighten($color-primary, 5%));
+			color: white;
+
+			&.tp--background-white {
+			  @include tp--linear-gradient(to bottom, darken($color-primary, 20%), $color-primary);
+			  -webkit-background-clip: text !important;
+			  -webkit-text-fill-color: transparent !important;
+			  position: relative;
+
+			  &:after {
+			  	content: '';
+			  	position: absolute;
+			  	width: 100%;
+			  	height: 100%;
+			  	text-align: center;
+			  	background-color: white;
+			  	left: 0;
+			    top: 0;
+			    border-radius: 50%;
+			    z-index: -1;
+			  }
+			}
+		}
+
+		&.tp--title-overlay {
+
+			h2 {
+
+        &:before {
+        	color: darken(white, 4%) !important;
+        }
+
+      }
+
+		}
+
+	}
+
+	&.tp--section-light {
+
+		.page-header {
+
+			&.tp--title-overlay {
+
+				h2 {
+
+	        &:before {
+	        	color: darken($section-bg-light, 3%) !important;
+	        }
+
+	      }
+
+			}
+
+		}
+
+	}
+
+	&.tp--section-dark {
+
+		.page-header {
+
+			&.tp--title-overlay {
+
+				h2 {
+
+	        &:before {
+	        	color: darken($section-bg-dark, 2%) !important;
+	        }
+
+	      }
+
+			}
+
+		}
+
+	}
+
+}
+
+
+// --- IE Bug Fixes ---
+
+.is-IE [class*=tp--gradient-] .page-header.tp--title-overlay h2::before {
+	content: '';
+	background: none;
+}
+
+.is-IE .tp--section .page-header i.tp--background-white {
+	background: white !important;
+	color: $color-primary !important;
+}

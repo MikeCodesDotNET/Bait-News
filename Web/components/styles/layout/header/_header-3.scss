@@ -1,0 +1,41 @@
+// --- Fixed Header ---
+
+.tp--header.tp--header-3 {
+	background-color: rgba(0,0,0,0.05);
+
+	&.tp--header-fixed-dark {
+		background-color: rgba(0,0,0,0.4);
+	}
+
+  .logo {
+	  line-height: 80px;
+
+  	a {
+	    // color: inherit;
+  	}
+
+  }
+
+	nav {
+
+		.nav {
+			> li {
+		  	> a {
+	    		// color: inherit;
+	    		line-height: 80px;
+
+			    &:hover {
+
+			    }
+			  }
+
+	    }
+		}
+    
+	}
+
+	&.shrink {
+		background-color: white;
+	}
+
+}

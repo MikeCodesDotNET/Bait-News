@@ -1,0 +1,33 @@
+// .owl-carousel {
+//   display: none;
+//   width: 100%;
+//   height: 100vh; // <- Declare height
+//   -webkit-tap-highlight-color: transparent;
+//   /* position relative and z-index fix webkit rendering fonts issue */
+//   position: relative;
+//   z-index: 1;
+
+//   .owl-stage {
+//     position: relative;
+//     -ms-touch-action: pan-Y;
+//     height: 100%;// <- Declare height
+//   }
+
+//   .owl-item {
+//     position: relative;
+//     min-height: 1px;
+//     height: 100vh; // <- Declare height
+//     float: left;
+//     -webkit-backface-visibility: hidden;
+//     -webkit-tap-highlight-color: transparent;
+//     -webkit-touch-callout: none;
+//     -webkit-user-select: none;
+//     -moz-user-select: none;
+//     -ms-user-select: none;
+//     user-select: none;
+
+//     .item {
+//       height: 100vh;
+//     }
+//   }
+// } 

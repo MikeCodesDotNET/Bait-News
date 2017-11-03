@@ -18,12 +18,12 @@ namespace BaitNews.CustomControls
         {
             Frame = rect;
             Headlines = headlines;
-            visibleCards = new List<HeadlineView>();
+            visibleCards = new List<HeadlineCardView>();
 
             var i = 0;
             while (i != defaultCountOfVisibleCards)
             {
-                var headline = new HeadlineView(headlines[i]);
+                var headline = new HeadlineCardView(headlines[i]);
                 headline.OnSwipe += HandleOnSwipe;
 
                 visibleCards.Add(headline);
@@ -33,8 +33,8 @@ namespace BaitNews.CustomControls
             LayoutCards();
         }
 
-        List<HeadlineView> visibleCards;
-        public List<HeadlineView> VisibleCards
+        List<HeadlineCardView> visibleCards;
+        public List<HeadlineCardView> VisibleCards
         {
             get
             {
@@ -74,9 +74,9 @@ namespace BaitNews.CustomControls
             UpdateCardsPosition();
         }
 
-        public HeadlineView ViewForCardAtIndex(int index)
+        public HeadlineCardView ViewForCardAtIndex(int index)
         {
-            var view = new HeadlineView(Headlines[index]);
+            var view = new HeadlineCardView(Headlines[index]);
             return view != null ? view : null;
         }
 
@@ -100,7 +100,7 @@ namespace BaitNews.CustomControls
             Headlines.Clear();
         }
 
-        HeadlineView TopCard
+		HeadlineCardView TopCard
         {
             get
             {
@@ -110,7 +110,7 @@ namespace BaitNews.CustomControls
 
         void HandleOnSwipe(object sender, DraggableEventArgs args)
         {
-            var headlineView = sender as HeadlineView;
+            var headlineView = sender as HeadlineCardView;
             Headlines.Remove(headlineView.Headline);
 
             if (args.Dragged.Equals(DraggableDirection.None))
@@ -177,10 +177,10 @@ namespace BaitNews.CustomControls
         }
 
         //Events
-        public delegate void OnSwipeLeftHandler(HeadlineView sender);
+        public delegate void OnSwipeLeftHandler(HeadlineCardView sender);
         public event OnSwipeLeftHandler DidSwipeLeft;
 
-        public delegate void OnSwipeRightHandler(HeadlineView sender);
+        public delegate void OnSwipeRightHandler(HeadlineCardView sender);
         public event OnSwipeRightHandler DidSwipeRight;
 
         public delegate void OnNoMoreCardsHandler();

@@ -234,3 +234,19 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+Google Search API Key
+
+*.key
+
+*.crt
+
+baitnews.io.ky
+
+SSL-CSR/baitnews.io_csr.pem
+
+SSL-CSR/private-key.password
+
+SSL-CSR/README
+
+BaitNews.Services/appsettings.json

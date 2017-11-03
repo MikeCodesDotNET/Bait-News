@@ -1,0 +1,49 @@
+.tp--team.tp--team-2 {
+	text-align: center;
+
+	.owl-stage-outer {
+		padding: 2em 0;
+		@include box-sizing(border-box);
+
+		.owl-stage {
+			padding: 1em 0;
+		}
+	}
+
+	.item {
+		margin: 0 2em;
+		@include transition(all .2s ease-in-out);
+		border-radius: 4px;
+
+		&:before {
+			
+		}
+
+		&:hover {
+			background-color: white;
+	    box-shadow: 0 0 32px rgba(0,0,0,0.1);
+	    @include transform(scale(1.1));
+		}
+
+		.display-pic {
+			margin: 0 auto;
+			border-radius: 50%;
+		}
+	}
+
+	&.tp--section-dark {
+		.item {
+			&:hover {
+				background-color: lighten($section-bg-dark, 4%);
+			}
+		}
+	}
+
+	&.tp--section-light {
+		.item {
+			&:hover {
+			
+			}
+		}
+	}
+}

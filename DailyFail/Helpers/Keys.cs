@@ -4,8 +4,8 @@ namespace BaitNews.Helpers
 {
     public class Keys
     {
-        public const string AzureServiceUrl = "http://danknews.azurewebsites.net";
-        public const string InsightsKey = "d61ea0e75307308595106fa61867bf77505a99ec";
+        public const string ApiEndpoint = "https://www.baitnews.io/api";
+        public const string ApiKey = "b5d8711fabd04837b55ed276b2adf9c3";
     }
 }
 

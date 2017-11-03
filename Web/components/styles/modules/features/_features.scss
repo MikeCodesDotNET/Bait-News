@@ -1,0 +1,56 @@
+//
+// Features with Icons
+// --------------------------------------------------
+
+.tp--features {
+
+  .tp--feature {
+    .tp--icon-wrapper {
+      margin: 2em auto 0;
+      color: $text-color;
+
+      .icon-large {
+        font-size: 3em;
+        line-height: inherit;
+      }
+
+      .icon-small {
+        font-size: 2em;
+        line-height: inherit;
+      }
+
+      span {
+        text-transform: uppercase;
+        font-weight: 600;
+        opacity: 0.8;
+      }
+    }
+
+    h3 {
+      font-size: 1.2em;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0 2em 2em;
+      opacity: 0.8;
+    }
+  }
+
+  &.text-left {
+    .tp--feature {
+      p {
+        margin: 0 0 2em;
+      }
+    }
+  }
+
+  &.tp--section-dark {
+    .tp--feature {
+      .tp--icon-wrapper {
+        color: white;
+      }
+    }
+  }
+}
+
